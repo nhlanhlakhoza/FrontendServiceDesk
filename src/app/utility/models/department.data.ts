@@ -1,0 +1,1 @@
+export const Departments: string[] = ['I.T','Finance', 'H.R', 'Sport', 'Legal']

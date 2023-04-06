@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 pt-5  d-none d-sm-block">
+            <img src="../../../../assets/images/service-pic.jpg" alt="Login image" class="w-100" height="130%">
+        </div>
+        <div class="col-sm-6 text-black">
+            <div class="px-5 ms-xl-4">
+                <img class="logo-icon me-3 pt-5 mt-xl-4" src="../../../../assets/images/service-desk.png" width="100px" alt="logo">
+            </div>
+            <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-3 pt-2 pt-xl-0 mt-xl-n5">
+                <form class="user" style="width: 23rem;">
+                    <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Welcome Back!</h3>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-user" placeholder="Enter Work Email Address..."
+                            formControlName="email" required [class.is-invalid]="f.email.invalid && f.email.touched">
+                        <div class="text-center" *ngIf="f.email.invalid && f.email.touched">
+                            <p style="color: crimson;" class="small mt-1" *ngIf="f.email.errors?.['required']">Email is
+                                required!</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-user" placeholder="Password"
+                            formControlName="password" required
+                            [class.is-invalid]="f.password.invalid && f.password.touched">
+                        <div class="text-center" *ngIf="f.password.invalid && f.password.touched">
+                            <p style="color: crimson;" class="small mt-1" *ngIf="f.password.errors?.['required']">
+                                Password is required!</p>
+                        </div>
+                    </div>
+
+                    <div class="text-start mb-2 ml-3">
+                        <a class="small" routerLink="/forgotpassword">Forgot Password?</a>
+                    </div>
+                    <button [disabled]="loginForm.invalid" type="submit"
+                        class="btn btn-primary btn-user btn-block mb-3">
+                        Login
+                    </button>
+                    <div class="text-center">
+                        <p>Don't have an account? <a routerLink="/log" class="small text-primary">Contact your Administrator</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
