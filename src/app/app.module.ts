@@ -3,30 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { HomepageComponent } from './pages/homepage/homepage.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
-import { SubscriptionComponent } from './components/subscription/subscription.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { TicketListComponent } from './components/ticket-list/ticket-list.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ViewTicketComponent } from './pages/view-ticket/view-ticket.component';
-import { HeaderComponent } from './layout/header/header.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { UserHomepageComponent } from './pages/user-homepage/user-homepage.component';
+import { TicketInfoComponent } from './components/ticket-info/ticket-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HomepageComponent,
     NavbarComponent,
-    SubscriptionComponent,
+    UserHomepageComponent,
+    FooterComponent,
+    TicketsComponent,
     LoginComponent,
-    SidebarComponent,
-    TicketListComponent,
-    ViewTicketComponent,
-    HeaderComponent,
+    SubscriptionsComponent,
+    TicketInfoComponent,
   ],
   imports: [
     BrowserModule,

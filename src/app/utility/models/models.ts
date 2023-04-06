@@ -7,3 +7,7 @@ export class Tickets {
     Status!:string;
     DateCreated!:any;
 }
+export class Login {
+    email!:string;
+    password!:string;
+}

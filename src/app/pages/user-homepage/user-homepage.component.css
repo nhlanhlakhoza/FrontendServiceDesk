@@ -227,7 +227,7 @@ a[href*="#followme"]::before {
 
 .hamburger {
   position: fixed;
-  top: 20px;  
+  top: 8px;  
   z-index: 999;
   display: block;
   width: 32px;
@@ -338,4 +338,3 @@ a[href*="#followme"]::before {
 /*-------------------------------*/
 /*            Overlay            */
 /*-------------------------------*/
-
