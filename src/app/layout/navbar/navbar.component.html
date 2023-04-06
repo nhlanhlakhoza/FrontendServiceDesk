@@ -21,12 +21,12 @@
           </a>
         
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a routerlink="./" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a routerlink="./" class="nav-link px-2 link-dark">Products</a></li>
-            <li><a routerlink="./" class="nav-link px-2 link-dark">Pricing</a></li>
-            <li><a routerlink="./" class="nav-link px-2 link-dark">Services</a></li>
-            <li><a routerlink="./" class="nav-link px-2 link-dark">About us</a></li>
-            <li><a routerlink="./" class="nav-link px-2 link-dark">Contact us</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-dark">Products</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-dark">Pricing</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-dark">Services</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-dark">About us</a></li>
+            <li><a routerlink="/" class="nav-link px-2 link-dark">Contact us</a></li>
         </ul>
   
         <div class="col-md-5 text-end">
@@ -35,6 +35,15 @@
   
         </div>
     </header>
+    <div class="">
+        <ng-content *ngComponentOutlet="defaultComponent">
+        </ng-content>
+      </div>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"></script>
   </div>
+  
+ 
+   
+
