@@ -12,12 +12,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { UserHomepageComponent } from './pages/user-homepage/user-homepage.component';
 import { TicketInfoComponent } from './components/ticket-info/ticket-info.component';
-<<<<<<< Updated upstream
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
-=======
 import { DashboardComponent } from './components/dashboard/dashboard.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -29,12 +26,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     SubscriptionsComponent,
     TicketInfoComponent,
-<<<<<<< Updated upstream
     RegisterComponent,
     MainComponent,
-=======
     DashboardComponent,
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
