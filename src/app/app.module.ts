@@ -12,6 +12,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { UserHomepageComponent } from './pages/user-homepage/user-homepage.component';
 import { TicketInfoComponent } from './components/ticket-info/ticket-info.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { TicketInfoComponent } from './components/ticket-info/ticket-info.compon
     LoginComponent,
     SubscriptionsComponent,
     TicketInfoComponent,
+    RegisterComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
