@@ -5,7 +5,8 @@
             <a class="navbar-brand"></a>
             <form class="form-inline"> <br>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-3" type="submit">Search</button> 
+                &nbsp;&nbsp;&nbsp;
             </form>
         </nav>
         <!--End of Navigation bar-->
@@ -14,26 +15,22 @@
         <ul class="nav sidebar-nav">
             <div class="sidebar-header">
                 <div class="sidebar-brand">
-                    <img src="./assets/images/service-desk.png" class="rounded-circle" width="32" height="32" alt="" />
+                    <img src="./assets/images/service-desk.png" class="rounded-circle" width="35" height="32" alt="" />
                     &nbsp; <a routerLink="./">Service Desk</a>
                 </div>
             </div>
             <li class="nav-item">
-                <a class="home" routerLinkActive="active" routerLink="/">
-                    <i class="bi bi-house-check"></i><span>Home</span>
+                <a  class="home" routerLinkActive="active" routerLink="/">
+                    <i class="bi bi-house-check"></i>&nbsp;<span>Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="home" routerLinkActive="active" routerLink="/">
-                    <i class="bi bi-"></i><span>Tickets</span></a>
+                <a class="home"(click)="openComponent('tickets')" routerLinkActive="active" routerLink="/">
+                    <i class="bi bi-ticket-detailed"></i>&nbsp;<span>Tickets</span></a>
             </li>
             <li class="nav-item">
                 <a class="home" routerLinkActive="active" routerLink="/">
-                    <i class="bi bi-"></i><span>Services</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="home" routerLinkActive="active" routerLink="/">
-                    <i class="bi bi-"></i><span>Logout</span></a>
+                    <i class="bi bi-box-arrow-left"></i>&nbsp;<span>Logout</span></a>
             </li>
         </ul>
     </nav>

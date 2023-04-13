@@ -2,10 +2,11 @@
     <div class="row justify-content-md-center">
         <div class="row">
             <!--FIRST COLUMN-->
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 text-black">
                 <div class="row no gutters">
                     <div class="col-md-8">
                         <h3 id="ticket">Tickets</h3>
+                        <br>
                     </div>
                     <div class="col-md-4">
                         <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
@@ -19,10 +20,10 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                              <form>
+                              <form [formGroup]="ticketForm">
                                 <div class="mb-3">
                                   <label for="subject-name" class="form-label">Subject:</label>
-                                  <input type="text" class="form-control" id="subject-name" placeholder="Enter your subject"
+                                  <input type="text" class="form-control" id="subject-name" formControlName="Subject" placeholder="Enter your subject"
                                   formArrayName="subject" [class.is-invalid]="v.Subject.invalid && v.Subject.touched">
                                   <small *ngIf="v.Subject.invalid && v.Subject.touched"
                                       class="text-danger">Job tittle is required. </small>
@@ -30,7 +31,7 @@
                                 <div class="mb-3">
                                   <label for="department-name" class="col-form-label">Department:</label>
 
-                                  <select class="form-select form-control" id="department-name" placeholder="Choose department"
+                                  <select class="form-select form-control" id="department-name" formControlName="Department" placeholder="Choose department"
                                   formArrayName="department" [class.is-invalid]="v.Department.invalid && v.Department.touched">
                                   <option *ngFor="let data of department" value="{{data}}">{{data}}</option>
                                   </select>
@@ -39,7 +40,7 @@
                                 </div>
                                 <div class="mb-3">
                                   <label for="description-text" class="col-form-label">Description:</label>
-                                  <textarea class="form-control" id="description-text" spellcheck="false"placeholder="Enter Description"
+                                  <textarea class="form-control" id="description-text" formControlName="Description" spellcheck="false"placeholder="Enter Description"
                                   formArrayName="department" [class.is-invalid]="v.Description.invalid && v.Description.touched"></textarea>
                                   <small *ngIf="v.Description.invalid && v.Description.touched"
                                       class="text-danger">Description is required. </small>
@@ -68,9 +69,9 @@
                           </form>
                         </div>
                       </div>
-                      <div class="row mb-3">
+                      <div class="row mb-3 text-black">
                         <div class="col-lg-12">
-                          <div class="card">
+                          <div class="card text-black">
                             <div class="card-body">
                               <div class=""><small class="float-right text-muted">04 April 2023</small></div>
                               <h4 class="card-title mb-8">Issue with logging calls</h4>
@@ -79,7 +80,7 @@
                               </div>
                               <span class="badge badge-success">Solved</span> &nbsp;
                               <span class="badge badge-secondary">#457</span> 
-                              <button type="button"class="btn btn-secondary float-right">View Ticket</button>
+                              <button type="button"class="btn btn-secondary float-right" (click)="switch()">View Ticket</button>
                             </div>
                           </div>
                         </div>
@@ -95,18 +96,27 @@
                               </div>
                               <span class="badge badge-warning">Open</span> &nbsp;
                               <span class="badge badge-secondary">#5647</span> 
-                              <button type="button"class="btn btn-secondary float-right">View Ticket</button>
+                              <button (click)="switch()" type="button"class="btn btn-secondary float-right">View Ticket</button>
                             </div>
                           </div>   
                         </div>
                       </div>
             </div>
             <!--SECOND COLUMN-->
-            <div class="col-6 col-md-4">
+            <div class="col-7 col-md-4">
                 <div class="recent-activity">
+                  <div class="card">
+                  <div class="card-header">
                     <h3 id="ticket">Recent Activities</h3>
-                    <div class="card">
+                  </div>
                         <div class="card-body">
+                        <h6>
+                            <b>
+                                Kwazi closed "How to reset password?"
+                            </b><br>
+                            <h6>06 April 2023,19:16</h6>
+                        </h6>
+                        <hr>
                         <h6>
                             <b>
                                 John closed "How to reset password?"
@@ -125,6 +135,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script>
  
