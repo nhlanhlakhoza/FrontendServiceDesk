@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserHomepageComponent } from 'src/app/pages/user-homepage/user-homepage.component';
+import { UserHomepageComponent } from 'src/app/End-user/pages/user-homepage/user-homepage.component';
 import { Departments } from 'src/app/utility/models/department.data';
 import { DynamicDataService } from 'src/app/utility/services/Dynamic/dynamic_data.service';
 import { TicketInfoComponent } from '../ticket-info/ticket-info.component';

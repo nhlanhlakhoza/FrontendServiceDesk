@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscriptionsComponent } from 'src/app/components/subscriptions/subscriptions.component';
+import { SubscriptionsComponent } from 'src/app/Company/components/subscriptions/subscriptions.component';
 
 @Component({
   selector: 'app-navbar',

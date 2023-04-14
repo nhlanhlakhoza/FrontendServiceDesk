@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketsComponent } from '../../components/tickets/tickets.component';
 import { DynamicDataService } from 'src/app/utility/services/Dynamic/dynamic_data.service';
-import { TicketInfoComponent } from 'src/app/components/ticket-info/ticket-info.component';
-import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
+import { TicketInfoComponent } from 'src/app/End-user/components/ticket-info/ticket-info.component';
+import { DashboardComponent } from 'src/app/End-user/components/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-user-homepage',
