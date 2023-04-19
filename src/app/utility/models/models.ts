@@ -1,6 +1,6 @@
 export class Tickets {
     TicketID!: number;
-    RefNum!: number;
+    RefNum!: any;
     Subject!:string;
     Department!:string;
     Description!:string;
@@ -10,4 +10,5 @@ export class Tickets {
 export class Login {
     email!:string;
     password!:string;
+    confirm_password!:string;
 }
