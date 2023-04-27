@@ -28,7 +28,8 @@
     "axe/aria": [
       "default",
       {
-        "aria-required-children": "off"
+        "aria-required-children": "off",
+        "aria-command-name": "off"
       }
     ],
     "compat-api/css": [
@@ -38,7 +39,11 @@
           "user-select",
           "-webkit-mask-image",
           "content-visibility",
-          "-webkit-tap-highlight-color"
+          "-webkit-tap-highlight-color",
+          "text-align: -webkit-match-parent",
+          "-webkit-text-size-adjust",
+          "scroll-behavior",
+          "text-decoration-skip-ink"
         ]
       }
     ],

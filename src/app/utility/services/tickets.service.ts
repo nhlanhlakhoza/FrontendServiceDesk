@@ -8,8 +8,8 @@ import { catchError, retry, tap } from 'rxjs/operators';
 })
 export class TicketService {
     
-    
     public static BASE_URL='http://localhost:8080/';
+    
     constructor(private httpClient: HttpClient) {}
 
     private refreshrequired = new Subject<void>();

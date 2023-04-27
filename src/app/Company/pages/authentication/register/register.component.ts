@@ -14,7 +14,7 @@ export class RegisterComponent {
     this.formGroup = this.formBuilder.group({
       email: new FormControl('',Validators.compose([Validators.required,Validators.email])),
       password: new FormControl('',Validators.compose([Validators.required, Validators.minLength(6),Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])),
-    confirm_password:new FormControl('',Validators.compose([Validators.required, Validators.minLength(6),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,15}')]))
+      confirm_password:new FormControl('',Validators.compose([Validators.required, Validators.minLength(6),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,15}')]))
     }, {validators:pwdvalidation.pwdMatchValidator('password','confirm_password')});
   }
   /*Registerform= new FormGroup({

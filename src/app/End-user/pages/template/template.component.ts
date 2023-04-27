@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketsComponent } from '../../components/tickets/tickets.component';
 import { DynamicDataService } from 'src/app/utility/services/Dynamic/dynamic_data.service';
-import { TicketInfoComponent } from 'src/app/End-user/components/ticket-info/ticket-info.component';
-import { DashboardComponent } from 'src/app/End-user/components/dashboard/dashboard.component';
+import { DashboardComponent } from '../../components/dashboard/dashboard.component';
+import { TicketsComponent } from '../../components/tickets/tickets.component';
+import { TicketsinfoComponent } from '../../components/ticketsinfo/ticketsinfo.component';
 
 @Component({
-  selector: 'app-user-homepage',
-  templateUrl: './user-homepage.component.html',
-  styleUrls: ['./user-homepage.component.css']
+  selector: 'app-template',
+  templateUrl: './template.component.html',
+  styleUrls: ['./template.component.css']
 })
-export class UserHomepageComponent implements OnInit {
-compo:string="";
+export class TemplateComponent implements OnInit {
+  compo:string="";
   defaultComponent:any;
   constructor(private dataservice:DynamicDataService) { 
     this.defaultComponent= DashboardComponent;
@@ -24,7 +24,7 @@ compo:string="";
                   this.defaultComponent=TicketsComponent;
                   break;
                   case "viewtickets":
-                  this.defaultComponent=TicketInfoComponent;
+                  this.defaultComponent=TicketsinfoComponent;
                   break;
         }
       }

@@ -1,1 +1,1 @@
-export const Departments: string[] = ['I.T','Finance', 'H.R', 'Sport', 'Legal']
+export const Categories: string[] = ['Software','Hardware', 'Network','Server']

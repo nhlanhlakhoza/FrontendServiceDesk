@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  
+
   deleteTicket():void{
     Swal.fire({
       title: 'Are you sure?',
