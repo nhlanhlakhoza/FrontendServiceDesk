@@ -4,6 +4,7 @@ import { Categories } from 'src/app/utility/models/department.data';
 import { DynamicDataService } from 'src/app/utility/services/Dynamic/dynamic_data.service';
 import { TicketService } from 'src/app/utility/services/tickets.service';
 import { TicketsinfoComponent } from '../ticketsinfo/ticketsinfo.component';
+import { Alert } from 'src/app/utility/alert/alert';
 
 @Component({
   selector: 'app-tickets',
@@ -17,8 +18,11 @@ export class TicketsComponent implements OnInit{
   defaultComponent: any;
   info:any;
   selectedAttachment!: File;
+  companyId:any;
+  customerId:any;
+  message:any;
 
-  constructor(private dataservice: DynamicDataService)
+  constructor(private dataservice: DynamicDataService,/*private ticketservice:TicketService,*/private alert:Alert)
   {this.defaultComponent = TicketsComponent;}
   ticketForm= new FormGroup({Subject: new FormControl('',Validators.required),
                             Description:new FormControl('',Validators.required),
@@ -35,4 +39,11 @@ export class TicketsComponent implements OnInit{
     ngOnInit(): void {}
     switch():void{ this.dataservice.putDataStream("viewtickets")}
     getAttachment(event:any):void{this.selectedAttachment = event.target.files[0]}
+    
+    /*createTicket():void{
+    this.ticketservice.postTicket(this.companyId.sub,this.customerId).subscribe(
+      {next:data=>{this.message=data;
+      this.alert.Toast.fire({icon:'success',title: this.message.message});
+      }}
+    )}*/
 }

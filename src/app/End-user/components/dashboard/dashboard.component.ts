@@ -27,20 +27,8 @@ export class DashboardComponent {
       }
     })
   }
-  async viewTicket():Promise<void>{
-    const { value: text } = await Swal.fire({
-      input: 'textarea',
-      inputLabel: 'Message',
-      inputPlaceholder: 'Type your message here...',
-      inputAttributes: {
-        'aria-label': 'Type your message here'
-      },
-      showCancelButton: true,
-      /*showDenyButton: true,*/
-    })
-    
-    if (text) {
-      Swal.fire(text)
-    }
+   viewTicket():void{
+    Swal.fire('Any fool can use a computer')
   }
+  
 }

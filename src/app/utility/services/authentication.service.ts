@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Login } from '../models/models';
-import { DataService, httpOptions } from '../dataservice/data.service';
+import { Account, Login } from '../models/models';
 import { Observable, catchError } from 'rxjs';
+import { Constants, httpOptions } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,7 @@ import { Observable, catchError } from 'rxjs';
 export class AuthenticationService {
   private currentUser: any;
 
-  constructor(private httpClient: HttpClient) {
-  //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-   }
+  constructor(private httpClient: HttpClient) {}
    isAccountExpired(): boolean {
     if (!this.currentUser) {
       return true; 
@@ -21,10 +19,10 @@ export class AuthenticationService {
     const currentDate = new Date();
     return expirationDate < currentDate;
   }
-
-  private url = DataService.baseUrl + "api/customer/{companyId}/"
-
-  public login(data: Login): Observable<Object> {
-    return this.httpClient.post(this.url + 'login', data, httpOptions).pipe()
+  public login(data: Login):Observable<Object> {
+    return this.httpClient.post(Constants.BASE_URL + "/api/customer/{companyId}/" + data,httpOptions).pipe()
+    }
+  public register(data:Account):Observable<Object> {
+    return this.httpClient.post(Constants.BASE_URL + "/api/customer/{companyId}/" + data,httpOptions).pipe()
     }
   }

@@ -2,13 +2,11 @@ import { Injectable } from "@angular/core";
 import { Observable, Subject, throwError } from "rxjs";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { catchError, retry, tap } from 'rxjs/operators';
-
+import { Constants , httpOptions} from "../constants/constants";
 @Injectable({
     providedIn: 'root'
 })
 export class TicketService {
-    
-    public static BASE_URL='http://localhost:8080/';
     
     constructor(private httpClient: HttpClient) {}
 
@@ -16,18 +14,21 @@ export class TicketService {
     getRefreshRequired() {
         return this.refreshrequired;
     }
-    public postTicket(email: string, ticketID: number):Observable<any>{
-        return this.httpClient.post(TicketService.BASE_URL + "ticket/" + email,ticketID).pipe(
-            catchError(error=>{return throwError(error);} ));
-         }
-    public getTicket(email: string):Observable<any>{
-            return this.httpClient.get(TicketService.BASE_URL + "ticket/" + email).pipe(
-                catchError(error=>{return throwError(error);} ));
-             }
-    public withdrawTicket(ticketID: number,email: string): Observable<any> {
-        return this.httpClient.put(TicketService.BASE_URL  + "/" + ticketID,email).pipe(
+    public postTicket(companyId: any, customerUserId: any):Observable<any>{
+        return this.httpClient.post(Constants.BASE_URL + "/request-service" + companyId,customerUserId,httpOptions).pipe(
             (tap(() => this.refreshrequired.next())),
             catchError(error => {
                 return throwError(error);}) );
         }
+    
+    public updateTicket(ticketId:any,customerUserId: any): Observable<any> {
+        return this.httpClient.put(Constants.BASE_URL  + "/update-ticket" + ticketId,customerUserId,httpOptions).pipe(
+            (tap(() => this.refreshrequired.next())),
+            catchError(error => {
+                return throwError(error);}) );
+        }
+      //  public getTicket(customerUserId: any):Observable<any>{
+        //    return this.httpClient.get(Constants.BASE_URL + "ticket/" + customerUserId).pipe(
+           //     catchError(error=>{return throwError(error);} ));
+           //  }
 }

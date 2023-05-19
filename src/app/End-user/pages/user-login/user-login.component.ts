@@ -23,15 +23,13 @@ export class UserLoginComponent implements OnInit {
   
   ngOnInit(): void {
   }
-
   /*loggingIn(): void {
     this.login=Object.assign(this.login,this.loginForm.value)
     this.authservice.login(this.login).subscribe({
       next:data => {this.info=data;
       this.storageserv.setItem(this.info.jwt,''); /*??????/*/
    /* this.router.navigateByUrl('/userhomepage');}
-    }
-  )  
+    })  
   }*/
 }
 

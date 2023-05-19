@@ -5,6 +5,9 @@ export class Login {
     password!:any;
     companyId!:string;
 }
+export class Email { 
+    email!: string;
+ }
 export class UpdatePassword{
     email!:string;
     password!:any;
@@ -12,6 +15,7 @@ export class UpdatePassword{
 }
 export class Account {
     companyId!:string;
+    email!:string;
     accountId!:string;
     isExpired!:boolean;
     fullName!:string;

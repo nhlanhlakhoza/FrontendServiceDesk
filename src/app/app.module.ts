@@ -10,13 +10,15 @@ import { RegisterComponent } from './Company/pages/authentication/register/regis
 import { MainComponent } from './Company/pages/main/main.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ForgotpasswordComponent } from './Company/pages/authentication/forgotpassword/forgotpassword.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MyInterceptor } from './utility/helpers/HttpInterceptor';
+import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { TemplateComponent } from './End-user/pages/template/template.component';
 import { DashboardComponent } from './End-user/components/dashboard/dashboard.component';
 import { TicketsComponent } from './End-user/components/tickets/tickets.component';
 import { TicketsinfoComponent } from './End-user/components/ticketsinfo/ticketsinfo.component';
 import { UserLoginComponent } from './End-user/pages/user-login/user-login.component';
+import { EncryptionDecryption } from './utility/encryption/encryption.service';
+import { HttpRequestInterceptor } from './utility/helpers/HttpInterceptor';
+import { DynamicDataService } from './utility/services/Dynamic/dynamic_data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +41,7 @@ import { UserLoginComponent } from './End-user/pages/user-login/user-login.compo
     NgxSpinnerModule,
     ReactiveFormsModule
   ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true}
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 
   ],
   bootstrap: [AppComponent]
 })

@@ -3,8 +3,12 @@ import { BehaviorSubject} from "rxjs";
 
 @Injectable({providedIn:'root'})
 
-export class DynamicDataService {private dataStream=new BehaviorSubject("");
+export class DynamicDataService { private dataStream=new BehaviorSubject("");
 constructor(){} 
-getDataStream(){return this.dataStream.asObservable();}
-putDataStream(data:any){this.dataStream.next(data);}
+getDataStream(){
+    return this.dataStream.asObservable();
+}
+putDataStream(data:any){
+    this.dataStream.next(data);
+}
 }

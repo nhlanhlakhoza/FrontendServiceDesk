@@ -10,7 +10,7 @@
       </div>
       
       <div class="row">
-        <form [formGroup]="loginForm" class="col-md-6 mx-auto">
+        <form [formGroup]="loginForm" (ngSubmit)="Login()" class="col-md-6 mx-auto">
           <div class="form-group">
             <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email"
             required [class.is-invalid]="v.email.invalid && v.email.touched">
