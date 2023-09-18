@@ -9,7 +9,7 @@ import { UserLoginComponent } from './End-user/pages/user-login/user-login.compo
 import { TicketsComponent } from './End-user/components/tickets/tickets.component';
 
 const routes: Routes = [
-  {path:"",component:TemplateComponent},
+  {path:"/success",component:TemplateComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"main",component:MainComponent},
