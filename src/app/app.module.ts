@@ -19,6 +19,10 @@ import { UserLoginComponent } from './End-user/pages/user-login/user-login.compo
 import { EncryptionDecryption } from './utility/encryption/encryption.service';
 import { HttpRequestInterceptor } from './utility/helpers/HttpInterceptor';
 import { DynamicDataService } from './utility/services/Dynamic/dynamic_data.service';
+import { EmployeeLoginComponent } from './Employee/employee-login/employee-login.component';
+import { EmployeeRegisterComponent } from './Employee/employee-register/employee-register.component';
+import { EmployeeForgortPasswordComponent } from './Employee/employee-forgort-password/employee-forgort-password.component';
+import { EmployeeTicketsComponent } from './Employee/employee-tickets/employee-tickets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,10 @@ import { DynamicDataService } from './utility/services/Dynamic/dynamic_data.serv
     TicketsComponent,
     TicketsinfoComponent,
     UserLoginComponent,
+    EmployeeLoginComponent,
+    EmployeeRegisterComponent,
+    EmployeeForgortPasswordComponent,
+    EmployeeTicketsComponent
   ],
   imports: [
     BrowserModule,

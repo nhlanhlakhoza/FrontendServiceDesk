@@ -7,6 +7,10 @@ import { ForgotpasswordComponent } from './Company/pages/authentication/forgotpa
 import { TemplateComponent } from './End-user/pages/template/template.component';
 import { UserLoginComponent } from './End-user/pages/user-login/user-login.component';
 import { TicketsComponent } from './End-user/components/tickets/tickets.component';
+import { EmployeeLoginComponent } from './Employee/employee-login/employee-login.component';
+import { EmployeeRegisterComponent } from './Employee/employee-register/employee-register.component';
+import { EmployeeForgortPasswordComponent } from './Employee/employee-forgort-password/employee-forgort-password.component';
+import { EmployeeTicketsComponent} from './Employee/employee-tickets/employee-tickets.component';
 
 const routes: Routes = [
   
@@ -16,7 +20,12 @@ const routes: Routes = [
   {path:"main",component:MainComponent},
   {path:"tickets", component:TicketsComponent},
   {path:"forgotpwd",component:ForgotpasswordComponent},
-  {path:"",component:UserLoginComponent}
+  {path:"",component:UserLoginComponent},
+  {path:"employee-login",component:EmployeeLoginComponent},
+  {path:"employee-register",component:EmployeeRegisterComponent},
+  {path:"employee-fgt-password",component:EmployeeForgortPasswordComponent},
+  {path:"employee-tickets",component:EmployeeTicketsComponent},
+
 ];
 
 @NgModule({

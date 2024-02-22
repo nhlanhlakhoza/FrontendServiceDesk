@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Menu with Top Menu</title>
+</head>
+<body>
+  <header class="top-menu">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="../../../assets/images/Icon.png" alt="Logo"> 
+        <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
+      </div>
+    
+    <ul>
+
+      <li><a routerLink="#" style="margin-left: 25px; text-decoration: none;">
+        <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Tickets</a></li>
+      <li><a routerLink="#" style="margin-left: 25px;"><img src="../../../assets/images/knowledgebase.svg" width = "25px" height="25px"  class="menuImages">Knowledgebase</a></li>
+      
+    </ul>
+  </div>
+  <div class="content">
+    <h1><strong style="margin-bottom:25px;">Ticket</strong></h1>
+    <p>This is where the main content goes.</p>
+
+    
+<div class="container-fluid" >
+  <div class="content-background">
+      <br>
+      <div class="row">
+        <form [formGroup]="ticketForm" class="col-md-6 mx-auto">
+          <div class="form-group">
+
+            <label> Company Email</label>
+            <input type="email" class="form-group" id="email" formControlName="email" placeholder="Email Address">
+            <div
+            *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
+            class="alert alert-danger">
+            <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
+            <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+             </div>
+          </div>
+
+          <div class="form-group" >
+            <label> Request Ticket Type</label>
+            <select id="type" formControlName="type" class="custom-select">
+              Choose Type
+              <option>Type A</option>
+              <option>Type B</option>
+            </select>
+
+            <div
+            *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
+            class="alert alert-danger" style="margin-top: 5px;">
+            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f; margin-bottom: 5px;">Please Choose Type</span>
+             </div>
+          </div>
+
+          <div class="form-group" >
+            <label> Priority Status</label>
+            <select id="type" formControlName="priority" class="custom-select">
+              <option>Status A</option>
+              <option>Status B</option>
+            </select>
+
+            <div
+            *ngIf="new_ticket['priority'].invalid && (new_ticket['priority'].dirty || new_ticket['priority'].touched)"
+            class="alert alert-danger" style="margin-top: 5px;">
+            <span *ngIf="new_ticket['priority'].errors?.['required']" style="color:#f98f8f; margin-bottom: 5px;">Please Choose Type</span>
+             </div>
+          </div>
+
+
+          
+
+        
+    
+        <button [disabled]="ticketForm.invalid" type="submit"
+                    class="btn btn-primary btn-user btn-block mb-3">
+                    Submit
+                </button>
+               
+              
+
+                
+        </form>
+      </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
