@@ -22,6 +22,7 @@
   .top-menu nav ul li a {
     color: #2E2C34;
     text-decoration: none;
+
   }
 
   .sidebar {
@@ -180,6 +181,27 @@ height: 26px;
   align-items: center;
   margin-bottom: 5px;
 }
+
+.iconImages
+{
+  justify-content: center;
+  margin-bottom: 15px;
+}
+select {
+  box-shadow: none;
+}
+
+textarea{
+  width: 320px;
+  margin-left: 2px;
+  height: 75px;
+}
+
+.side-by-side
+   {
+    display: flex;
+  }
+
 
 
 
