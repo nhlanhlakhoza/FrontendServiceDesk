@@ -29,91 +29,146 @@
       
     </ul>
   </div>
-  <div class="content">
-    <h1><strong style="margin-bottom:25px;">Ticket</strong></h1>
   
-    <p>This is where the main content goes.</p>
-
-    <div class="side-by-side">
-
-    <img src="../../../assets/images/Group 16.svg" style="margin-left: 350px; margin-bottom: 100px;"><br/>
-  <div class="container-fluid" >
-
-  <div class="content-background">
-      <br>
+  <div class="content">
+    <h2><strong>Ticket</strong></h2>
+    <p>This is the main content area.</p>
+    <div class="container text-left">
       <div class="row">
-        <form [formGroup]="ticketForm" class="col-md-6 mx-auto">
-          <div class="form-group">
+        <div class="col-8" id="content">
 
-            <label> Company Email</label>
-            <input type="email" class="form-group" id="email" formControlName="email" placeholder="Email Address">
+          <div class="top-menu2" style="margin-bottom: 50px; margin-right: 5px; border-bottom: 1px solid #E7E7E7;">
+            <nav>
+              <ul>
+                <li><a (click)="toggleForms('form1')" routerLink="#" >Unresolved</a></li>
+                <li><a routerLink="#" (click)="toggleForms('form2')">In Progress</a></li>
+                <li><a routerLink="#" (click)="toggleForms('form3')">Resolved</a></li>
+                <li>
+                  <input type="text" placeholder="Search tickets"> 
+                </li>
+                
+               
+               
+              </ul>
+            </nav>
+            
+          </div>
+          <div *ngIf="currentForm === 'form1'">
+          <span class="ticket-header" >Ticket Header</span>
+
+          <div class="ticket-message">
+
+            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
+
+          </div>
+
+          <div class="ticket-details">
+            <span class="status">status</span> 
+            <span style="margin-left:25px;">Ticket ID</span>
+          </div>
+        </div>
+
+        <!--In progress-->
+
+        <div  *ngIf="currentForm === 'form2'">
+          <span class="ticket-header" >Ticket Header 2</span>
+
+          <div class="ticket-message">
+
+            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
+
+          </div>
+
+          <div class="ticket-details">
+            <span class="status">status</span> 
+            <span style="margin-left:25px;">Ticket ID</span>
+          </div>
+        </div>
+
+        <!--Resolved-->
+
+        <div  *ngIf="currentForm === 'form3'">
+          <span class="ticket-header" >Ticket Header 3</span>
+
+          <div class="ticket-message">
+
+            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
+
+          </div>
+
+          <div class="ticket-details">
+            <span class="status">status</span> 
+            <span style="margin-left:25px;">Ticket ID</span>
+          </div>
+        </div>
+          
+        </div>
+        
+        <form [formGroup]="ticketForm" >
+          <span class="form-header">Write and address new queries and issues</span>
+          <hr/>
+          <fieldset>
+        
+            <label for="email" class="input-fields">Company Email</label>
+            <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
             <div
             *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
             class="alert alert-danger">
             <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
             <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
              </div>
-          </div>
+          </fieldset>
+          <fieldset>  
+           <label >Request Ticket Type</label>
+            <select id="type" name="" formControlName="type">
 
-          <div class="form-group" >
-            <label> Request Ticket Type</label>
-            <select id="type" formControlName="type" class="custom-select">
-              Choose Type
-              <option>Type A</option>
-              <option>Type B</option>
+                <option value=""></option>
+                  <option value="Type 1">Type A</option>
+                  <option value="Type 2">Type B</option>
+
             </select>
-
             <div
             *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
-            class="alert alert-danger" style="margin-top: 5px;">
-            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f; margin-bottom: 5px;">Please Choose Type</span>
+            class="alert alert-danger">
+            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
              </div>
-          </div>
+            <label >Priority Status</label>
 
-          <div class="form-group" >
-            <label> Priority Status</label>
-            <select id="type" formControlName="priority" class="custom-select">
-              <option>Status A</option>
-              <option>Status B</option>
+            <select id="status" name="" formControlName="priority_status">
+              <option value=""></option>
+                <option value="Type 1">Type A</option>
+                <option value="Type 2">Type B</option>
             </select>
-
             <div
-            *ngIf="new_ticket['priority'].invalid && (new_ticket['priority'].dirty || new_ticket['priority'].touched)"
-            class="alert alert-danger" style="margin-top: 5px;">
-            <span *ngIf="new_ticket['priority'].errors?.['required']" style="color:#f98f8f; margin-bottom: 5px;">Please Choose Type</span>
+            *ngIf="new_ticket['priority_status'].invalid && (new_ticket['priority_status'].dirty || new_ticket['priority_status'].touched)"
+            class="alert alert-danger">
+            <span *ngIf="new_ticket['priority_status'].errors?.['required']" style="color:#f98f8f">Please select ticket status</span>
              </div>
-          </div>
-
-          <div class="form-group" >
-            <label> Ticket Body</label>
-            <textarea formControlName="ticketBody" class="form-group"></textarea>
+           </fieldset>
+           <span style="max-width:25px"></span>
+           <fieldset>
+            <label >Ticket Body</label>
+            <textarea formControlName="ticketBody" type="text">
+              
+            </textarea  >
             <div
             *ngIf="new_ticket['ticketBody'].invalid && (new_ticket['ticketBody'].dirty || new_ticket['ticketBody'].touched)"
-            class="alert alert-danger" style="margin-top: 5px;">
-            <span *ngIf="new_ticket['ticketBody'].errors?.['required']" style="color:#f98f8f; margin-bottom: 5px;">Please Choose Type</span>
+            class="alert alert-danger">
+            <span *ngIf="new_ticket['ticketBody'].errors?.['required']" style="color:#f98f8f">Ticket body is required</span>
              </div>
-          </div>
-
-
+           </fieldset>
+           
+         
+          <button type="submit">Submit</button>
           
-
+         </form>
         
-    
-        <button [disabled]="ticketForm.invalid" type="submit"
-                    class="btn btn-primary btn-user btn-block mb-3">
-                    Submit
-                </button>
-               
-              
-
-                
-        </form>
       </div>
-</div>
-</div>
-</div>
-
-
+    </div>
   </div>
 </body>
+
+<script>
+  
+</script>
 </html>

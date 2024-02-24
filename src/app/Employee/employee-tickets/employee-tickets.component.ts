@@ -18,6 +18,20 @@ export class EmployeeTicketsComponent
     ticketBody: new FormControl('', [Validators.required])
 
   })
+
+  activeTab: string = 'tab1';
+
+  setActiveTab(tab: string): void {
+    this.activeTab = tab;
+  }
+
+  //Toggling through the buttons
+  currentForm: string = 'form1';
+
+  toggleForms(form: string) {
+    this.currentForm = form;
+  }
+  
   get new_ticket (){return this.ticketForm.controls;}
 
 
