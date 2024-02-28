@@ -14,6 +14,10 @@
   font-style: normal;
 }
 
+a {
+  text-decoration: none;
+}
+
 .top-menu {
     background-color: #fff;
     color: #2E2C34;
@@ -40,12 +44,23 @@
 
   }
 
+  /*Next and Previous*/
+
+  .buttons
+  {
+    background-color: #7F56D8;
+    color: white;
+    width: 50px;
+    height: 60px;
+    margin-left: 250px;
+  }
+
   /*Top menu 2*/
   .top-menu2 {
    
     color: #9E9E9E;
-    width: calc(100% - 250px); /* Calculate width to fill remaining space */
-    height: 75px;
+    width: calc(100% - 0px); /* Calculate width to fill remaining space */
+    height: auto;
   }
   
   .top-menu2 nav ul {
@@ -189,6 +204,91 @@ textarea{
 .side-by-side
    {
     display: flex;
+  }
+
+  .status{
+    background-color: #E2A1A1;
+    padding: 3px;
+    border-radius: 50px;
+    border: 2.5px solid salmon;
+    color: #BA1717;
+    font-size: small;
+    font-stretch: expanded;
+  }
+
+
+
+  .next{
+    color: #FFF;
+    background-color: #AE8EF1;
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 5px;
+    border: 1px solid #AE8EF1;
+    border-width: 1px 1px 3px;
+    height: 50px;
+    width: 60px;
+    margin-bottom: 10px;
+
+  }
+
+  .view-ticket
+  {
+    background-color: #AE8EF1;
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+
+  }
+
+  .view-ticket:hover
+  {
+    background-color: white;
+    color: #AE8EF1;
+    border: 1px solid #84818A;
+  }
+  .previous{
+    color: #000;
+    background-color: #F9F9FB;
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 5px;
+    border: 1px solid #F9F9FB;
+    border-width: 1px 1px 3px;
+    height: 50px;
+    width: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+
+  }
+
+  .ticket-id
+  {
+    color: #000;
+    border-bottom: 1px solid grey;
+    height: 10px;
+    margin-left: 10px;
+    font-stretch: 150%;
+  }
+
+  .ticket-status
+  {
+ 
+    color: #03781D;
+    border-bottom: 1px solid #03781D;
+    height: 10px;
+    margin-left: 10px;
+    font-stretch:expanded;
+  }
+
+  .ticket-priority
+  {
+ 
+    color: #BA1717;
+    border-bottom: 1px solid #E2A1A1;
+    height: 10px;
+    margin-left: 10px;
+    font-stretch:expanded;
   }
 
 

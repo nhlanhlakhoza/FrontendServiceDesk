@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="top-menu">
+    <nav>
+      <ul>
+        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
+        <li style="float: inline-end; " class="iconImages"><a><img src="../../../assets/images/Ellipse 73.svg" style="margin-left: -15px;" width="40px" height="40px"><strong style="font-weight: bold;"></strong></a></li>
+        <li style="float: inline-end;" class="iconImages"><a (click)="toggleForms('form3')"><img src="../../../assets/images/Notif.svg" width="40px" height="40px"></a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="../../../assets/images/Icon.png" alt="Logo"> 
+        <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
+      </div>
+    
+    <ul>
+
+      <li><a routerLink="/employee-tickets" style="margin-left: 25px; text-decoration: none;">
+        <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Tickets</a></li>
+      <li><a routerLink="/knowledgebase" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/knowledgebase.svg" width = "25px" height="25px"  class="menuImages">Knowledgebase</a></li>
+      <li><a routerLink="/employee-login" style="margin-left: 25px; text-decoration: none; margin-top: 530px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
+
+      
+    </ul>
+  </div>
+  
+  <div class="content">
+    <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
+    <hr/>
+    <p></p>
+    <div class="container text-left">
+      <div class="row">
+        
+        <div class="col-4" id="content">
+
+        <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
+        <hr/>
+         <ul class="settings-menu">
+            <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
+            <li><a  class="form-header"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
+            <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notification</a></li>
+            <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
+         </ul>
+        </div>
+        <br>
+        <br>
+
+        <div class="col-7">
+
+            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
+               
+                <fieldset>
+              
+                  <label for="email" >Name</label>
+                  <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
+                  <div
+                  *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
+                  class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
+                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
+                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+
+                   </div>
+
+                   <label for="email" class="input-fields">Email</label>
+                  <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
+                  <div
+                  *ngIf="profile['email'].invalid && (profile['email'].dirty || profile['email'].touched)"
+                  class="alert alert-danger">
+                  <span *ngIf="profile['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
+                  <span *ngIf="profile['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+                   </div>
+
+                   <label for="password" class="input-fields">Password</label>
+                   <input type="password" id="password" name="user_password" formControlName="password">
+                   <div
+                   *ngIf="profile['password'].invalid && (profile['password'].dirty || profile['password'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
+                    </div>
+
+                    <label for="password" class="input-fields">Date Of Birth</label>
+                   <input type="text" id="dob" name="user_dob" formControlName="dob">
+                   <div
+                   *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f">Date of birth is required</span>
+                    </div>
+
+                    <label for="country" class="input-fields">Country</label>
+                   <input type="text" id="country" name="user_country" formControlName="country">
+                   <div
+                   *ngIf="profile['country'].invalid && (profile['country'].dirty || profile['country'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
+                    </div>
+                </fieldset>
+                
+                 
+               
+                <button type="submit" class="nextButton" [disabled]="profileForm.invalid">Save changes</button>
+                
+            </form>
+
+            <!--Notifications-->
+            <div class="notifications" *ngIf="currentForm === 'form3'">
+
+                <span class="form-header" style="font-weight: bold; margin-top: 5px;">Notifications</span>
+                <hr>
+
+                <ol>
+                    <div>
+                    <li>Notification 1<a>View more</a></li>
+                    <span class="form-header" style="margin-left: 10px; margin-top: -10px;">Today, 11:30 PM</span>
+                </div>
+                    <li>Notification 1<a>View more</a></li>
+                    <li>Notification 1<a>View more</a></li>
+                    <li>Notification 1<a>View more</a></li>
+                    <li>Notification 1<a>View more</a></li>
+                    <li>Notification 1<a>View more</a></li>
+
+                </ol>
+
+
+
+            </div>
+
+                 <!--Privacy-->
+                 <div class="notifications" *ngIf="currentForm === 'form4'">
+
+                    <span class="form-header" style="font-weight: bold; margin-top: 5px;">Privacy</span>
+                    <hr>
+    
+                    <ol>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+    
+                    </ol>
+    
+    
+    
+                </div>
+
+           
+
+           
+
+        </div>
+
+       
+      </div>
+     
+      </div>
+
+     
+
+    
+
+    
+  </div>
+  
+
+  
+</body>
+
+<script>
+  
+</script>
+</html>
+
+

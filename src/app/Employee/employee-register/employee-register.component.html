@@ -50,11 +50,11 @@
                             *ngIf="register['confirm_password'].invalid && (register['confirm_password'].dirty || register['confirm_password'].touched)"
                             >
                             <div *ngIf="register['confirm_password'].errors?.['required']" class="alert alert-danger" style="color:#f98f8f">Please confirm your password</div>
+                            <div *ngIf="register['confirm_password'].getError('MustMatch')" class="alert alert-danger" style="color:#f98f8f">Password does not match</div>
                             <div *ngIf="register['confirm_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
-                            <div *ngIf="register['confirm_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
-    
+                          <div *ngIf="register['confirm_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
                             </div>
-             
+
                </div>
           
       

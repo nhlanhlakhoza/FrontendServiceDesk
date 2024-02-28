@@ -11,6 +11,10 @@ import { EmployeeLoginComponent } from './Employee/employee-login/employee-login
 import { EmployeeRegisterComponent } from './Employee/employee-register/employee-register.component';
 import { EmployeeForgortPasswordComponent } from './Employee/employee-forgort-password/employee-forgort-password.component';
 import { EmployeeTicketsComponent} from './Employee/employee-tickets/employee-tickets.component';
+import { TicketDetailsComponent } from './Employee/ticket-details/ticket-details.component';
+import { KnowledgebaseComponent } from './Employee/knowledgebase/knowledgebase.component';
+import { SettingsComponent } from './Employee/settings/settings.component';
+import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 
 const routes: Routes = [
   
@@ -25,6 +29,16 @@ const routes: Routes = [
   {path:"employee-register",component:EmployeeRegisterComponent},
   {path:"employee-fgt-password",component:EmployeeForgortPasswordComponent},
   {path:"employee-tickets",component:EmployeeTicketsComponent},
+  {path:"ticket-details",component:TicketDetailsComponent},
+  {path:"knowledgebase",component:KnowledgebaseComponent},
+  {path:"employee-settings",component:SettingsComponent},
+  {path:"no-tickets",component:NoTicketsComponent},
+
+
+
+
+
+
 
 ];
 

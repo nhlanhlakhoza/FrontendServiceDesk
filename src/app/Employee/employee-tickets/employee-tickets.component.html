@@ -25,8 +25,9 @@
 
       <li><a routerLink="#" style="margin-left: 25px; text-decoration: none;">
         <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Tickets</a></li>
-      <li><a routerLink="#" style="margin-left: 25px;"><img src="../../../assets/images/knowledgebase.svg" width = "25px" height="25px"  class="menuImages">Knowledgebase</a></li>
-      
+      <li><a routerLink="/knowledgebase" style="margin-left: 25px;"><img src="../../../assets/images/knowledgebase.svg" width = "25px" height="25px"  class="menuImages">Knowledgebase</a></li>
+      <li><a routerLink="/employee-login" style="margin-left: 25px; text-decoration: none; margin-top: 530px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
+
     </ul>
   </div>
   
@@ -41,10 +42,14 @@
             <nav>
               <ul>
                 <li><a (click)="toggleForms('form1')" routerLink="#" >Unresolved</a></li>
-                <li><a routerLink="#" (click)="toggleForms('form2')">In Progress</a></li>
-                <li><a routerLink="#" (click)="toggleForms('form3')">Resolved</a></li>
+                <li><a  (click)="toggleForms('form2')">In Progress</a></li>
+                <li><a  (click)="toggleForms('form3')">Resolved</a></li>
                 <li>
                   <input type="text" placeholder="Search tickets"> 
+                </li>
+                <li>
+                  <button class="filterButton" (click)="toggleForms('form4')">
+                    Filter</button>
                 </li>
                 
                
@@ -55,6 +60,7 @@
           </div>
           <div *ngIf="currentForm === 'form1'">
           <span class="ticket-header" >Ticket Header</span>
+          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
 
           <div class="ticket-message">
 
@@ -62,33 +68,49 @@
 
           </div>
 
-          <div class="ticket-details">
-            <span class="status">status</span> 
-            <span style="margin-left:25px;">Ticket ID</span>
+          <div style="display: flex;">
+            
+            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
+            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
+
+
           </div>
+
+
         </div>
+
+        
+
 
         <!--In progress-->
 
         <div  *ngIf="currentForm === 'form2'">
           <span class="ticket-header" >Ticket Header 2</span>
 
+          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
+
           <div class="ticket-message">
 
             <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
 
           </div>
 
-          <div class="ticket-details">
-            <span class="status">status</span> 
-            <span style="margin-left:25px;">Ticket ID</span>
+          <div style="display: flex;">
+            
+            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
+            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
+
           </div>
         </div>
+
+
 
         <!--Resolved-->
 
-        <div  *ngIf="currentForm === 'form3'">
+        <div  *ngIf="currentForm === 'form3'" style="margin-top: 40px;">
           <span class="ticket-header" >Ticket Header 3</span>
+
+          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
 
           <div class="ticket-message">
 
@@ -96,13 +118,24 @@
 
           </div>
 
-          <div class="ticket-details">
-            <span class="status">status</span> 
-            <span style="margin-left:25px;">Ticket ID</span>
+          <div style="display: flex;">
+            
+            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
+            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 50px; margin-left: 600px; display: flex;">
+         <div>
+          <span class="form-header" style="margin-right: 25px;"><a>Previous</a></span>
+            <button class="previous">1</button>
+            <button class="next">2</button>
+            <span class="form-header"><a>Next</a></span>
           </div>
         </div>
           
-        </div>
+      </div>
+
         
         <form [formGroup]="ticketForm" >
           <span class="form-header">Write and address new queries and issues</span>
@@ -148,7 +181,7 @@
            <span style="max-width:25px"></span>
            <fieldset>
             <label >Ticket Body</label>
-            <textarea formControlName="ticketBody" type="text">
+            <textarea formControlName="ticketBody" type="text" id="ticketbody" placeholder="Type ticket issue here..">
               
             </textarea  >
             <div
@@ -164,8 +197,12 @@
          </form>
         
       </div>
+
+      
     </div>
   </div>
+
+  
 </body>
 
 <script>

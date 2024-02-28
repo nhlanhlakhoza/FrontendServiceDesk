@@ -23,6 +23,10 @@ import { EmployeeLoginComponent } from './Employee/employee-login/employee-login
 import { EmployeeRegisterComponent } from './Employee/employee-register/employee-register.component';
 import { EmployeeForgortPasswordComponent } from './Employee/employee-forgort-password/employee-forgort-password.component';
 import { EmployeeTicketsComponent } from './Employee/employee-tickets/employee-tickets.component';
+import { TicketDetailsComponent } from './Employee/ticket-details/ticket-details.component';
+import { KnowledgebaseComponent } from './Employee/knowledgebase/knowledgebase.component';
+import { SettingsComponent } from './Employee/settings/settings.component';
+import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,11 @@ import { EmployeeTicketsComponent } from './Employee/employee-tickets/employee-t
     EmployeeLoginComponent,
     EmployeeRegisterComponent,
     EmployeeForgortPasswordComponent,
-    EmployeeTicketsComponent
+    EmployeeTicketsComponent,
+    TicketDetailsComponent,
+    KnowledgebaseComponent,
+    SettingsComponent,
+    NoTicketsComponent
   ],
   imports: [
     BrowserModule,
