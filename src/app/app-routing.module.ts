@@ -15,6 +15,13 @@ import { TicketDetailsComponent } from './Employee/ticket-details/ticket-details
 import { KnowledgebaseComponent } from './Employee/knowledgebase/knowledgebase.component';
 import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
+import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
+import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component'; 
+import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
+import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
+import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
+import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
+
 
 const routes: Routes = [
   
@@ -33,6 +40,24 @@ const routes: Routes = [
   {path:"knowledgebase",component:KnowledgebaseComponent},
   {path:"employee-settings",component:SettingsComponent},
   {path:"no-tickets",component:NoTicketsComponent},
+
+
+  //Super Admin's routes
+
+  {path:"admin-login",component:AdminLoginComponent},
+  {path:"admin-password",component:AdminFgtPasswordComponent},
+  {path:"admin-dashboard",component:AdminDashboardComponent},
+  {path:"admin-users",component:AdminUsersComponent},
+  {path:"admin-subscriptions",component:SubscriptionsComponent},
+  {path:"admin-settings",component:AdminSettingsComponent},
+
+
+
+
+
+
+
+
 
 
 

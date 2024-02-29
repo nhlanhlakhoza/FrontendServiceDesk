@@ -27,6 +27,12 @@ import { TicketDetailsComponent } from './Employee/ticket-details/ticket-details
 import { KnowledgebaseComponent } from './Employee/knowledgebase/knowledgebase.component';
 import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
+import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
+import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component';
+import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
+import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
+import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
+import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,14 @@ import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
     TicketDetailsComponent,
     KnowledgebaseComponent,
     SettingsComponent,
-    NoTicketsComponent
+    NoTicketsComponent,
+    AdminLoginComponent,
+    AdminFgtPasswordComponent,
+    AdminDashboardComponent,
+    AdminUsersComponent,
+    SubscriptionsComponent,
+    AdminSettingsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +68,8 @@ import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
     FormsModule,
     Ng2SearchPipeModule,
     NgxSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 
   ],
