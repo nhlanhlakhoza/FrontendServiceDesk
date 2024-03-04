@@ -21,17 +21,17 @@
         <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
       </div>
     
-    <ul>
+      <ul>
 
-      <li><a routerLink="#/admin-dashboard" style="margin-left: 25px; text-decoration: none;">
-        <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Dashboard</a></li>
-      <li><a routerLink="/admin-users" style="margin-left: 25px;"><img src="../../../assets/images/Headset.svg" width = "25px" height="25px"  class="menuImages">Users</a></li>
-      <li><a routerLink="/knowledgebase" style="margin-left: 25px;"><img src="../../../assets/images/Subscriptions.svg" width = "25px" height="25px"  class="menuImages">Subscriptions</a></li>
-      <li><a routerLink="/knowledgebase" style="margin-left: 25px;"><img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages">Settings</a></li>
-
-      <li><a routerLink="/admin-login" style="margin-left: 25px; text-decoration: none; margin-top: 440px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
-
-    </ul>
+        <li><a routerLink="/admin-dashboard" style="margin-left: 25px; text-decoration: none;">
+          <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Dashboard</a></li>
+        <li><a routerLink="/admin-users" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Headset.svg" width = "25px" height="25px"  class="menuImages">Users</a></li>
+        <li><a routerLink="/admin-subscriptions" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Subscriptions.svg" width = "25px" height="25px"  class="menuImages">Subscriptions</a></li>
+        <li><a routerLink="/admin-settings" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages">Settings</a></li>
+  
+        <li><a routerLink="/admin-login" style="margin-left: 25px; text-decoration: none; margin-top: 440px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
+  
+      </ul>
   </div>
   
   <div class="content">
@@ -43,9 +43,12 @@
         <div class="col-13" id="content">
 
             <div class="container text-left" style="margin-top: 15px;" >
+              
                 <div class="row">
 
          <div class="col" id="details">
+          <canvas id="barGraph" width="400" height="400"></canvas>
+
          </div>
          <br>
          <div class="col" id="details">
@@ -64,6 +67,8 @@
          <br>
          <div class="col" id="details">
         </div>
+
+        
         
                 </div>
             </div>

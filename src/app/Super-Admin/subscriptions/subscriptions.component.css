@@ -68,12 +68,10 @@
       width: 600px;
       margin: 10px auto;
       padding: 10px 20px;
-      background: #fff;
       border-radius: 8px;
       word-wrap: break-word;
       margin-left: 0px;
       
-  
     }
 
     form   input,
@@ -221,6 +219,7 @@
     
     }
   
+   
     .content-background
   {
     background-color:#fff;
@@ -242,7 +241,7 @@
     margin-left: 250px; /* Same as the width of the sidebar */
     padding: 20px;
     width: calc(100% - 250px); /* Calculate width to fill remaining space */
-    height: 100;  /* Calculate height to fill remaining space */
+    height: auto;  /* Calculate height to fill remaining space */
     background-color: #F9F9FB;
   }
 

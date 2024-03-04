@@ -33,6 +33,7 @@ import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-das
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
+import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-subscription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-setti
     AdminDashboardComponent,
     AdminUsersComponent,
     SubscriptionsComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
+    EditSubscriptionComponent
 
   ],
   imports: [

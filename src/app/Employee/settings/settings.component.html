@@ -45,7 +45,7 @@
         <hr/>
          <ul class="settings-menu">
             <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
-            <li><a  class="form-header"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
+            <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
             <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notification</a></li>
             <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
          </ul>
@@ -77,14 +77,14 @@
                   <span *ngIf="profile['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
                   <span *ngIf="profile['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
                    </div>
-
+                   <!--
                    <label for="password" class="input-fields">Password</label>
                    <input type="password" id="password" name="user_password" formControlName="password">
                    <div
                    *ngIf="profile['password'].invalid && (profile['password'].dirty || profile['password'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
-                    </div>
+                    </div>-->
 
                     <label for="password" class="input-fields">Date Of Birth</label>
                    <input type="text" id="dob" name="user_dob" formControlName="dob">
@@ -108,6 +108,48 @@
                 <button type="submit" class="nextButton" [disabled]="profileForm.invalid">Save changes</button>
                 
             </form>
+
+            <!--Change password Form-->
+            <form [formGroup]="profileForm" *ngIf="currentForm === 'form5'" >
+               
+              <fieldset>
+            
+               
+                 
+                 <label for="old_password" class="input-fields">Old Password</label>
+                 <input type="password" id="password" name="user_password" formControlName="old_password">
+                 <div
+                 *ngIf="password['old_password'].invalid && (password['old_password'].dirty || password['old_password'].touched)"
+                 class="alert alert-danger">
+                 <span *ngIf="password['old_password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
+                  </div>
+
+                  <label for="new_password" class="input-fields">New Password</label>
+                  <input type="password" id="password" name="user_password" formControlName="new_password">
+                  <div
+                  *ngIf="password['new_password'].invalid && (password['new_password'].dirty || password['new_password'].touched)"
+                  class="alert alert-danger">
+                  <span *ngIf="password['new_password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
+                   </div>
+
+                   <label for="old_password" class="input-fields">Confirm Password</label>
+                   <input type="password" id="password" name="user_password" formControlName="confirm_password">
+                   <div
+                   *ngIf="password['confirm_password'].invalid && (password['confirm_password'].dirty || password['confirm_password'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="password['confirm_password'].getError('required')" style="color:#f98f8f">Password is required</span>
+                   
+                    </div>
+                    
+
+               
+              </fieldset>
+              
+               
+             
+              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">Save Password</button>
+              
+          </form>
 
             <!--Notifications-->
             <div class="notifications" *ngIf="currentForm === 'form3'">

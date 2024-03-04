@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { FormControl, FormGroup, Validators,FormBuilder, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent {
 
+  constructor(private fb: FormBuilder) {}
+
   profileForm: FormGroup = new FormGroup({
   fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
   email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
@@ -16,6 +18,40 @@ export class SettingsComponent {
   dob: new FormControl('22/10/2005', Validators.required),
   country: new FormControl('South Sudan', Validators.required),
   })
+
+
+  //Change Password Form
+ 
+
+    
+
+  passwordForm: FormGroup = this.fb.group({
+    old_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+    new_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+    confirm_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+  }, { /*validators: this.MustMatch('new_password', 'confirm_password')*/ });
+  
+
+  //comfirm password
+  MustMatch( password:any, confirm_password:any)
+  {
+   return(formGroup: FormGroup)=>{
+     const passwordcontrol = formGroup.controls[password];
+     const confirm_passwordcontrol = formGroup.controls[confirm_password];
+
+     if(confirm_passwordcontrol.errors && !confirm_passwordcontrol.errors['MustMatch']){
+       return;
+     }
+     if(passwordcontrol.value !== confirm_passwordcontrol.value)
+     {
+       confirm_passwordcontrol.setErrors({'MustMatch': true});
+     }
+     else{
+       confirm_passwordcontrol.setErrors(null);
+     }
+
+   }
+  }
 
    //Active and nin active content
    currentForm: string = 'form1';
@@ -40,6 +76,8 @@ export class SettingsComponent {
    
 
   get profile (){return this.profileForm.controls;}
+  get password (){return this.passwordForm.controls;}
+
 
 
 }

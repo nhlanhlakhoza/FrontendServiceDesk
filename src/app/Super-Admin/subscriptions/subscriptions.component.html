@@ -29,7 +29,6 @@
       <li><a routerLink="/admin-subscriptions" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Subscriptions.svg" width = "25px" height="25px"  class="menuImages">Subscriptions</a></li>
       <li><a routerLink="/admin-settings" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages">Settings</a></li>
 
-
       <li><a routerLink="/admin-login" style="margin-left: 25px; text-decoration: none; margin-top: 440px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
 
     </ul>
@@ -43,54 +42,134 @@
     
     <div style="display: flex;margin-left: 1143px;" >
 
-    <button class="nextButton">
+    <button class="nextButton" (click)="toggleForms('form2')">
         <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
         
         Add</button></div>
-    <div class="container text-left">
-      <div class="row">
-        <div class="col-13" id="content" style="margin-top: 25px;">
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-13" id="content" style="margin-top: 25px;">
+    
+              <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;"  *ngIf="currentForm === 'form1'">
+                    <div class="row">
+                        <table class="borderless-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Expiry</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Enterprise</td>
+                                    <td>10 - 10- 2023</td>
+                                    <td class="active-status">Active</td>
+                                    <td><button class="edit" routerLink="/edit-subscription">Edit</button> <button class="cancel">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Enterprise</td>
+                                    <td>10 - 10- 2023</td>
+                                    <td class="active-status">Active</td>
+                                    <td><button class="edit" routerLink="/edit-subscription">Edit</button> <button class="cancel">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Enterprise</td>
+                                    <td>10 - 10- 2023</td>
+                                    <td class="active-status">Active</td>
+                                    <td><button class="edit" routerLink="/edit-subscription">Edit</button> <button class="cancel">Cancel</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
 
-            <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" >
-                <div class="row">
-                    <table class="borderless-table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Expiry</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Enterprise</td>
-                                <td>10 - 10- 2023</td>
-                                <td class="active-status">Active</td>
-                                <td><button class="edit">Edit</button> <button class="cancel">Cancel</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Enterprise</td>
-                                <td>10 - 10- 2023</td>
-                                <td class="active-status">Active</td>
-                                <td><button class="edit">Edit</button> <button class="cancel">Cancel</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Enterprise</td>
-                                <td>10 - 10- 2023</td>
-                                <td class="active-status">Active</td>
-                                <td><button class="edit">Edit</button> <button class="cancel">Cancel</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!--Adding Package-->
+                <div class="col" *ngIf="currentForm === 'form2'">
+                    <div style="display: flex;">
+                    <h5 class="form-header" style="margin-top: 15px;"><strong>Add subscription</strong></h5>
+
+                </div>
+
+                    <hr/>
+                    <form [formGroup]="subscriptionForm" >
+               
+                      <fieldset>
+                          
                     
+                        <label for="subscription_name" >Name</label>
+                        <input type="text" id="name" name="subscription_name" formControlName="name" placeholder="">
+                        <div
+                        *ngIf="add_subscriber['name'].invalid && (add_subscriber['name'].dirty || add_subscriber['name'].touched)"
+                        class="alert alert-danger" style="width: 750px; border-radius: 4px;" >
+                        <span *ngIf="add_subscriber['name'].errors?.['required']" style="color:#f98f8f;">subscription name is required</span>
+                        <span *ngIf="add_subscriber['name'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+              
+                         </div>
+              
+                         <label for="Price" >Price</label>
+                         <input type="text" id="price" name="price" formControlName="price" placeholder="">
+                         <div
+                         *ngIf="add_subscriber['price'].invalid && (add_subscriber['price'].dirty || add_subscriber['price'].touched)"
+                         class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                         <span *ngIf="add_subscriber['price'].errors?.['required']" style="color:#f98f8f;">Price is required</span>
+                         <span *ngIf="add_subscriber['price'].errors?.['notANumber']" style="color:#f98f8f;">Invalid price entered</span>
+
+              
+                          </div>
+              
+                         <label for="Expiry Date" >Expiry Date</label>
+                         <input type="text" id="expDate" name="expDate" formControlName="expDate" placeholder="">
+                         <div
+                         *ngIf="add_subscriber['expDate'].invalid && (add_subscriber['expDate'].dirty || add_subscriber['expDate'].touched)"
+                         class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                         <span *ngIf="add_subscriber['expDate'].errors?.['required']" style="color:#f98f8f;">Expiry date is required</span>
+              
+                          </div>
+              
+                          <label for="Expiry Date" >Agents</label>
+                         <input type="text" id="Agents" name="Agents" formControlName="agents" placeholder="">
+                         <div
+                         *ngIf="add_subscriber['agents'].invalid && (add_subscriber['agents'].dirty || add_subscriber['agents'].touched)"
+                         class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                         <span *ngIf="add_subscriber['agents'].errors?.['required']" style="color:#f98f8f;">Agents is required</span>
+                         <span *ngIf="add_subscriber['agents'].errors?.['notANumber']" style="color:#f98f8f;">Please enter valid number of agents</span>
+
+                          </div>
+                      </fieldset>
+              
+                      <fieldset>
+                          <label for="status" class="input-fields">Status</label>
+              
+                          <select formControlName="status" style="width: 750px;">
+                              <option value="active-status" class="option-status"> active </option>
+                              <option value="not-active"> active </option>
+                              <option value="not-active"> active </option>
+                          </select>
+              
+                          <div
+                          *ngIf="add_subscriber['status'].invalid && (add_subscriber['status'].dirty || add_subscriber['status'].touched)"
+                          class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                          <span *ngIf="add_subscriber['status'].errors?.['required']" style="color:#f98f8f">Please select status</span>
+                           </div>
+                      </fieldset>
+                      
+                       
+                     
+                      <button type="submit" style ="width:150px; margin-top: 25px; margin-left: 600px;"class="nextButton" [disabled]="subscriptionForm.invalid">Add Subscription</button>
+                      <hr style="width: 750px;">
+                  </form>
+              
+                <button type="submit" style ="width:150px; margin-left: 20px; margin-top: -100px ;"class="closeButton" (click)="toggleForms('form1')">Back</button>
+
                 </div>
             </div>
-
 
          
 
@@ -101,9 +180,6 @@
           
       </div>
 
-        
-        
-    </div>
 </body>
 
 <script>

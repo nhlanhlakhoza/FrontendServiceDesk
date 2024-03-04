@@ -24,6 +24,7 @@ a {
     width: calc(100% - 250px); /* Calculate width to fill remaining space */
     margin-left: 250px;
     height: 75px;
+    
   }
   
   .top-menu nav ul {

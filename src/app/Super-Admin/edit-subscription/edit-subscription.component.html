@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="top-menu">
+    <nav>
+      <ul>
+        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
+        <li style="float: inline-end; " class="iconImages"><a><img src="../../../assets/images/Ellipse 73.svg" style="margin-left: -15px;" width="40px" height="40px"><strong style="font-weight: bold;"></strong></a></li>
+        <li style="float: inline-end;" class="iconImages"><a><img src="../../../assets/images/Notif.svg" width="40px" height="40px"></a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="../../../assets/images/Icon.png" alt="Logo"> 
+        <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
+      </div>
+    
+    <ul>
+
+      <li><a routerLink="/admin-dashboard" style="margin-left: 25px; text-decoration: none;">
+        <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Dashboard</a></li>
+      <li><a routerLink="/admin-users" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Headset.svg" width = "25px" height="25px"  class="menuImages">Users</a></li>
+      <li><a routerLink="/admin-subscriptions" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Subscriptions.svg" width = "25px" height="25px"  class="menuImages">Subscriptions</a></li>
+      <li><a routerLink="/admin-settings" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages">Settings</a></li>
+
+      <li><a routerLink="/admin-login" style="margin-left: 25px; text-decoration: none; margin-top: 440px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
+
+    </ul>
+  </div>
+  
+  <div class="content">
+    
+    <h2><strong>View Subscription</strong></h2>
+
+    <hr/>
+    
+    <div style="display: flex;margin-left: 1143px;" >
+
+    <button class="nextButton" >
+        <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+        
+        Back</button></div>
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-13" id="content" style="margin-top: 25px;">
+    
+              <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" >
+                    <div class="row">
+
+                        <div class="col-4">
+                            <div class="edit-container">
+                                <h4 class=""><strong>Package Name</strong></h4>
+                             
+                                <h4 class="" style="margin-top: 30px; margin-bottom: -5px;"><strong>Price</strong></h4>
+                                <span class="form-header">per month</span>
+
+                                <button class="requestButton">Request a demo</button>
+
+                                <ol>
+                                    <li>Number of Agents</li>
+                                    <li>Feature 2</li>
+                                    <li>Feature 3</li>
+                                </ol>
+
+                                <hr/>
+                                <div class="green-info">
+                                <h5 style="font-weight: bolder; color: #56E6A5;">+</h5><span style="margin-left: 15px;">Lorem Ipsolum</span>
+                                 </div>
+                                 <div class="green-info">
+                                    <h5 style="font-weight: bolder; color: #56E6A5;">+</h5><span style="margin-left: 15px;">Lorem Ipsolum</span>
+                                     </div>
+                                     <div class="green-info">
+                                        <h5 style="font-weight: bolder; color: #56E6A5;">+</h5><span style="margin-left: 15px;">Lorem Ipsolum</span>
+                                         </div>
+                            
+                            </div>
+                        </div>
+
+                         
+                <!--Editing Package-->
+                <div class="col-8">
+                    <div style="display: flex;">
+                    <h5 class="form-header" style="margin-top: 15px;"><strong>Edit Subscription</strong></h5>
+
+                </div>
+
+                    <hr style="width: 400px;">
+                    <form [formGroup]="editForm" >
+               
+                      <fieldset>
+                          
+                    
+                        <label for="subscription_name" >Name</label>
+                        <input type="text" id="name" name="subscription_name" formControlName="name" placeholder="">
+                        <div
+                        *ngIf="edit['name'].invalid && (edit['name'].dirty || edit['name'].touched)"
+                        class="alert alert-danger" style="width: 380px; border-radius: 4px;" >
+                        <span *ngIf="edit['name'].errors?.['required']" style="color:#f98f8f;">subscription name is required</span>
+                        <span *ngIf="edit['name'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+              
+                         </div>
+              
+                         <label for="Price" >Price</label>
+                         <input type="text" id="price" name="price" formControlName="price" placeholder="">
+                         <div
+                         *ngIf="edit['price'].invalid && (edit['price'].dirty || edit['price'].touched)"
+                         class="alert alert-danger" style="width: 380px; border-radius: 4px;">
+                         <span *ngIf="edit['price'].errors?.['required']" style="color:#f98f8f;">Price is required</span>
+                         <span *ngIf="edit['price'].errors?.['notANumber']" style="color:#f98f8f;">Invalid price entered</span>
+
+              
+                          </div>
+              
+                       
+              
+                          <label for="Expiry Date" >Agents</label>
+                         <input type="text" id="Agents" name="Agents" formControlName="agents" placeholder="">
+                         <div
+                         *ngIf="edit['agents'].invalid && (edit['agents'].dirty || edit['agents'].touched)"
+                         class="alert alert-danger" style="width:380px; border-radius: 4px;">
+                         <span *ngIf="edit['agents'].errors?.['required']" style="color:#f98f8f;">Agents is required</span>
+                         <span *ngIf="edit['agents'].errors?.['notANumber']" style="color:#f98f8f;">Please enter valid number of agents</span>
+
+                          </div>
+
+                          <label for="customer Link" class="input-fields">Enable Customenr Link</label>
+              
+                          <select formControlName="customerLink" style="width: 380px;">
+                              <option value="Option 1"> Yes </option>
+                              <option value="Oprion 2"> No </option>
+                          </select>
+              
+                          <div
+                          *ngIf="edit['customerLink'].invalid && (edit['status'].dirty || edit['customerLink'].touched)"
+                          class="alert alert-danger" style="width: 380px; border-radius: 4px;">
+                          <span *ngIf="edit['customerLink'].errors?.['required']" style="color:#f98f8f">Please select your option</span>
+                           </div>
+
+                          <label for="status" class="input-fields">Status</label>
+              
+                          <select formControlName="status" style="width: 380px;">
+                              <option value="active-status" class="option-status"> active </option>
+                              <option value="not-active"> active </option>
+                              <option value="not-active"> active </option>
+                          </select>
+              
+                          <div
+                          *ngIf="edit['status'].invalid && (edit['status'].dirty || edit['status'].touched)"
+                          class="alert alert-danger" style="width: 380px; border-radius: 4px;">
+                          <span *ngIf="edit['status'].errors?.['required']" style="color:#f98f8f">Please select status</span>
+                           </div>
+                      </fieldset>
+          
+                      <button type="submit" style ="width:100px; margin-top: 25px; margin-left: 280px;"class="nextButton" [disabled]="editForm.invalid">Save</button>
+                  </form>
+              
+
+                </div>
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+
+           
+
+         
+
+        </div>
+
+        </div>
+       
+          
+      </div>
+
+</body>
+
+<script>
+  
+</script>
+</html>
