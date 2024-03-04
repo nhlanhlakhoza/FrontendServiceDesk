@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,11 @@ import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.compo
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
 import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-subscription.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BarGraphComponent } from './bar-graph/bar-graph.component';
+import { UnresolvedComponent } from './unresolved/unresolved.component';
+import { InProgressComponent } from './in-progress/in-progress.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +67,10 @@ import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-
     AdminUsersComponent,
     SubscriptionsComponent,
     AdminSettingsComponent,
-    EditSubscriptionComponent
+    EditSubscriptionComponent,
+    BarGraphComponent,
+    UnresolvedComponent,
+    InProgressComponent
 
   ],
   imports: [
@@ -71,6 +80,8 @@ import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-
     Ng2SearchPipeModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+    MatSnackBarModule, 
+    BrowserAnimationsModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 

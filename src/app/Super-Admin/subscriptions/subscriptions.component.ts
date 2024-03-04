@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 @Component({
   selector: 'app-subscriptions',
   templateUrl: './subscriptions.component.html',
   styleUrls: ['./subscriptions.component.css']
 })
 export class SubscriptionsComponent {
+
+
+  constructor(private _snackBar: MatSnackBar) {}
 
      subscriptionForm:FormGroup = new FormGroup({
       id: new FormControl('0'),
@@ -39,6 +45,18 @@ onlyAcceptNumber(): ValidatorFn {
     return valid ? null : { 'invalidMobileNumber': { value: value } };
   };
 }
+
+/*Creatng an alert when the 'CANCEL' button is clicked
+
+openSnackBar(message: string, action: string) {
+  this._snackBar.open(message, action, {
+    duration: 2000, // duration in milliseconds
+  });
+}
+
+showAlert() {
+  this.openSnackBar('Are you sure you want to Cancel' + this.subscriptionForm.controls(), 'Close');
+}*/
 
      
 }
