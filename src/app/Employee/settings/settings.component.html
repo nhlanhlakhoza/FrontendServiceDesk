@@ -64,7 +64,7 @@
                   <div
                   *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
+                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f" >Full name is required</span>
                   <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
 
                    </div>
@@ -110,7 +110,7 @@
             </form>
 
             <!--Change password Form-->
-            <form [formGroup]="profileForm" *ngIf="currentForm === 'form5'" >
+            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form5'" >
                
               <fieldset>
             
@@ -120,25 +120,33 @@
                  <input type="password" id="password" name="user_password" formControlName="old_password">
                  <div
                  *ngIf="password['old_password'].invalid && (password['old_password'].dirty || password['old_password'].touched)"
-                 class="alert alert-danger">
-                 <span *ngIf="password['old_password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
+                 >
+                 <div *ngIf="password['old_password'].errors?.['required']" class="alert alert-danger" style="color:#f98f8f">Old password is required</div>
+                 <div *ngIf="password['old_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
+                 <div *ngIf="password['old_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
+
                   </div>
 
                   <label for="new_password" class="input-fields">New Password</label>
                   <input type="password" id="password" name="user_password" formControlName="new_password">
                   <div
                   *ngIf="password['new_password'].invalid && (password['new_password'].dirty || password['new_password'].touched)"
-                  class="alert alert-danger">
-                  <span *ngIf="password['new_password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
-                   </div>
+                  >
+                  <span *ngIf="password['new_password'].errors?.['required']" class="alert alert-danger">New password is required</span>
+                  <div *ngIf="password['new_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
+                  <div *ngIf="password['new_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
+ 
+                
+                </div>
 
-                   <label for="old_password" class="input-fields">Confirm Password</label>
+                   <label for="confirm_password" class="input-fields">Confirm Password</label>
                    <input type="password" id="password" name="user_password" formControlName="confirm_password">
                    <div
                    *ngIf="password['confirm_password'].invalid && (password['confirm_password'].dirty || password['confirm_password'].touched)"
                    class="alert alert-danger">
-                   <span *ngIf="password['confirm_password'].getError('required')" style="color:#f98f8f">Password is required</span>
-                   
+                   <span *ngIf="password['confirm_password'].getError('required')" style="color:#f98f8f">Please confirm your password</span>
+                   <span *ngIf="password['confirm_password'].errors?.['MustMatch']" style="color:#f98f8f">Password does not match</span>
+
                     </div>
                     
 

@@ -3,16 +3,15 @@ import { FormControl, FormGroup, Validators,FormBuilder, ValidatorFn, AbstractCo
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-settings',
-  templateUrl: './admin-settings.component.html',
-  styleUrls: ['./admin-settings.component.css']
+  selector: 'app-company-settings',
+  templateUrl: './company-settings.component.html',
+  styleUrls: ['./company-settings.component.css']
 })
-export class AdminSettingsComponent {
-
+export class CompanySettingsComponent {
   constructor(private fb: FormBuilder) {}
 
   
-
+//Change profile details form
   profileForm: FormGroup = new FormGroup({
     fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
     email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
@@ -29,6 +28,15 @@ export class AdminSettingsComponent {
     confirm_password: ['', [Validators.required]],
   }, { validators: this.MustMatch('new_password', 'confirm_password') });
   
+//Adding a User form
+  add_user_form: FormGroup = new FormGroup({
+    fullName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
+    designation: new FormControl('',[Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone_number: new FormControl('',[Validators.required, Validators.maxLength(10), this.onlyAcceptNumber()]),
+    status: new FormControl('', Validators.required),
+
+    });
 
   //comfirm password
   MustMatch( password:any, confirm_password:any)
@@ -57,6 +65,20 @@ export class AdminSettingsComponent {
      toggleForms(form: string) {
        this.currentForm = form;
      }
+
+       //Validating Agents number
+
+      onlyAcceptNumber(): ValidatorFn {
+        return (control: AbstractControl): {[key: string]: any} | null => {
+          const value = control.value;
+          if (isNaN(value)) {
+            return { 'notANumber': { value: value } };
+          }
+          const mobileNumberRegex = /^[A-Z]{10}$/; // Change this regex based on your mobile number format
+          const valid = mobileNumberRegex.test(value);
+          return valid ? null : { 'invalidMobileNumber': { value: value } };
+        };
+      }
   
      //Validating if the Full Name contains numbers
   
@@ -75,6 +97,9 @@ export class AdminSettingsComponent {
   
     get profile (){return this.profileForm.controls;}
     get password (){return this.passwordForm.controls;}
+    get add (){return this.add_user_form.controls;}
+
 
 
 }
+

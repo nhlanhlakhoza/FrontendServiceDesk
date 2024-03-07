@@ -28,8 +28,8 @@ export class SettingsComponent {
   passwordForm: FormGroup = this.fb.group({
     old_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
     new_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-    confirm_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-  }, { /*validators: this.MustMatch('new_password', 'confirm_password')*/ });
+    confirm_password: ['', [Validators.required]],
+  }, { validators: this.MustMatch('new_password', 'confirm_password') });
   
 
   //comfirm password

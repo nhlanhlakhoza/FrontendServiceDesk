@@ -46,13 +46,16 @@
       box-sizing: border-box;
     }
     
-    .form {
-        width: 100%; /* Make the form width 100% */
-        /* You can also add padding or margin as needed */
-    }
+  
     
     form {
+      width: 400px;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background: #fff;
+      border-radius: 8px;
       word-wrap: break-word;
+      
   
     }
     
@@ -60,19 +63,8 @@
       margin: 0 0 30px 0;
       text-align: center;
     }
-
-   .validation{
-    color:#f98f8f; 
-    margin-bottom: 250px;
-    top: -25px;
-    margin-bottom: 5px;
-    background-color: hsl(355, 100%, 63%);  
-    margin-bottom: 50px;
-    border-radius: 4px;}
-
     
-    
-    input,
+     input,
     
     select {
       background: white;
@@ -82,7 +74,7 @@
       margin: 0;
       outline: 0;
       padding: 15px;
-      width: 800px;
+      width: 100%;
       background-color: #fff;
       color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -94,77 +86,17 @@
     background: rgba(255,255,255,0.1);
     border: none;
     font-size: 12px;
-    height: auto;
     margin: 0;
     outline: 0;
     padding: 15px;
-    width: 800px;    background-color: #fff;
+    width: 100%;
+    background-color: #fff;
     color: #9E9E9E;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 5px;
     border: 1px solid #E7E7E7;
     border-radius: 4px;
     height: 100px;
-  }
-
-  .text-class{
-    background: white;
-    border: none;
-    font-size: 12px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
-    width: 100%;
-    background-color: #fff;
-    color: #9E9E9E;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 4px;
-    height: auto;
-  }
-
-  .nextButton
-{
-    color: #fff;
-    background-color: #3818D9;
-    font-style: normal;
-    border-radius: 5px;
-    width: 150px;
-    height: 40px;
-    margin-bottom: 10px;
-    margin-left: 650px;
-    border: 1px solid #3818D9;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-top: 25px;
-
-}
-.attachButton 
-{
-    color: #5F5F5F;
-    background-color: #fff;
-    font-style: normal;
-    border-radius: 5px;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 10px;
-    width: 150px;
-    border: 1px solid #5F5F5F;
-    margin-left: -35px;
-}
-
-.attachButton [type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
   }
   
     
@@ -174,7 +106,19 @@
       border-radius: 2px;
     }
     
- 
+    button {
+      color: #FFF;
+      background-color: #AE8EF1;
+      
+      font-style: normal;
+      border-radius: 5px;
+      width: 100%;
+      border: 1px solid #AE8EF1;
+      border-width: 1px 1px 3px;
+      height: 50px;
+      margin-bottom: 10px;
+   
+    }
     
     fieldset {
       margin-bottom: 5px;
@@ -218,6 +162,14 @@
       }
     
     }
+
+    .content {
+        margin-left: 250px; /* Same as the width of the sidebar */
+        padding: 20px;
+        width: calc(100% - 250px); /* Calculate width to fill remaining space */
+        height:(100% - 75px); /* Calculate height to fill remaining space */
+        background-color: #F9F9FB;
+      }
   
     .content-background
   {
@@ -228,44 +180,25 @@
   }
   
   #content{
-    background-color: #e7e7fe;
+    background-color: white;
     border-radius: 4px;
     margin-right: 15px;
     padding: 15px;
     padding-top: 0px;
     word-wrap: break-word;
-    height: 250px;
-    width: 400px;
-  }
-
-  .notifications{
-    background-color: #e7e7fe;
-    border-radius: 4px;
-    margin-right: 15px;
-    padding: 15px;
-    padding-top: 0px;
-    word-wrap: break-word;
-    height: 500px;
-    width: 800px;
-  }
-
-  .settings-menu
-  {
-    font-weight: bold;
-    margin-top: -20px;
-    color: #84818A;
-  }
-  .settings-menu li a
-  {
-    text-decoration: none;
-  }
-
-  .settings-menu li a:hover
-  {
-    text-decoration: none;
-    color: inherit;
+    height: 300px;
   }
   
+  #details{
+    background-color: white;
+    border-radius: 4px;
+    margin-right: 15px;
+    padding: 15px;
+    padding-top: 0px;
+    word-wrap: break-word;
+    height: 350px;
+    width: 250px;
+  }
   
   
   .ticket-header{
@@ -314,119 +247,21 @@
     height: 30px;
     width: 40px;
     margin-bottom: 10px;
-    margin-right: 25px;
-  
+    margin-right: 10px;
   }
   
-  #ticket-details
+  .filterButton
   {
-    background: #fff;
-    border-radius: 4px;
-    word-wrap: break-word;
-    margin: 10px auto;
-    padding: 10px 20px;
-    height: 290px;
-    top:-10px;
-    
+      color: #5F5F5F;
+      background-color: #ECECEC;
+      font-style: normal;
+      border-radius: 5px;
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      width: 150px;
+      border: none;
   }
-
-  .activity{
-    background: #fff;
-    border-radius: 4px;
-    word-wrap: break-word;
-    margin: 10px auto;
-    padding: 10px 20px;
-    height: 300px;
-    width: 315px;
-    margin-left: 1005px;
-    margin-top: -300px;  
-    right: -25px;
-  }
-
-  .ticket-id
-  {
-    color: #000;
-    border-bottom: 1px solid grey;
-    height: 10px;
-    margin-left: 10px;
-    font-stretch: 150%;
-  }
-
-  .ticket-status
-  {
- 
-    color: #03781D;
-    border-bottom: 1px solid #03781D;
-    height: 10px;
-    margin-left: 10px;
-    font-stretch:expanded;
-  }
-
-  .ticket-priority
-  {
- 
-    color: #BA1717;
-    border-bottom: 1px solid #E2A1A1;
-    height: 10px;
-    margin-left: 10px;
-    font-stretch:expanded;
-  }
-
-  .message-body{
-    background: #202020;
-    border-radius: 4px;
-    word-wrap: break-word;
-    margin: 10px auto;
-    padding: 10px 20px;
-    height: auto;
-    width: 950px;
-  }
-
-  .replied{
-
-    background: #F7F5FF;
-    border-radius: 4px;
-    word-wrap: break-word;
-    margin: 10px auto;
-    padding: 10px 20px;
-    height: auto;
-    width:auto;
-    margin-left: 350px;
-    overflow-y: auto;
-    margin-right: 5px;
-
-  }
-
-  .message-input{
-    background: white;
-    border-radius: 4px;
-    word-wrap: break-word;
-    margin: 10px auto;
-    padding: 10px 20px;
-    height: 150px;
-    width: 950px;
-    border: 1px solid #F7F5FF;
-    margin-top: 85px;
-    box-shadow: -5px 5px 10px #F7F5FF, 5px 5px 10px #F7F5FF, 0px 5px 10px #F7F5FF; 
-    overflow-y: auto;
-
-  }
-  .alert.alert-danger {
-    background-color: #f8d7da; /* Red color for error */
-    border-color: #f5c6cb; /* Border color */
-    color: #721c24; /* Text color */
-    border-radius: 4px;
-    padding: 5px;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    width: 800px;
-}
-
-
-
-  
-
-
   
   
   

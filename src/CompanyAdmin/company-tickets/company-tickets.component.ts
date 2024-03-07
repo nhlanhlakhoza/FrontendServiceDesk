@@ -3,12 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-no-tickets',
-  templateUrl: './no-tickets.component.html',
-  styleUrls: ['./no-tickets.component.css']
+  selector: 'app-company-tickets',
+  templateUrl: './company-tickets.component.html',
+  styleUrls: ['./company-tickets.component.css']
 })
-export class NoTicketsComponent {
-
+export class CompanyTicketsComponent {
 
   ticketForm:FormGroup = new FormGroup({
 
@@ -19,15 +18,21 @@ export class NoTicketsComponent {
 
   })
 
+  activeTab: string = 'tab1';
+
+  setActiveTab(tab: string): void {
+    this.activeTab = tab;
+  }
+
+  //Toggling through the buttons
+  currentForm: string = 'form1';
+
+  toggleForms(form: string) {
+    this.currentForm = form;
+  }
+  
   get new_ticket (){return this.ticketForm.controls;}
 
 
-    //Dropdown on an action Icon
- 
-    isDropdownOpen: boolean = false;
 
-    toggleDropdown(event: Event): void {
-        event.stopPropagation(); // Prevents the event from bubbling up to parent elements
-        this.isDropdownOpen = !this.isDropdownOpen;
-    }
 }

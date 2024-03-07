@@ -5,12 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FooterComponent } from './Company/layout/footer/footer.component';
-import { LoginComponent } from './Company/pages/authentication/login/login.component';
-import { RegisterComponent } from './Company/pages/authentication/register/register.component';
-import { MainComponent } from './Company/pages/main/main.component';
+
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ForgotpasswordComponent } from './Company/pages/authentication/forgotpassword/forgotpassword.component';
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { TemplateComponent } from './End-user/pages/template/template.component';
 import { DashboardComponent } from './End-user/components/dashboard/dashboard.component';
@@ -30,7 +26,7 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component';
-import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
@@ -39,15 +35,21 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BarGraphComponent } from './bar-graph/bar-graph.component';
 import { UnresolvedComponent } from './unresolved/unresolved.component';
 import { InProgressComponent } from './in-progress/in-progress.component';
+import { SidebarComponent } from '../CompanyAdmin/sidebar/sidebar.component';
+import { TopMenuComponent } from '../CompanyAdmin/top-menu/top-menu.component';
+import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-dashboard/company-admin-dashboard.component';
+import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
+import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
+import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent,
-    MainComponent,
-    ForgotpasswordComponent,
+
     TemplateComponent,
     DashboardComponent,
     TicketsComponent,
@@ -70,7 +72,14 @@ import { InProgressComponent } from './in-progress/in-progress.component';
     EditSubscriptionComponent,
     BarGraphComponent,
     UnresolvedComponent,
-    InProgressComponent
+    InProgressComponent,
+    SidebarComponent,
+    TopMenuComponent,
+    CompanyAdminDashboardComponent,
+    ReportsComponent,
+    CompanyTicketsComponent,
+    CompanySettingsComponent,
+ 
 
   ],
   imports: [

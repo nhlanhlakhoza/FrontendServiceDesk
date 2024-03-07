@@ -70,9 +70,26 @@
     margin-bottom: 50px;
     border-radius: 4px;}
 
-    
-    
     input,
+    
+    select {
+      background: white;
+      border: none;
+      font-size: 12px;
+      height: 40px;
+      margin: 0;
+      outline: 0;
+      padding: 15px;
+      width: 100%;
+      background-color: #fff;
+      color: #9E9E9E;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+      margin-bottom: 5px;
+      border: 1px solid #E7E7E7;
+       border-radius: 4px;
+    } 
+    
+    form input,
     
     select {
       background: white;
@@ -124,6 +141,12 @@
     border-radius: 4px;
     height: auto;
   }
+  .active-status
+  {
+    color: #0FB967;
+    font-weight: bold;
+  }
+  
 
   .nextButton
 {
@@ -140,6 +163,18 @@
     padding-right: 5px;
     margin-top: 25px;
 
+}
+.addButton
+{
+  color: #fff;
+  background-color: #3818D9;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    width: auto;
+    border: none;
 }
 .attachButton 
 {
@@ -234,7 +269,17 @@
     padding: 15px;
     padding-top: 0px;
     word-wrap: break-word;
-    height: 250px;
+    height: 300px;
+    width: 400px;
+  }
+  #content2{
+    background-color: #fff;
+    border-radius: 4px;
+    margin-right: 15px;
+    padding: 15px;
+    padding-top: 0px;
+    word-wrap: break-word;
+    height: auto;
     width: 400px;
   }
 
@@ -422,23 +467,59 @@
     width: 800px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0px;
+    margin-top: 45px;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th{
+    background-color: #F1F0FE;
+    height: 60px;
+}
 
 
-  
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-    
-  
+tr:not(:first-child) {
+    border-top: 1px solid #ddd;
+}
+
+/*Top menu 2*/
+.top-menu2 {
    
-    
+    color: #9E9E9E;
+    width: calc(100% - 0px); /* Calculate width to fill remaining space */
+    height: auto;
+  }
   
+  .top-menu2 nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
   
+  .top-menu2 nav ul li {
+    display: inline-block;
+  }
+  
+  .top-menu2 nav ul li a {
+    color: #9E9E9E;
+    text-decoration: none;
+    text-align: left;
+
+  }
+  #top-menu2 nav ul li a.active {
+    background-color: #007bff; /* Change background color for active tab */
+    color: white; /* Change text color for active tab */
+  }
+
+
+
+
   

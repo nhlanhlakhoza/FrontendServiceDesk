@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Company/pages/authentication/login/login.component';
-import { RegisterComponent } from './Company/pages/authentication/register/register.component';
-import { MainComponent } from './Company/pages/main/main.component';
-import { ForgotpasswordComponent } from './Company/pages/authentication/forgotpassword/forgotpassword.component';
+
 import { TemplateComponent } from './End-user/pages/template/template.component';
 import { UserLoginComponent } from './End-user/pages/user-login/user-login.component';
-import { TicketsComponent } from './End-user/components/tickets/tickets.component';
 import { EmployeeLoginComponent } from './Employee/employee-login/employee-login.component';
 import { EmployeeRegisterComponent } from './Employee/employee-register/employee-register.component';
 import { EmployeeForgortPasswordComponent } from './Employee/employee-forgort-password/employee-forgort-password.component';
@@ -17,21 +13,22 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component'; 
-import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
 import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-subscription.component';
+import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-dashboard/company-admin-dashboard.component';
+import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
+import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
+import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
+
 
 
 const routes: Routes = [
   
   {path:"success",component:TemplateComponent},
-  {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"main",component:MainComponent},
-  {path:"tickets", component:TicketsComponent},
-  {path:"forgotpwd",component:ForgotpasswordComponent},
+
   {path:"",component:UserLoginComponent},
   {path:"employee-login",component:EmployeeLoginComponent},
   {path:"employee-register",component:EmployeeRegisterComponent},
@@ -52,6 +49,13 @@ const routes: Routes = [
   {path:"admin-subscriptions",component:SubscriptionsComponent},
   {path:"admin-settings",component:AdminSettingsComponent},
   {path:"edit-subscription",component:EditSubscriptionComponent},
+
+
+  //Company Admins' routes
+  {path:"company-dashboard",component:CompanyAdminDashboardComponent},
+  {path:"company-settings",component:CompanySettingsComponent},
+  {path:"company-reports",component:ReportsComponent},
+  {path:"company-tickets",component:CompanyTicketsComponent},
 
 
 

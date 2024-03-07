@@ -1,0 +1,387 @@
+<app-sidebar></app-sidebar>
+<app-top-menu></app-top-menu>
+
+<div class="content">
+    <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
+    <hr/>
+    <p></p>
+    <div class="container text-left">
+      <div class="row">
+        
+        <div class="col-4" id="content">
+
+            <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
+            <hr/>
+             <ul class="settings-menu">
+                <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
+                <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Agents & Employees </a></li>
+
+           
+            </ul>
+
+
+            </div>
+        <br>
+        <br>
+
+        <div class="col-7">
+
+            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
+               
+                <fieldset>
+              
+                  <label for="email" >Name</label>
+                  <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
+                  <div
+                  *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
+                  class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
+                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
+                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+
+                   </div>
+
+                   <label for="email" class="input-fields">Email</label>
+                  <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
+                  <div
+                  *ngIf="profile['email'].invalid && (profile['email'].dirty || profile['email'].touched)"
+                  class="alert alert-danger">
+                  <span *ngIf="profile['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
+                  <span *ngIf="profile['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+                   </div>
+                   <!--
+                   <label for="password" class="input-fields">Password</label>
+                   <input type="password" id="password" name="user_password" formControlName="password">
+                   <div
+                   *ngIf="profile['password'].invalid && (profile['password'].dirty || profile['password'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
+                    </div>-->
+
+                    <label for="password" class="input-fields">Date Of Birth</label>
+                   <input type="text" id="dob" name="user_dob" formControlName="dob">
+                   <div
+                   *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f">Date of birth is required</span>
+                    </div>
+
+                    <label for="country" class="input-fields">Country</label>
+                   <input type="text" id="country" name="user_country" formControlName="country">
+                   <div
+                   *ngIf="profile['country'].invalid && (profile['country'].dirty || profile['country'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
+                    </div>
+                </fieldset>
+                
+                 
+               
+                <button type="submit" class="nextButton" [disabled]="profileForm.invalid">Save changes</button>
+                
+            </form>
+
+            <!--Change password Form-->
+            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'" >
+               
+              <fieldset>
+            
+               
+                 
+                 <label for="old_password" class="input-fields">Old Password</label>
+                 <input type="password" id="password" name="user_password" formControlName="old_password">
+                 <div
+                 *ngIf="password['old_password'].invalid && (password['old_password'].dirty || password['old_password'].touched)"
+                 >
+                 <div *ngIf="password['old_password'].errors?.['required']" class="alert alert-danger" style="color:#f98f8f">Old password is required</div>
+                 <div *ngIf="password['old_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
+                 <div *ngIf="password['old_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
+
+                  </div>
+
+                  <label for="new_password" class="input-fields">New Password</label>
+                  <input type="password" id="password" name="user_password" formControlName="new_password">
+                  <div
+                  *ngIf="password['new_password'].invalid && (password['new_password'].dirty || password['new_password'].touched)"
+                  class="alert alert-danger">
+                  <span *ngIf="password['new_password'].errors?.['required']" style="color:#f98f8f">New password is required</span>
+                  <div *ngIf="password['new_password'].errors?.['minlength']" style="color:#f98f8f">Password must be at least 8 characters long.</div>
+                  <div *ngIf="password['new_password'].errors?.['maxlength']"  style="color:#f98f8f">Password must be less then 12 characters long.</div>
+ 
+                
+                </div>
+
+                   <label for="confirm_password" class="input-fields">Confirm Password</label>
+                   <input type="password" id="password" name="user_password" formControlName="confirm_password">
+                   <div
+                   *ngIf="password['confirm_password'].invalid && (password['confirm_password'].dirty || password['confirm_password'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="password['confirm_password'].getError('required')" style="color:#f98f8f">Please confirm your password</span>
+                   <span *ngIf="password['confirm_password'].errors?.['MustMatch']" style="color:#f98f8f">Password does not match</span>
+
+                    </div>
+                    
+
+               
+              </fieldset>
+              
+               
+             
+              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">Save Password</button>
+              
+          </form>
+
+          <!--Add User form-->
+
+          <form [formGroup]="add_user_form" *ngIf="currentForm === 'form7'" >
+            <span class="form-header"><strong>Add Agent</strong></span>
+            <hr style="width: 800px;">
+               
+            <fieldset>
+          
+              <label for="fullName" >Full Name</label>
+              <input type="text" id="fullName" name="fullName" formControlName="fullName" placeholder="">
+              <div
+              *ngIf="add['fullName'].invalid && (add['fullName'].dirty || add['fullName'].touched)"
+              class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
+              <span *ngIf="add['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
+              <span *ngIf="add['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+
+               </div>
+
+                
+               <label for="designation" class="input-fields">Designation</label>
+               <input type="text" id="designation" name="designation" formControlName="designation">
+               <div
+               *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)"
+               class="alert alert-danger">
+               <span *ngIf="add['designation'].errors?.['required']" style="color:#f98f8f">Designation is required</span>
+                </div>
+
+               <label for="email" class="input-fields">Email</label>
+              <input type="email" id="mail" name="user_email" formControlName="email" placeholder="">
+              <div
+              *ngIf="add['email'].invalid && (add['email'].dirty || add['email'].touched)"
+              class="alert alert-danger">
+              <span *ngIf="add['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
+              <span *ngIf="add['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+               </div>
+              
+
+                <label for="phone_number" class="input-fields">Phone Number</label>
+               <input type="text" id="phone_number" name="phone_number" formControlName="phone_number">
+               <div
+               *ngIf="add['phone_number'].invalid && (add['phone_number'].dirty || add['phone_number'].touched)"
+               class="alert alert-danger">
+               <span *ngIf="add['phone_number'].errors?.['required']" style="color:#f98f8f">Phone Number is required</span>
+               <span *ngIf="add['phone_number'].errors?.['notANumber']" style="color:#f98f8f;">Please enter valid phone number</span>
+
+                </div>
+
+                <label for="status" class="input-fields">Status</label>
+               <input type="text" id="status" name="status" formControlName="status">
+               <div
+               *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
+               class="alert alert-danger">
+               <span *ngIf="add['status'].errors?.['required']" style="color:#f98f8f">Status is required</span>
+                </div>
+            </fieldset>
+            
+             
+           
+            <button type="submit" class="nextButton" [disabled]="add_user_form.invalid">Add User</button>
+            
+        </form>
+
+
+
+          
+                 <!--Privacy-->
+                 <div class="notifications" *ngIf="currentForm === 'form4'">
+
+                    <span class="form-header" style="font-weight: bold; margin-top: 5px;">Privacy</span>
+                    <hr>
+    
+                    <ol>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </li>
+    
+                    </ol>
+    
+    
+    
+                </div>
+
+                <!--Agents-->
+                <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" *ngIf="currentForm === 'form5'" >
+                    <div class="row">
+                        
+         
+    
+             <div class="col" id="details"   id="content2">
+                <div class="top-menu2">
+                    <nav>
+                      <ul>
+                        <li style="left: -35px;"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
+                        <li ><a  (click)="toggleForms('form6')">Employees</a></li>
+                        <li style="margin-left: 35px;">
+                          <input type="text" placeholder="Search Users"> 
+                        </li>
+                        <li style="margin-left: 35px;">
+                            <button class="addButton" (click)="toggleForms('form7')">
+                                <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+                                
+                                Add</button>
+                        </li>
+             
+                      </ul>
+                    </nav>
+
+                    <hr/>
+                    
+                  </div>
+                <h5 style="margin-top: 10px;"><strong>Agents & Admins</strong></h5>
+    
+              
+    <table>
+        <thead>
+            <tr>
+                <th style="    border-top-left-radius: 14px;border-bottom-left-radius: 14px;">Name</th>
+                <th>Designation </th>
+                
+    
+                
+                <th style="    border-top-right-radius: 14px;border-bottom-right-radius: 14px;">Member</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Smith</td>
+                <td>Agent</td>
+                <td><span>Agent</span><br><span class="active-status">Active</span></td>
+       
+            </tr>
+            <tr>
+                <td>John Smith</td>
+                <td>Agent</td>
+                <td><span>Agent</span><br><span class="active-status">Active</span></td>
+           
+                
+            </tr>
+            <tr>
+                <td>John Smith</td>
+                <td>Agent</td>
+                <td><span>Agent</span><br><span class="active-status">Active</span></td>
+             
+            </tr>
+        </tbody>
+    </table>
+    
+             </div>
+             
+            
+                    </div>
+         
+
+          
+
+   
+        </div>
+
+            <!--Employess-->
+            <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" *ngIf="currentForm === 'form6'" >
+                <div class="row">
+                    
+     
+
+         <div class="col" id="details"   id="content2">
+            <div class="top-menu2">
+                <nav>
+                  <ul>
+                    <li style="left: -35px;"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
+                    <li ><a  (click)="toggleForms('form6')">Employees</a></li>
+                    <li style="margin-left: 35px;">
+                      <input type="text" placeholder="Search Employees"> 
+                    </li>
+                    <li style="margin-left: 35px;">
+                     
+
+                        <button class="addButton" >
+                            <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+                            
+                            Add</button>
+                    </li>
+         
+                  </ul>
+                </nav>
+
+                <hr/>
+                
+              </div>
+            <h5 style="margin-top: 10px;"><strong>Employees</strong></h5>
+
+          
+<table>
+    <thead>
+        <tr>
+            <th style="    border-top-left-radius: 14px;border-bottom-left-radius: 14px;">Name</th>
+            <th>Designation </th>
+            
+
+            
+            <th style="    border-top-right-radius: 14px;border-bottom-right-radius: 14px;">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John Smith</td>
+            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span class="form-header">Employees' email</span></td>
+   
+        </tr>
+        <tr>
+            <td>John Smith</td>
+            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span class="form-header">Employees' email</span></td>
+       
+            
+        </tr>
+        <tr>
+            <td>John Smith</td>
+            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span class="form-header">Employees' email</span></td>
+         
+        </tr>
+    </tbody>
+</table>
+
+         </div>
+         
+        
+                </div>
+     
+
+      
+
+
+    </div>
+
+       
+      </div>
+     
+      </div>
+
+     
+
+    
+
+    
+  </div>

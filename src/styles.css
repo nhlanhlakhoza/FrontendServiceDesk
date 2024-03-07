@@ -292,6 +292,52 @@ textarea{
     font-stretch:expanded;
   }
 
+  /*Designing the validation box*/
+
+  .validation-box {
+    background-color: #f8d7da; /* Red color for error */
+    color:#f98f8f;
+    border: 1px solid #f5c6cb; /* Border color */
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 12px;
+    width: 1000px;}
+
+   
+  
+    .dropdown-menu {
+      display: none; /* Initially hide the dropdown menu */
+      position: absolute;
+      background-color: #fff;
+      z-index: 1000;
+      width: 20px;
+      font-weight: 12px;
+      left: -250px;
+  }
+  
+  .dropdown-menu.show {
+    display: block !important; /* Show the dropdown menu as a block element */
+          margin: 0;
+      padding: none;
+      height: 50px;
+      width: auto;
+  }
+
+.alert.alert-danger {
+  background-color: #f8d7da; /* Red color for error */
+  border-color: #f5c6cb; /* Border color */
+  color: #721c24; /* Text color */
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: auto;
+}
+  
+  
+
 
 
 
