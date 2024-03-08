@@ -33,7 +33,7 @@ export class CompanySettingsComponent {
     fullName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
     designation: new FormControl('',[Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone_number: new FormControl('',[Validators.required, Validators.maxLength(10), this.onlyAcceptNumber()]),
+    phone_number: new FormControl('',[Validators.required, this.onlyAcceptNumber()]),
     status: new FormControl('', Validators.required),
 
     });

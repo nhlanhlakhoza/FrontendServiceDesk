@@ -5,9 +5,10 @@
     <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
     <hr/>
     <p></p>
+
+    
     <div class="container text-left">
-      <div class="row">
-        
+           
         <div class="col-4" id="content">
 
             <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
@@ -18,16 +19,12 @@
                 <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
                 <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
                 <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Agents & Employees </a></li>
-
-           
+                <li><a  class="form-header" routerLink="/more-settings"> More Settings </a></li>
             </ul>
+         </div>
 
-
-            </div>
-        <br>
-        <br>
-
-        <div class="col-7">
+      <div class="row">
+        <div class="col-7" style="margin-left: 450px;top: -365px;">
 
             <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
                
@@ -342,20 +339,20 @@
     </thead>
     <tbody>
         <tr>
-            <td>John Smith</td>
+            <td><a routerLink="/view-employee">John Smith</a></td>
             <td><span>Agent</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
    
         </tr>
         <tr>
-            <td>John Smith</td>
+            <td><a routerLink="/view-employee">John Smith</a></td>
             <td><span>Agent</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
        
             
         </tr>
         <tr>
-            <td>John Smith</td>
+            <td><a routerLink="/view-employee">John Smith</a></td>
             <td><span>Agent</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
          
@@ -379,9 +376,6 @@
      
       </div>
 
-     
-
     
-
-    
+  </div>
   </div>

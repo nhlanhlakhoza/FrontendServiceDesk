@@ -1,0 +1,57 @@
+.settings-menu
+{
+  font-weight: bold;
+  margin-top: 5px;
+  color: #84818A;
+}
+
+
+
+  #profile-tickets{
+  background-color: #fff;
+  height: 200px;
+  padding: 10px;
+  width: 200px;
+  border-radius: 8px;
+  }
+
+  #content{
+    background-color: #e7e7fe;
+    border-radius: 4px;
+    margin-right: 15px;
+    padding: 15px;
+    padding-top: 0px;
+    word-wrap: break-word;
+    height: auto;
+    width: 400px;
+  }
+  .profileImg
+  {
+    text-align: center;
+    align-items: center;
+    margin-right: 50%;
+    margin-left: 35px;
+    margin-top: 35px;
+  }
+  #profile-details
+  {
+    background-color: #fff;
+  height: 150px;
+  padding: 10px;
+  width: 400px;
+  border-radius: 8px;
+    
+  }
+
+  #ticket-details
+  {
+    background-color: #fff;
+    height: auto;
+    padding: 10px;
+    width: auto;
+    border-radius: 8px;
+    margin-left: 400px;
+    top: -150px;
+  }
+
+  

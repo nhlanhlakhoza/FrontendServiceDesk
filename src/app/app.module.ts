@@ -41,6 +41,8 @@ import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-da
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
 import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
 import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
+import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
+import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
 
 
 
@@ -79,6 +81,8 @@ import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/compa
     ReportsComponent,
     CompanyTicketsComponent,
     CompanySettingsComponent,
+    MoreSettingsComponent,
+    ViewEmployeeComponent,
  
 
   ],

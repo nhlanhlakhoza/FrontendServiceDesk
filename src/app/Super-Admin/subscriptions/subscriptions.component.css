@@ -367,16 +367,14 @@
   .borderless-table {
     border-collapse: collapse;
 }
-
 .borderless-table th,
 .borderless-table td {
     border: 1px solid #E2E3E9;
     text-align: center; /* Align content in the center */
+    padding: 8px; /* Add padding for better spacing */
 }
 
-
-
-th{
+th {
     height: 60px;
     background-color: #F1F0FE;
 }
@@ -384,13 +382,10 @@ th{
 td {
     height: 60px;
     text-align: center;
-
-
+    padding: 8px; /* Add padding for better spacing */
+    word-wrap: break-word;
 }
-th, td {
-    padding: 8px;
-    text-align: center;
-}
+
 
 .edit{
     color: #fff;

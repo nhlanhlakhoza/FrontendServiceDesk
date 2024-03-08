@@ -1,0 +1,62 @@
+<app-sidebar></app-sidebar>
+<app-top-menu></app-top-menu>
+
+<div class="content">
+    <h2 style="margin-bottom: 25px;"><strong>Employee's Name</strong></h2>
+    <hr/>
+
+    <div class="container text-left">
+    <div class="row">  
+        <div class="col-4" id="content">
+
+            <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
+            <hr/>
+             <ul class="settings-menu">
+                <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Profile</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form2')" ><img src="assets/" width= "25" height= "25" style="margin-right: 25px;" > Tickets</a></li>
+            </ul>
+         </div>
+   
+         
+        <div class="col-7">
+            <div id="profile-tickets">
+
+                <img src="../../assets/images/Employee Agent.svg" class="profileImg">
+
+            </div>
+         
+            
+        </div>
+    </div>
+    <div class="col" id="profile-details" style="margin-left: 645px; top: -150px">
+        <!--Employee details-->
+        <div class="form-header">
+            <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Name: <span class="ticket-id">Employee's name</span> </p>
+            <p class="form-header" style="margin-bottom: 5px;">Phone number: <span style="margin-left: 10px;">Employee's number</span></p>        
+            <p class="form-header" style="margin-bottom: 5px;">Email: <span style="margin-left: 10px;">Employee's Email</span></p> 
+            <p class="form-header" style="margin-bottom: 5px;">Department: <span style="margin-left: 10px;">Employee's Dept</span></p>    
+            <hr>
+        </div>
+
+    </div>
+    <div class="col-8 col-sm-6" id="ticket-details" style="margin-top: 25px;"> 
+        <div style="display: flex;">
+        <span class="form-header"><strong>Ticket Handle</strong></span> 
+
+        </div>
+
+        <hr/>
+        <div class="form-header">
+            <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Ticket Solved: <span class="ticket-id">0000</span> </p>
+            <p class="form-header" style="margin-bottom: 5px;">Ticket Pending: <span style="margin-left: 10px;">0000</span></p>        
+            <p class="form-header" style="margin-bottom: 5px;">Ticket in Progress:<span style="margin-left: 10px;">0000</span></p> 
+            <p class="form-header" style="margin-bottom: 5px;">Total Tickets <span style="margin-left: 10px;">0000</span></p>   
+
+        </div>          <br>
+    </div>
+
+       
+ </div>
+  
+      
+    

@@ -22,6 +22,8 @@ import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-da
 import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
 import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
+import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
+import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
 
 
 
@@ -40,6 +42,7 @@ const routes: Routes = [
   {path:"no-tickets",component:NoTicketsComponent},
 
 
+
   //Super Admin's routes
 
   {path:"admin-login",component:AdminLoginComponent},
@@ -56,6 +59,10 @@ const routes: Routes = [
   {path:"company-settings",component:CompanySettingsComponent},
   {path:"company-reports",component:ReportsComponent},
   {path:"company-tickets",component:CompanyTicketsComponent},
+  {path:"more-settings",component: MoreSettingsComponent},
+  {path:"view-employee",component: ViewEmployeeComponent},
+
+
 
 
 
