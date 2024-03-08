@@ -1,39 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <header class="top-menu">
-    <nav>
-      <ul>
-        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
-        <li style="float: inline-end; " class="iconImages"><a><img src="../../../assets/images/Ellipse 73.svg" style="margin-left: -15px;" width="40px" height="40px"><strong style="font-weight: bold;"></strong></a></li>
-        <li style="float: inline-end;" class="iconImages"><a ><img src="../../../assets/images/Notif.svg" width="40px" height="40px"></a></li>
 
-      </ul>
-    </nav>
-  </header>
-  <div class="sidebar">
-    <div class="logo">
-        <img src="../../../assets/images/Icon.png" alt="Logo"> 
-        <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
-      </div>
-    
-    <ul>
+<!--Top menu-->
+<app-top-menu></app-top-menu>
 
-        <li><a routerLink="/admin-dashboard" style="margin-left: 25px; text-decoration: none;">
-            <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Dashboard</a></li>
-          <li><a routerLink="/admin-users" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Headset.svg" width = "25px" height="25px"  class="menuImages">Users</a></li>
-          <li><a routerLink="/admin-subscriptions" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Subscriptions.svg" width = "25px" height="25px"  class="menuImages">Subscriptions</a></li>
-          <li><a routerLink="/admin/settings" style="margin-left: 25px; text-decoration: none;"><img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages">Settings</a></li>
-    
-          <li><a routerLink="/admin-login" style="margin-left: 25px; text-decoration: none; margin-top: 440px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
-    
-      
-    </ul>
-  </div>
+<!--End of Top Menu-->
+
+<!--Sidebar Menu-->
+
+<app-admin-sidebar></app-admin-sidebar>
+<!--End of sidebar menu-->
+
   
   <div class="content">
     <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
@@ -178,12 +153,6 @@
   </div>
   
 
-  
-</body>
 
-<script>
-  
-</script>
-</html>
 
 

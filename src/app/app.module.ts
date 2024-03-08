@@ -44,6 +44,7 @@ import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/compa
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
 import { SidebarEmployeeComponent } from './Employee/sidebar-employee/sidebar-employee.component';
+import { AdminSidebarComponent } from './Super-Admin/admin-sidebar/admin-sidebar.component';
 
 
 
@@ -85,6 +86,7 @@ import { SidebarEmployeeComponent } from './Employee/sidebar-employee/sidebar-em
     MoreSettingsComponent,
     ViewEmployeeComponent,
     SidebarEmployeeComponent,
+    AdminSidebarComponent,
  
 
   ],
