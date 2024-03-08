@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <header class="top-menu">
-    <nav>
-      <ul>
-        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
-        <li style="float: inline-end; " class="iconImages"><a><img src="../../../assets/images/Ellipse 73.svg" style="margin-left: -15px;" width="40px" height="40px"><strong style="font-weight: bold;"></strong></a></li>
-        <li style="float: inline-end;" class="iconImages"><a><img src="../../../assets/images/Notif.svg" width="40px" height="40px"></a></li>
 
-      </ul>
-    </nav>
-  </header>
-  <div class="sidebar">
-    <div class="logo">
-        <img src="../../../assets/images/Icon.png" alt="Logo"> 
-        <p style="white-space: nowrap; margin-left: 15px; margin-top: 15px; font-weight: bold;">Service Desk</p>
-      </div>
-    
-    <ul>
+<!--Top menu-->
+<app-top-menu></app-top-menu>
 
-      <li><a routerLink="#" style="margin-left: 25px; text-decoration: none;">
-        <img src="../../../assets/images/tickets.svg" width = "25px" height="25px"  class="menuImages">Tickets</a></li>
-      <li><a routerLink="/knowledgebase" style="margin-left: 25px;"><img src="../../../assets/images/knowledgebase.svg" width = "25px" height="25px"  class="menuImages">Knowledgebase</a></li>
-      <li><a routerLink="/employee-login" style="margin-left: 25px; text-decoration: none; margin-top: 530px;"><img src="../../../assets/images/Vector.svg" width = "25px" height="25px"  class="menuImages">Logout</a></li>
+<!--End of Top Menu-->
 
-    </ul>
-  </div>
-  
+<!--Sidebar Menu-->
+ <app-sidebar-employee></app-sidebar-employee>
+<!--End of sidebar menu-->
   <div class="content">
     <h2><strong>Ticket</strong></h2>
     <p>This is the main content area.</p>
@@ -203,9 +179,8 @@
   </div>
 
   
-</body>
+
 
 <script>
   
 </script>
-</html>

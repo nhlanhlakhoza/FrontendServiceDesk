@@ -43,6 +43,7 @@ import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company
 import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
+import { SidebarEmployeeComponent } from './Employee/sidebar-employee/sidebar-employee.component';
 
 
 
@@ -83,6 +84,7 @@ import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employ
     CompanySettingsComponent,
     MoreSettingsComponent,
     ViewEmployeeComponent,
+    SidebarEmployeeComponent,
  
 
   ],
