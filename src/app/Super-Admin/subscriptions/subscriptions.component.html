@@ -98,17 +98,29 @@
 
               
                           </div>
+                          <!--
               
                          <label for="Expiry Date" >Expiry Date</label>
                          <input type="text" id="expDate" name="expDate" formControlName="expDate" placeholder="">
-                         <div
-                         *ngIf="add_subscriber['expDate'].invalid && (add_subscriber['expDate'].dirty || add_subscriber['expDate'].touched)"
-                         class="alert alert-danger" style="width: 750px; border-radius: 4px;">
-                         <span *ngIf="add_subscriber['expDate'].errors?.['required']" style="color:#f98f8f;">Expiry date is required</span>
-              
+                        
+                        
+                          </div>-->
+                          <label for="Expiry Date" >Expiry Date</label>
+
+                          <div style="position: relative; width: 740px;">
+                            <input matInput [matDatepicker]="picker" formControlName="expDate" placeholder="Choose a date" style="width: calc(100% - 24px); /* Subtracting the width of the toggler */">
+                            <mat-datepicker-toggle matSuffix [for]="picker" style="position: absolute; right: 0;"></mat-datepicker-toggle>
                           </div>
+                          <mat-datepicker #picker panelClass="datepickerTwo"></mat-datepicker>
+                          <div
+                          *ngIf="add_subscriber['expDate'].invalid && (add_subscriber['expDate'].dirty || add_subscriber['expDate'].touched)"
+                          class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                          <span *ngIf="add_subscriber['expDate'].errors?.['required']" style="color:#f98f8f;">Expiry date is required</span>
+                          </div>
+        
+                          
               
-                          <label for="Expiry Date" >Agents</label>
+                          <label for="Agents" >Agents</label>
                          <input type="text" id="Agents" name="Agents" formControlName="agents" placeholder="">
                          <div
                          *ngIf="add_subscriber['agents'].invalid && (add_subscriber['agents'].dirty || add_subscriber['agents'].touched)"
@@ -116,6 +128,7 @@
                          <span *ngIf="add_subscriber['agents'].errors?.['required']" style="color:#f98f8f;">Agents is required</span>
                          <span *ngIf="add_subscriber['agents'].errors?.['notANumber']" style="color:#f98f8f;">Please enter valid number of agents</span>
 
+                         
                           </div>
                       </fieldset>
               

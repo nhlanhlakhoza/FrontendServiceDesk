@@ -13,7 +13,6 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component'; 
-import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
@@ -24,6 +23,7 @@ import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
+import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -47,11 +47,12 @@ const routes: Routes = [
 
   {path:"admin-login",component:AdminLoginComponent},
   {path:"admin-password",component:AdminFgtPasswordComponent},
-  {path:"admin-dashboard",component:AdminDashboardComponent},
   {path:"admin-users",component:AdminUsersComponent},
   {path:"admin-subscriptions",component:SubscriptionsComponent},
   {path:"admin-settings",component:AdminSettingsComponent},
   {path:"edit-subscription",component:EditSubscriptionComponent},
+  {path:"admin-dashboard",component:AdminDashboardComponent},
+
 
 
   //Company Admins' routes

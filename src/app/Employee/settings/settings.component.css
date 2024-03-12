@@ -422,7 +422,13 @@
     margin-top: 5px;
     width: 800px;
 }
+::ng-deep .datepickerTwo {
+  background:lightblue;
+}
 
+::ng-deep .datepickerTwo .mat-calendar-body-today:not(.mat-calendar-body-selected){
+  border-color:darkblue;
+}
 
   
 

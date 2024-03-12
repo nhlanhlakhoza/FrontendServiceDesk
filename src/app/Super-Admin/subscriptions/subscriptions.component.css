@@ -1,68 +1,4 @@
 
-
-/* Montserrat-300 - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    src: url("/src/fonts/Roboto/Roboto-Light.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Regular.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Italic.ttf");
-    /* IE9 Compat Modes Roboto-Italic.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    src: url("/src/fonts/Roboto/Roboto-Medium.ttf");
-    /* IE9 Compat Modes Roboto-Medium.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    src: url("/src/fonts/Roboto/Roboto-Bold.ttf");
-    /* IE9 Compat Modes Roboto-Bold.ttf*/ }
-  
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 700;
-    src: url("/src/fonts/Roboto/Roboto-BoldItalic.ttf");
-    /* IE9 Compat Modes Roboto-BoldItalic.ttf*/ }
-  
-  
-    *, *:before, *:after {
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    
-
-    .first-second{
-        display: flex;
-
-    }
-
-    .first-second input{
-
-        width:300;
-
-    }
-    .first-second label {
-        display: flex;
-        margin-bottom: 8px;
-        color: #9E9E9E;
-      }
-  
     
     form {
       width: 600px;
@@ -74,23 +10,23 @@
       
     }
 
-    form   input,
-    select {
-      background: white;
-      border: none;
-      font-size: 12px;
-      height: 40px;
-      margin: 0;
-      outline: 0;
-      padding: 15px;
-      width: 750px;
-      background-color: #fff;
-      color: #9E9E9E;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-      margin-bottom: 5px;
-      border: 1px solid #E7E7E7;
-       border-radius: 4px;
-    }
+  /* Adjusted CSS for form elements */
+form input, select {
+  background: white;
+  border: none;
+  font-size: 12px;
+  height: 40px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 750px;
+  background-color: #fff;
+  color: #9E9E9E;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 5px;
+  border: 1px solid #E7E7E7;
+  border-radius: 4px;
+}
 
     .option-status
     {
@@ -102,7 +38,7 @@
       text-align: center;
     }
     
-    input,
+    input, 
     
     select {
       background: white;
@@ -410,6 +346,16 @@ td {
         padding: none;
 
 }
+
+::ng-deep .datepickerTwo {
+  background:lightblue;
+}
+
+::ng-deep .datepickerTwo .mat-calendar-body-today:not(.mat-calendar-body-selected){
+  border-color:darkblue;
+}
+
+
 
 
   

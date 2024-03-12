@@ -1,3 +1,18 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.datepickerOne {
+  background: lightgreen;
+}
+ 
+.datepickerOne .mat-calendar-body-today:not(.mat-calendar-body-selected){
+  border-color: darkgreen;
+}
+
+.mat-datepicker-content .datepickerOne.mat-calendar {
+    width: 500px;
+    height: auto;
+}
+
 @font-face {
   font-family: 'Poppins';
   src: url('/src/fonts/Poppins/Poppins-Light.ttf') , /* Modern Browsers */
@@ -325,16 +340,18 @@ textarea{
       width: auto;
   }
 
-.alert.alert-danger {
-  background-color: #f8d7da; /* Red color for error */
-  border-color: #f5c6cb; /* Border color */
-  color: #721c24; /* Text color */
-  border-radius: 4px;
-  padding: 5px;
-  margin-bottom: 10px;
-  margin-top: 5px;
-  width: auto;
+  .alert.alert-danger {
+    background-color: #f8d7da; /* Red color for error */
+    border-color: #f5c6cb; /* Border color */
+    color: #721c24; /* Text color */
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: auto;
 }
+
+
   
   
 

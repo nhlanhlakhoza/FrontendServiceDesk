@@ -15,7 +15,7 @@ export class CompanySettingsComponent {
   profileForm: FormGroup = new FormGroup({
     fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
     email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
-    dob: new FormControl('22/10/2005', Validators.required),
+    dob: new FormControl(new Date(), Validators.required),
     country: new FormControl('South Sudan', Validators.required),
     });
 

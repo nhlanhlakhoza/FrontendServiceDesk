@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -19,9 +19,9 @@ export class SubscriptionsComponent {
       name: new FormControl('',[Validators.required]),
       expDate: new FormControl('', [Validators.required]),
       status: new FormControl('', Validators.required),
-      price: new FormControl('', [Validators.required,this.onlyAcceptNumber()]),
-      agents: new FormControl('', [Validators.required, this.onlyAcceptNumber()])
-     })
+      price: new FormControl('', [Validators.required, this.validateNumber.bind(this)]),
+      agents: new FormControl('', [Validators.required, this.validateNumber.bind(this)])
+    })
 
       //Toggling through the buttons
       currentForm: string = 'form1';
@@ -32,31 +32,15 @@ export class SubscriptionsComponent {
 
       get add_subscriber (){return this.subscriptionForm.controls;}
 
-//Validating Agents number
+      //Price and Agents validation
 
-onlyAcceptNumber(): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} | null => {
-    const value = control.value;
-    if (isNaN(value)) {
-      return { 'notANumber': { value: value } };
-    }
-    const mobileNumberRegex = /^[A-Z]{10}$/; // Change this regex based on your mobile number format
-    const valid = mobileNumberRegex.test(value);
-    return valid ? null : { 'invalidMobileNumber': { value: value } };
-  };
-}
-
-/*Creatng an alert when the 'CANCEL' button is clicked
-
-openSnackBar(message: string, action: string) {
-  this._snackBar.open(message, action, {
-    duration: 2000, // duration in milliseconds
-  });
-}
-
-showAlert() {
-  this.openSnackBar('Are you sure you want to Cancel' + this.subscriptionForm.controls(), 'Close');
-}*/
+      validateNumber(control: AbstractControl): ValidationErrors | null {
+        if (isNaN(control.value)) {
+          return { 'notANumber': true };
+        }
+        return null;
+      }
+      
 
      
 }

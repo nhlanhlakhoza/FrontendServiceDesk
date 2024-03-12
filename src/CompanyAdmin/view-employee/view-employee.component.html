@@ -32,9 +32,9 @@
         <!--Employee details-->
         <div class="form-header">
             <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Name: <span class="ticket-id">Employee's name</span> </p>
-            <p class="form-header" style="margin-bottom: 5px;">Phone number: <span style="margin-left: 10px;">Employee's number</span></p>        
-            <p class="form-header" style="margin-bottom: 5px;">Email: <span style="margin-left: 10px;">Employee's Email</span></p> 
-            <p class="form-header" style="margin-bottom: 5px;">Department: <span style="margin-left: 10px;">Employee's Dept</span></p>    
+            <p class="form-header" id="bottomParts">Phone number: <span class="spanAfter">Employee's number</span></p>        
+            <p class="form-header" id="bottomParts">Email: <span class="spanAfter">Employee's Email</span></p> 
+            <p class="form-header" id="bottomParts">Department: <span class="spanAfter">Employee's Dept</span></p>    
             <hr>
         </div>
 
@@ -47,12 +47,29 @@
 
         <hr/>
         <div class="form-header">
-            <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Ticket Solved: <span class="ticket-id">0000</span> </p>
-            <p class="form-header" style="margin-bottom: 5px;">Ticket Pending: <span style="margin-left: 10px;">0000</span></p>        
-            <p class="form-header" style="margin-bottom: 5px;">Ticket in Progress:<span style="margin-left: 10px;">0000</span></p> 
-            <p class="form-header" style="margin-bottom: 5px;">Total Tickets <span style="margin-left: 10px;">0000</span></p>   
+            <div class="row">
+                <div class="col">
+                    <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Ticket Solved:</p>
+                    <p class="form-header" id="bottomParts">Ticket Pending:</p>        
+                    <p class="form-header" id="bottomParts">Ticket in Progress:</p> 
+                    <p class="form-header" id="bottomParts">Total Tickets: </p>   
+                </div>
 
-        </div>          <br>
+                <br>
+                <div class="col">
+                    <span class="ticket-id" style="margin-bottom: 5px; margin-top: 20px;">0000</span><br>
+                    <span class="spanAfter">0000</span><br>    
+                    <span class="spanAfter">0000</span><br>
+                    <span class="spanAfter">0000</span>  
+                </div>
+
+            </div>
+            
+
+        </div>
+
+     
+        </div>
     </div>
 
        

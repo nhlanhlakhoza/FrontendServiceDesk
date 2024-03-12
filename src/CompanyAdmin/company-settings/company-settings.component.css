@@ -518,6 +518,13 @@ tr:not(:first-child) {
     background-color: #007bff; /* Change background color for active tab */
     color: white; /* Change text color for active tab */
   }
+  ::ng-deep .datepickerTwo {
+    background:lightblue;
+  }
+  
+  ::ng-deep .datepickerTwo .mat-calendar-body-today:not(.mat-calendar-body-selected){
+    border-color:darkblue;
+  }
 
 
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,10 +6,5 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-   
-  
 
-  
 }
-  
-  
