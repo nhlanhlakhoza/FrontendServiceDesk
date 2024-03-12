@@ -54,6 +54,7 @@ import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employ
 import { SidebarEmployeeComponent } from './Employee/sidebar-employee/sidebar-employee.component';
 import { AdminSidebarComponent } from './Super-Admin/admin-sidebar/admin-sidebar.component';
 import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
+import { ViewAgentsComponent } from '../CompanyAdmin/view-agents/view-agents.component';
 
 
 
@@ -96,6 +97,7 @@ import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-das
     SidebarEmployeeComponent,
     AdminSidebarComponent,
     AdminDashboardComponent,
+    ViewAgentsComponent,
     
  
 
