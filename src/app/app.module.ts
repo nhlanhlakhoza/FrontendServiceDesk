@@ -1,19 +1,10 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { MatDatepickerModule, MatCalendar } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatDatepicker } from '@angular/material/datepicker';
-
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
-import { DatePipe } from '@angular/common';
-
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
@@ -35,6 +26,7 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component';
+import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
@@ -49,12 +41,10 @@ import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-da
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
 import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
 import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/company-settings.component';
+
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
-import { SidebarEmployeeComponent } from './Employee/sidebar-employee/sidebar-employee.component';
-import { AdminSidebarComponent } from './Super-Admin/admin-sidebar/admin-sidebar.component';
-import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
-import { ViewAgentsComponent } from '../CompanyAdmin/view-agents/view-agents.component';
+
 
 
 
@@ -79,6 +69,7 @@ import { ViewAgentsComponent } from '../CompanyAdmin/view-agents/view-agents.com
     NoTicketsComponent,
     AdminLoginComponent,
     AdminFgtPasswordComponent,
+    AdminDashboardComponent,
     AdminUsersComponent,
     SubscriptionsComponent,
     AdminSettingsComponent,
@@ -94,12 +85,6 @@ import { ViewAgentsComponent } from '../CompanyAdmin/view-agents/view-agents.com
     CompanySettingsComponent,
     MoreSettingsComponent,
     ViewEmployeeComponent,
-    SidebarEmployeeComponent,
-    AdminSidebarComponent,
-    AdminDashboardComponent,
-    ViewAgentsComponent,
-    
- 
 
   ],
   imports: [
@@ -110,18 +95,11 @@ import { ViewAgentsComponent } from '../CompanyAdmin/view-agents/view-agents.com
     NgxSpinnerModule,
     ReactiveFormsModule,
     MatSnackBarModule, 
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    DragDropModule,
-    MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule
-
-    
+    BrowserAnimationsModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

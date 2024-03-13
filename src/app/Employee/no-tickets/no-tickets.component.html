@@ -1,100 +1,92 @@
-<!--Top menu-->
-<app-top-menu></app-top-menu>
+<!--Header-->
 
-<!--End of Top Menu-->
+<!--Sidebar-->
 
-<!--Sidebar Menu-->
- <app-sidebar-employee></app-sidebar-employee>
-<!--End of sidebar menu-->
+<div class="content">
   
-  <div class="content">
-    <h2><strong>Ticket</strong></h2>
-    <p>This is the main content area.</p>
-    <div class="container text-left">
-      <div class="row">
-        <div class="col-8">
 
-            
-            <img src="../../../assets/images/Group 16.svg" style="margin-top: 150px; margin-left: 250px;">
-            <div style="margin-left: 350px; ">
-            <p style="margin-left: 20px; margin-top: 10px;">Hey Username</p><span class="form-header" style="margin-top: -25px;"><i>You do not have any tickets</i></span></div>
-          
-         
-
-
-        </div>
-
-        <div class="col">
-
-        <form [formGroup]="ticketForm" >
-            <span class="form-header">Write and address new queries and issues</span>
-            <hr/>
-            <fieldset>
-          
-              <label for="email" class="input-fields">Company Email</label>
-              <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
-              <div
-              *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-              <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
-               </div>
-            </fieldset>
-            <fieldset>  
-             <label >Request Ticket Type</label>
-              <select id="type" name="" formControlName="type">
-  
-                  <option value=""></option>
-                    <option value="Type 1">Type A</option>
-                    <option value="Type 2">Type B</option>
-  
-              </select>
-              <div
-              *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
-               </div>
-              <label >Priority Status</label>
-  
-              <select id="status" name="" formControlName="priority_status">
-                <option value=""></option>
-                  <option value="Type 1">Type A</option>
-                  <option value="Type 2">Type B</option>
-              </select>
-              <div
-              *ngIf="new_ticket['priority_status'].invalid && (new_ticket['priority_status'].dirty || new_ticket['priority_status'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="new_ticket['priority_status'].errors?.['required']" style="color:#f98f8f">Please select ticket status</span>
-               </div>
-             </fieldset>
-             <span style="max-width:25px"></span>
-             <fieldset>
-              <label >Ticket Body</label>
-              <textarea formControlName="ticketBody" type="text" id="ticketbody" placeholder="Type ticket issue here..">
-                
-              </textarea  >
-              <div
-              *ngIf="new_ticket['ticketBody'].invalid && (new_ticket['ticketBody'].dirty || new_ticket['ticketBody'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="new_ticket['ticketBody'].errors?.['required']" style="color:#f98f8f">Ticket body is required</span>
-               </div>
-             </fieldset>
-             
-           
-            <button type="submit">Submit</button>
-            
-           </form>
-        </div>
-
- 
-    </div>
-
+  <div class="container">
+    <div class="row">
+      <!-- Column for Dynamic Content -->
       
-   
-        
+      <div class="col-md-8">
+        <div>
+          <h2><strong>Ticket</strong></h2>
+          <p>This is the main content area.</p>
+        </div>
+
+        <!-- Dynamic Content Section -->
+       
+
+        <div style="margin-bottom: 20px;">
+          <div class="card">
+            
+            
+            <div class="col-8">
+
+            
+              <img src="../../../assets/images/Group 16.svg" style="margin-top: 150px; margin-left: 250px;">
+              <div style="margin-left: 350px; ">
+              <p style="margin-left: 20px; margin-top: 10px;">Hey Username</p><span class="form-header" style="margin-top: -25px;"><i>You do not have any tickets</i></span></div>
+            
+            
+            
+            
+            </div>
+            
+           
+          </div>
+        </div>
+
+
+
+      </div>
+      
+
+      <!-- Column for Ticket Form -->
+      <div class="col-md-4">
+        <form [formGroup]="ticketForm">
+          <span>Create Quick Ticket</span><br>
+          <span class="form-header">Write and address new queries and issues</span>
+          <hr/>
+          <fieldset>
+            <label for="email" class="input-fields">Company Email</label>
+            <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
+            <div *ngIf="" class="alert alert-danger">
+              <span *ngIf="" style="color:#f98f8f">Email is required</span>
+              <span *ngIf="" style="color:#f98f8f">Please enter valid email</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <label>Request Ticket Type</label>
+            <select id="type" name="" formControlName="type">
+              <option value=""></option>
+              <option value="Type 1">Type A</option>
+              <option value="Type 2">Type B</option>
+            </select>
+            <div *ngIf="" class="alert alert-danger">
+              <span *ngIf="" style="color:#f98f8f">Please select ticket type</span>
+            </div>
+            <label>Priority Status</label>
+            <select id="status" name="" formControlName="priority_status">
+              <option value=""></option>
+              <option value="Type 1">Type A</option>
+              <option value="Type 2">Type B</option>
+            </select>
+            <div *ngIf="" class="alert alert-danger">
+              <span *ngIf="" style="color:#f98f8f">Please select ticket status</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <label>Ticket Body</label>
+            <textarea formControlName="ticketBody" id="ticketbody" placeholder="Type ticket issue here.."></textarea>
+            <div *ngIf="" class="alert alert-danger">
+              <span *ngIf="" style="color:#f98f8f">Ticket body is required</span>
+            </div>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
-
-
-
-
+  </div>
+</div>

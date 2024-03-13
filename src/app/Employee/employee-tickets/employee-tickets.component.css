@@ -46,7 +46,69 @@
     box-sizing: border-box;
   }
   
-
+  .card {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    text-decoration: none;
+    border: none;
+  }
+  
+  .ticket-message {
+    margin-top: 20px;
+  }
+  
+  .urgent-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .urgent-priority {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px;
+  }
+  
+  /* .ticket-id {
+    font-size: smaller; 
+    margin-left: 10px;
+    background-color: rgba(210, 209, 209, 0.3); 
+    color: #ECECEC;
+    border: 1px solid #9E9E9E;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px; 
+  } */
+  .urgent-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .urgent-priority {
+    font-size: smaller; /* Make the text smaller */
+    background-color: rgba(255, 0, 0, 0.3); /* Transparent red */
+    color: red;
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px; /* Add margin to separate from ticket-id */
+  }
+  
+  .ticket-id {
+    font-size: smaller; /* Make the text smaller */
+  }
+  
   
   form {
     width: 400px;
@@ -110,7 +172,6 @@
   button {
     color: #FFF;
     background-color: #AE8EF1;
-    
     font-style: normal;
     border-radius: 5px;
     width: 100%;
@@ -166,20 +227,20 @@
 
   .content-background
 {
-  background-color:#fff;
+  background-color:#F9F9FB;
   border-radius: 4px;
-  width: 900px;
+  width: 100%;
   height: auto;
 }
 
-#content{
-  background-color: white;
+.content{
+  background-color: #F9F9FB;
   border-radius: 4px;
   margin-right: 15px;
   padding: 15px;
-  padding-top: 0px;
+  padding-top: 10px;
   word-wrap: break-word;
-  height: 300px;
+  height: auto;
 }
 
 #details{
@@ -199,18 +260,19 @@
   font-weight: Bold;
   font-size: 15px;
   font-family:'Poppins', sans-serif;
-  margin-left: 15px;
-  border-bottom: 1px solid #E7E7E7;
+  margin-left: -15px;
+  
+ 
 }
 
-.ticket-message
+/* .ticket-message
 {
  
   border-radius: 4px;
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 25px;
-}
+} */
 
 .ticket-details{
   display: inline;
@@ -257,8 +319,110 @@
 }
 
 
+body {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar {
+  width: 20%;
+}
+/* .content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+} */
+.form-container {
+  width: 50%;
+}
+ul, li {
+  list-style-type: none;
+  padding: 0;
+}
+img {
+  width: 25px;
+  height: 25px;
+}
+.menuImages {
+  margin-right: 10px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.button {
+  cursor: pointer;
+}
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.top-menu2 {
+  margin-bottom: 50px;
+  margin-right: 5px;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.ticket-header {
+  /* If there were specific styles, they would go here */
+}
+
+/* .form-header {
+  margin-left: 550px;
+} */
+
+.ticket-message {
+  /* If there were specific styles, they would go here */
+}
+
+.ticket-priority {
+  /* If there were specific styles, they would go here */
+}
+
+.ticket-id {
+  /* If there were specific styles, they would go here */
+}
+
+.previous, .next {
+  /* Add specific styles for these if necessary */
+}
+
+.filterButton {
+  /* Add specific styles for the filter button if necessary */
+}
+
+/* Add any other extracted styles below */
+
+.top-menu2 {
+  margin-bottom: 50px;
+  margin-right: 5px;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+/* .ticket-header, .form-header {
+  display: block; /* Adjust as needed */
 
 
+/* .ticket-message .form-header {
+  margin-left: 550px;
+} */
+
+.ticket-priority, .ticket-id {
+  display: inline-block; /* Adjust based on actual need */
+}
+
+.pagination-container {
+  margin-top: 50px;
+  margin-left: 600px;
+  display: flex;
+}
+
+.pagination-container .form-header {
+  margin-right: 25px;
+}
+
+/* Other styles for buttons, inputs, etc. */
 
 
 
