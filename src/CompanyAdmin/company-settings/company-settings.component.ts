@@ -15,7 +15,7 @@ export class CompanySettingsComponent {
   profileForm: FormGroup = new FormGroup({
     fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
     email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
-    dob: new FormControl('22/10/2005', Validators.required),
+    dob: new FormControl(new Date(), Validators.required),
     country: new FormControl('South Sudan', Validators.required),
     });
 
@@ -33,8 +33,9 @@ export class CompanySettingsComponent {
     fullName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
     designation: new FormControl('',[Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone_number: new FormControl('',[Validators.required, this.onlyAcceptNumber()]),
+    phone_number: new FormControl('',[Validators.required,this.validateNumber.bind(this)]),
     status: new FormControl('', Validators.required),
+    image: new FormControl('', [Validators.required])
 
     });
 
@@ -66,19 +67,14 @@ export class CompanySettingsComponent {
        this.currentForm = form;
      }
 
-       //Validating Agents number
+  //Validating Agents number
 
-      onlyAcceptNumber(): ValidatorFn {
-        return (control: AbstractControl): {[key: string]: any} | null => {
-          const value = control.value;
-          if (isNaN(value)) {
-            return { 'notANumber': { value: value } };
-          }
-          const mobileNumberRegex = /^[A-Z]{10}$/; // Change this regex based on your mobile number format
-          const valid = mobileNumberRegex.test(value);
-          return valid ? null : { 'invalidMobileNumber': { value: value } };
-        };
-      }
+validateNumber(control: AbstractControl): ValidationErrors | null {
+  if (isNaN(control.value)) {
+    return { 'notANumber': true };
+  }
+  return null;
+}
   
      //Validating if the Full Name contains numbers
   
@@ -92,6 +88,13 @@ export class CompanySettingsComponent {
         return null;
       };
     }
+
+     //Button to select
+
+  onFileSelected(event: any) {
+    const selectedFile = event.target.files[0];
+    //console.log(selectedFile); Do something with the selected file
+  }
   
      
   

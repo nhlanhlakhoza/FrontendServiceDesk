@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,8 +14,9 @@ export class EditSubscriptionComponent {
   editForm: FormGroup = new FormGroup({
     id: new FormControl('0'),
     name: new FormControl('Subscription Name',[Validators.required]),
-    price: new FormControl('R 60',[Validators.required, this.onlyAcceptNumber()]),
-    agents: new FormControl('5', [Validators.required, this.onlyAcceptNumber()]),
+    price: new FormControl('50', [Validators.required, this.validateNumber.bind(this)]),
+    agents: new FormControl('5', [Validators.required, this.validateNumber.bind(this)]
+    ),
     customerLink: new FormControl('Yes',[Validators.required]),
     status: new FormControl('Active', [Validators.required])
 
@@ -27,18 +28,13 @@ export class EditSubscriptionComponent {
     this.router.navigate([route]);
   }
 
-  //Validating Agents number
+//Validating Agents number
 
-onlyAcceptNumber(): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} | null => {
-    const value = control.value;
-    if (isNaN(value)) {
-      return { 'notANumber': { value: value } };
-    }
-    const mobileNumberRegex = /^[A-Z]{10}$/; // Change this regex based on your mobile number format
-    const valid = mobileNumberRegex.test(value);
-    return valid ? null : { 'invalidMobileNumber': { value: value } };
-  };
+validateNumber(control: AbstractControl): ValidationErrors | null {
+  if (isNaN(control.value)) {
+    return { 'notANumber': true };
+  }
+  return null;
 }
 
 

@@ -13,7 +13,7 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component'; 
-import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
@@ -24,7 +24,11 @@ import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
-
+import { ViewAgentComponent } from '../CompanyAdmin/view-agent/view-agent.component';
+import { CompanyLoginComponent } from '../CompanyAdmin/company-login/company-login.component';
+import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-password/company-change-password.component';
+import { CompanyRegisterComponent } from '../CompanyAdmin/company-register/company-register.component';
+import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-password/company-fgt-password.component';
 
 
 const routes: Routes = [
@@ -61,6 +65,17 @@ const routes: Routes = [
   {path:"company-tickets",component:CompanyTicketsComponent},
   {path:"more-settings",component: MoreSettingsComponent},
   {path:"view-employee",component: ViewEmployeeComponent},
+  {path:"view-agents",component: ViewAgentComponent},
+  {path:"company-login",component: CompanyLoginComponent},
+  {path:"company-register",component: CompanyRegisterComponent},
+  {path:"change-password",component: CompanyChangePasswordComponent},
+  {path:"forget-password",component: CompanyFgtPasswordComponent},
+
+
+
+
+
+  
 
 
 

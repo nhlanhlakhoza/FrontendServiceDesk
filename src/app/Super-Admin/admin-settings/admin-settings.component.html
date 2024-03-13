@@ -1,6 +1,5 @@
-<!--Header-->
-  
-  <!--Sidebar-->
+<app-admin-sidebar></app-admin-sidebar>
+<app-top-menu></app-top-menu>
   
   <div class="content">
     <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
@@ -52,7 +51,7 @@
                    *ngIf="profile['password'].invalid && (profile['password'].dirty || profile['password'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['password'].errors?.['required']" style="color:#f98f8f">Password is required</span>
-                    </div>-->
+                    </div>
 
                     <label for="password" class="input-fields">Date Of Birth</label>
                    <input type="text" id="dob" name="user_dob" formControlName="dob">
@@ -60,7 +59,21 @@
                    *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f">Date of birth is required</span>
-                    </div>
+                    </div>-->
+
+                  
+                  <label for="dob" >Date Of Birth</label>
+
+                  <div class="dateInput">
+                    <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Choose a date" style="width: calc(100% - 24px); /* Subtracting the width of the toggler */">
+                    <mat-datepicker-toggle matSuffix [for]="picker" style="position: absolute; right: 0;"></mat-datepicker-toggle>
+                  </div>
+                  <mat-datepicker #picker panelClass="datepickerTwo"></mat-datepicker>
+                  <div
+                  *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
+                  class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                  <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f;">Expiry date is required</span>
+                  </div>
 
                     <label for="country" class="input-fields">Country</label>
                    <input type="text" id="country" name="user_country" formControlName="country">
@@ -100,9 +113,9 @@
                   <div
                   *ngIf="password['new_password'].invalid && (password['new_password'].dirty || password['new_password'].touched)"
                   class="alert alert-danger">
-                  <span *ngIf="password['new_password'].errors?.['required']" style="color:#f98f8f">New password is required</span>
-                  <div *ngIf="password['new_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
-                  <div *ngIf="password['new_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
+                  <span *ngIf="password['new_password'].errors?.['required']"  style="color:#f98f8f" >New password is required</span>
+                  <div *ngIf="password['new_password'].errors?.['minlength']" style="color:#f98f8f">Password must be at least 8 characters long.</div>
+                  <div *ngIf="password['new_password'].errors?.['maxlength']" style="color:#f98f8f">Password must be less then 12 characters long.</div>
  
                 
                 </div>
@@ -143,6 +156,7 @@
 
     
   </div>
+
   
 
   

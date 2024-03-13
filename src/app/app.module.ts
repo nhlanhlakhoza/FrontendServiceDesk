@@ -26,7 +26,7 @@ import { SettingsComponent } from './Employee/settings/settings.component';
 import { NoTicketsComponent } from './Employee/no-tickets/no-tickets.component';
 import { AdminLoginComponent } from './Super-Admin/admin-login/admin-login.component';
 import { AdminFgtPasswordComponent } from './Super-Admin/admin-fgt-password/admin-fgt-password.component';
-import { AdminDashboardComponent } from '../CompanyAdmin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './Super-Admin/admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './Super-Admin/admin-users/admin-users.component';
 import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscriptions.component';
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
@@ -44,6 +44,17 @@ import { CompanySettingsComponent } from '../CompanyAdmin/company-settings/compa
 
 import { MoreSettingsComponent } from '../CompanyAdmin/more-settings/more-settings.component';
 import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employee.component';
+import { ViewAgentComponent } from '../CompanyAdmin/view-agent/view-agent.component';
+import { AdminSidebarComponent } from './Super-Admin/admin-sidebar/admin-sidebar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { DatePipe } from '@angular/common';
+import { CompanyLoginComponent } from '../CompanyAdmin/company-login/company-login.component';
+import { CompanyRegisterComponent } from '../CompanyAdmin/company-register/company-register.component';
+import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-password/company-fgt-password.component';
+import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-password/company-change-password.component';
 
 
 
@@ -85,6 +96,12 @@ import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employ
     CompanySettingsComponent,
     MoreSettingsComponent,
     ViewEmployeeComponent,
+    ViewAgentComponent,
+    AdminSidebarComponent,
+    CompanyLoginComponent,
+    CompanyRegisterComponent,
+    CompanyFgtPasswordComponent,
+    CompanyChangePasswordComponent,
 
   ],
   imports: [
@@ -95,7 +112,13 @@ import { ViewEmployeeComponent } from '../CompanyAdmin/view-employee/view-employ
     NgxSpinnerModule,
     ReactiveFormsModule,
     MatSnackBarModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule, // Import the MatNativeDateModule
+    MatInputModule,
+    DatePipe,
+    MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 

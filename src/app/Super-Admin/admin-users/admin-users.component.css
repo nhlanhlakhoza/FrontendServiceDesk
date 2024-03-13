@@ -360,6 +360,10 @@ tr:not(:first-child) {
     border-top: 1px solid #ddd;
 }
 
+.searchUsers{
+  margin-left: 1245px;
+}
+
   
   
   

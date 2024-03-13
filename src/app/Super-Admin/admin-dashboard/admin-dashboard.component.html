@@ -1,0 +1,78 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-top-menu></app-top-menu>
+  
+  <div class="content">
+    <h2><strong>Dashboard</strong></h2>
+    <hr/>
+    <div class="container text-left">
+      <div class="row">
+        <span class="form-header" style="margin-bottom: 5px;">Displaying Tickets Report</span>
+        <div class="col-13" id="content">
+
+            <div class="container text-left" style="margin-top: 15px;" >
+              
+                <div class="row">
+
+         <div class="col" id="details">
+          <span class="form-header">New Tickets</span>
+          <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+          <hr>
+
+
+          <app-bar-graph></app-bar-graph>
+
+         </div>
+         <br>
+         <div class="col" id="details">
+          <span class="form-header">Resolved </span>
+          <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+          <hr>
+
+
+          <app-bar-graph></app-bar-graph>
+        </div>
+        
+                </div>
+            </div>
+
+            <!--Second Charts part-->
+
+            <div class="container text-left" style="margin-top: 15px;" >
+                <div class="row">
+
+         <div class="col" id="details">
+          <span class="form-header">Inprogress</span>
+          <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+          <hr>
+
+          <app-in-progress></app-in-progress>
+
+
+         </div>
+         <br>
+         <div class="col" id="details">
+          <span class="form-header">Unresolved</span>
+          <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+          <hr>
+
+
+          <app-unresolved></app-unresolved>
+        </div>
+
+        
+        
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        </div>
+       
+          
+      </div>
+        
+    </div>
+

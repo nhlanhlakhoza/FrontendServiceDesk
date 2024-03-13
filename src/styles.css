@@ -1,3 +1,6 @@
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 @font-face {
   font-family: 'Poppins';
   src: url('/src/fonts/Poppins/Poppins-Light.ttf') , /* Modern Browsers */
@@ -335,7 +338,25 @@ textarea{
   margin-top: 5px;
   width: auto;
 }
-  
+
+.mat-datepicker-toggle{
+  margin-right: 15px;
+  margin-top: -7px;
+}
+
+.datepickerTwo {
+  background:lightblue;
+}
+
+.dateInput
+{
+  position: relative; 
+  width: 824.5px;
+  display: flex;
+}
+
+
+
   
 
 

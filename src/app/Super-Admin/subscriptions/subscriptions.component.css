@@ -410,6 +410,20 @@ td {
         padding: none;
 
 }
+.dateInput
+{
+  position: relative; 
+  width: 774.5px;
+  display: flex;
+}
+.mat-datepicker-toggle{
+  
+  margin-top: -7px;
+}
+
+.datepickerTwo {
+  background:lightblue;
+}
 
 
   
