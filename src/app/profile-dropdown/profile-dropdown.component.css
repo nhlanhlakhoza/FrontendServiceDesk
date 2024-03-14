@@ -5,16 +5,11 @@
   .image {
     width: 100%; /* Adjust the width as per your requirement */
     height: auto; /* Adjust the height as per your requirement */
-    cursor: pointer; /* Change cursor to pointer to indicate clickability */
   }
   
   .dropdown {
     position: absolute;
     top: 10px; /* Adjust the positioning as per your requirement */
     right: 10px; /* Adjust the positioning as per your requirement */
-  }
-  
-  .hidden {
-    display: block;
   }
   

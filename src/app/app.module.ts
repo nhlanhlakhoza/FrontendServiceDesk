@@ -32,9 +32,9 @@ import { SubscriptionsComponent } from './Super-Admin/subscriptions/subscription
 import { AdminSettingsComponent } from './Super-Admin/admin-settings/admin-settings.component';
 import { EditSubscriptionComponent } from './Super-Admin/edit-subscription/edit-subscription.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BarGraphComponent } from './bar-graph/bar-graph.component';
-import { UnresolvedComponent } from './unresolved/unresolved.component';
-import { InProgressComponent } from './in-progress/in-progress.component';
+import { BarGraphComponent } from './Graphs/bar-graph/bar-graph.component';
+import { UnresolvedComponent } from './Graphs/unresolved/unresolved.component';
+import { InProgressComponent } from './Graphs/in-progress/in-progress.component';
 import { SidebarComponent } from '../CompanyAdmin/sidebar/sidebar.component';
 import { TopMenuComponent } from '../CompanyAdmin/top-menu/top-menu.component';
 import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-dashboard/company-admin-dashboard.component';
@@ -55,6 +55,8 @@ import { CompanyLoginComponent } from '../CompanyAdmin/company-login/company-log
 import { CompanyRegisterComponent } from '../CompanyAdmin/company-register/company-register.component';
 import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-password/company-fgt-password.component';
 import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-password/company-change-password.component';
+import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.component';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 
 
@@ -102,6 +104,7 @@ import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-p
     CompanyRegisterComponent,
     CompanyFgtPasswordComponent,
     CompanyChangePasswordComponent,
+    ProfileDropdownComponent,
 
   ],
   imports: [
@@ -118,7 +121,7 @@ import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-p
     MatNativeDateModule, // Import the MatNativeDateModule
     MatInputModule,
     DatePipe,
-    MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule
+    MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule, MatSelectModule, 
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 

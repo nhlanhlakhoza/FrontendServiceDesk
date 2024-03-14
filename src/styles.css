@@ -355,6 +355,26 @@ textarea{
   display: flex;
 }
 
+/* Sidebar Menu Items*/
+.logout{
+  margin-left: 25px;
+   text-decoration: none; 
+   margin-top: 500px;
+}
+
+.menuItems
+{
+  margin-left: 25px; 
+  text-decoration: none;
+}
+
+.menuHeader{
+  white-space: nowrap;
+   margin-left: 15px;
+    margin-top: 15px; 
+    font-weight: bold
+}
+
 
 
   

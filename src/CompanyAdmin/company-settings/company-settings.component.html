@@ -128,10 +128,10 @@
               
           </form>
 
-          <!--Add User form-->
+          <!--Add User/Employee form-->
 
           <form [formGroup]="add_user_form" *ngIf="currentForm === 'form7'" >
-            <span class="form-header"><strong>Add Agent</strong></span>
+            <span class="form-header"><strong>Add Agent/Employee</strong></span>
             <hr style="width: 800px;">
                
             <fieldset>
@@ -148,12 +148,17 @@
 
                 
                <label for="designation" class="input-fields">Designation</label>
-               <input type="text" id="designation" name="designation" formControlName="designation">
-               <div
-               *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)"
-               class="alert alert-danger">
-               <span *ngIf="add['designation'].errors?.['required']" style="color:#f98f8f">Designation is required</span>
-                </div>
+               <select formControlName="designation" >
+                <option value="employee" class="option-status"> Employee </option>
+                <option value="agent"> Agent </option>
+            </select>
+
+            <div
+            *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)"
+            class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+            <span *ngIf="add['designation'].errors?.['required']" style="color:#f98f8f">Please select designation</span>
+             </div>
+
 
                <label for="email" class="input-fields">Email</label>
               <input type="email" id="mail" name="user_email" formControlName="email" placeholder="">
@@ -175,13 +180,20 @@
 
                 </div>
 
-                <label for="status" class="input-fields">Status</label>
-               <input type="text" id="status" name="status" formControlName="status">
-               <div
-               *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
-               class="alert alert-danger">
-               <span *ngIf="add['status'].errors?.['required']" style="color:#f98f8f">Status is required</span>
-                </div>
+                
+                    <label for="status" class="input-fields">Status</label>
+        
+                    <select formControlName="status" >
+                        <option value="active-status" class="option-status"> active </option>
+                        <option value="not-active"> active </option>
+                        <option value="not-active"> active </option>
+                    </select>
+        
+                    <div
+                    *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
+                    class="alert alert-danger" style="width: 750px; border-radius: 4px;">
+                    <span *ngIf="add['status'].errors?.['required']" style="color:#f98f8f">Please select status</span>
+                     </div>
 
                 <!--<input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
                 <button type="button" class="attachButton" (click)="fileInput.click()">Attach Image</button>-->
@@ -193,6 +205,9 @@
             <button type="submit" class="nextButton" [disabled]="add_user_form.invalid">Add User</button>
             
         </form>
+
+
+        
 
 
 
@@ -313,7 +328,7 @@
                     <li style="margin-left: 35px;">
                      
 
-                        <button class="addButton" >
+                        <button class="addButton" (click)="toggleForms('form7')">
                             <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
                             
                             Add</button>

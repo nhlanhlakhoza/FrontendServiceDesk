@@ -9,7 +9,7 @@
     <div class="container text-left">
         <div class="row align-items-start">
             <div class="col" id="more-settings-container">
-                <span class="form-header"><strong>Account</strong></span>
+                <span class="form-header" routerLink="/company-settings"><strong>Account</strong></span>
                 <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
 
                 <hr/>
@@ -152,34 +152,74 @@
     <h4>Branding</h4>
     <div class="container text-left">
         <div class="row">
-          <div class="col-6 col-sm-4" id="more-settings-container" style="margin-top: 25px;"> <span class="form-header"><strong>Added Customers</strong></span> 
+          <div class="col-6 col-sm-4"  style="margin-top: 25px;"> 
 
             <hr/>
-            <div class="form-header">
-            <p class="form-header" style="margin-bottom: 20px;">User : <span style="margin-left: 10px;"> User Name</span> </p>
-            <p class="form-header" style="margin-bottom: 20px;">Date Added : <span style="margin-left: 10px;">dd - mm - yyyy</span></p>
-            <p class="form-header" style="margin-bottom: 20px;">Email : <span style="margin-left: 10px;">User's Email</span></p>
+           <span>Title</span>
+           <input type="text" placeholder="Title Here" style="margin-top: 10px;">
+
+           <div class="logoImage">
+            <h2><strong>Upload Logo</strong></h2>
+            <div class="row" id="distance">
+              <div class="col">
+                <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"/>
+
+                <button type="button" class="attachButton" type="file" (click)="fileInput.click()">
+                  Choose File
+                </button>
+                <br>
+                <span>The file size should not be more than 2MB</span>
+              </div><br/>
+
+              <div class="col" class="logoBackground">
+
+                <div *ngIf="logoImage">
+                  <img *ngIf="logoImage" [src]="logoImage" alt="Selected Image" width="120" height="120" >
+                  </div>
+
+              </div>
+            </div>
+           </div>
+
+           <span id="heading">Color Settings</span>
+
+
+           <div class="row" style="margin-bottom: 25px;">
+            <div class="col" >
+              <span class="form-header" >Primary color</span>
+              <div style="margin-top: 10px;">
+                  <input matInput type="color" [(ngModel)]="primaryColor" placeholder="Choose a color">
+              </div>
+              
+            </div>
+            <div class="col">
+              <span class="form-header">Secondary color</span>
+              <div style="margin-top: 10px;">
+                <input matInput type="color" [(ngModel)]="secondaryColor" placeholder="Choose a color">
+            </div>
 
             </div>
 
+           </div>
+
+
+           
+           <span id="heading">Contact Us</span>
+
+           <input type="email" style="margin-top: 10px;"> 
+
+
+           <span id="heading">Custom Link</span>
+
+           <input type="email" style="margin-top: 10px;"> 
+
           </div>
       
-          <!-- Force next columns to break to new line at md breakpoint and up -->
-          <div class="w-100 d-none d-md-block"></div>
       
-          <div class="col-6 col-sm-4" id="more-settings-container" style="margin-top: 25px;"> <span class="form-header"><strong>Added Customers</strong></span> 
-
-            <hr/>
-            <div class="form-header">
-            <p class="form-header" style="margin-bottom: 20px;">User : <span style="margin-left: 10px;"> User Name</span> </p>
-            <p class="form-header" style="margin-bottom: 20px;">Date Added : <span style="margin-left: 10px;">dd - mm - yyyy</span></p>
-            <p class="form-header" style="margin-bottom: 20px;">Email : <span style="margin-left: 10px;">User's Email</span></p>
-
-            </div>          <br>
-        </div>
+        
       </div>
-    <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
-</div>
+      <button type="submit" class="nextButton">Save changes</button>
+    </div>
     
     
 </div>
