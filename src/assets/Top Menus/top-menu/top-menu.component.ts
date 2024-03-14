@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TopMenuComponent {
 
-  dropdownVisible: boolean = false;
+  showDropdown: boolean = false;
 
   toggleDropdown() {
-    this.dropdownVisible = !this.dropdownVisible;
+    this.showDropdown = !this.showDropdown;
   }
 }

@@ -36,7 +36,7 @@ import { BarGraphComponent } from './Graphs/bar-graph/bar-graph.component';
 import { UnresolvedComponent } from './Graphs/unresolved/unresolved.component';
 import { InProgressComponent } from './Graphs/in-progress/in-progress.component';
 import { SidebarComponent } from '../CompanyAdmin/sidebar/sidebar.component';
-import { TopMenuComponent } from '../CompanyAdmin/top-menu/top-menu.component';
+import { TopMenuComponent } from '../assets/Top Menus/top-menu/top-menu.component';
 import { CompanyAdminDashboardComponent } from '../CompanyAdmin/company-admin-dashboard/company-admin-dashboard.component';
 import { ReportsComponent } from '../CompanyAdmin/reports/reports.component';
 import { CompanyTicketsComponent } from '../CompanyAdmin/company-tickets/company-tickets.component';
@@ -57,6 +57,9 @@ import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-passwor
 import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-password/company-change-password.component';
 import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.component';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { EmployeeTopMenuComponent } from '../assets/Top Menus/company-top-menu/employee-top-menu.component';
+import { AdminTopMenuComponent } from '../assets/Top Menus/admin-top-menu/admin-top-menu.component';
+import { EmployeeSidebarComponent } from './Employee/employee-sidebar/employee-sidebar.component';
 
 
 
@@ -105,6 +108,9 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
     CompanyFgtPasswordComponent,
     CompanyChangePasswordComponent,
     ProfileDropdownComponent,
+    EmployeeTopMenuComponent,
+    AdminTopMenuComponent,
+    EmployeeSidebarComponent,
 
   ],
   imports: [
