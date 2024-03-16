@@ -1,45 +1,4 @@
 
-
-/* Montserrat-300 - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    src: url("/src/fonts/Roboto/Roboto-Light.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Regular.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Italic.ttf");
-    /* IE9 Compat Modes Roboto-Italic.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    src: url("/src/fonts/Roboto/Roboto-Medium.ttf");
-    /* IE9 Compat Modes Roboto-Medium.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    src: url("/src/fonts/Roboto/Roboto-Bold.ttf");
-    /* IE9 Compat Modes Roboto-Bold.ttf*/ }
-  
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 700;
-    src: url("/src/fonts/Roboto/Roboto-BoldItalic.ttf");
-    /* IE9 Compat Modes Roboto-BoldItalic.ttf*/ }
-  
-  
     *, *:before, *:after {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -373,17 +332,22 @@
 
   }
 
-  .closeButton
+  #rightMove
   {
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid #E94435;
-    color: #E94435;
-    width: 100px;
-    height: 45px;
-    margin-left: 830px;
-    font-weight: bold;
+    margin-right: 20px;
+  }
 
+  #ticketID{
+    color:#000;
+  margin-left: 10px;}
+
+  #statusID{
+    color:#03781D;
+  margin-left: 10px;}
+  
+  #priorityID{
+    color:#BA1717;
+    margin-left: 10px;
   }
 
 

@@ -2,15 +2,16 @@
 <app-top-menu></app-top-menu>
   
   <div class="content">
-    <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
-    <hr/>
+   
     <p></p>
     <div class="container text-left">
       <div class="row">
+        <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
+        <hr/>
         
         <div class="col-4" id="content">
 
-        <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
+        <span class="form-header" class="settingsHeader">Account</span>
         <hr/>
          <ul class="settings-menu">
             <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
@@ -135,7 +136,7 @@
             <!--Notifications-->
             <div class="notifications" *ngIf="currentForm === 'form3'">
 
-                <span class="form-header" style="font-weight: bold; margin-top: 5px;">Notifications</span>
+                <span class="form-header" class="settingsHeader">Notifications</span>
                 <hr>
 
                 <ol>
@@ -158,7 +159,7 @@
                  <!--Privacy-->
                  <div class="notifications" *ngIf="currentForm === 'form4'">
 
-                    <span class="form-header" style="font-weight: bold; margin-top: 5px;">Privacy</span>
+                    <span class="form-header" class="settingsHeader">Privacy</span>
                     <hr>
     
                     <ol>

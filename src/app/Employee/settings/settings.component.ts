@@ -21,9 +21,6 @@ export class SettingsComponent {
 
 
   //Change Password Form
- 
-
-    
 
   passwordForm: FormGroup = this.fb.group({
     old_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
@@ -71,6 +68,12 @@ export class SettingsComponent {
       }
       return null;
     };
+  }
+  notificationVisible = false;
+  message = "Notification Message";
+
+  toggleNotification() {
+    this.notificationVisible = !this.notificationVisible;
   }
 
    

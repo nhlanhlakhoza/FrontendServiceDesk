@@ -2,145 +2,160 @@
 <app-employee-top-menu></app-employee-top-menu> 
 
 <div class="content">
-    <h2 style="margin-bottom: 25px;"><strong>More Settings</strong></h2>
-    <hr/>
-    <p></p>
-<div *ngIf="currentForm === 'form1'">
-    <div class="container text-left">
-        <div class="row align-items-start">
-            <div class="col" id="more-settings-container">
-                <span class="form-header" routerLink="/company-settings"><strong>Account</strong></span>
-                <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-                <hr/>
-                <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-    
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-              </div>
-          <br>
-          <div class="col" id="more-settings-container">
-            <span class="form-header"> <a (click)="toggleForms('auditLog')"><strong>Audit Log</strong></a></span>
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-          <br>
-
-          <div class="col" id="more-settings-container">
-            <span class="form-header"><a (click)="toggleForms('emailNotifications')"><strong>Email Notifications</strong></a></span>
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-        
-        </div>
-    </div>
-    <!--Second row of more settings-->
-    <div class="container text-left" style="margin-top: 25px;">
-        <div class="row align-items-start">
-          <div class="col" id="more-settings-container">
-            <span class="form-header"><strong>Users</strong></span>
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-          <br>
-
-          <div class="col" id="more-settings-container">
-            <span class="form-header"><a (click)="toggleForms('licence')"><strong>Licence</strong></a></span>
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-          <br>
-
-          <div class="col" id="more-settings-container">
-            <span class="form-header"><a (click)="toggleForms('custFields')"><strong>Custom fields </strong></a></span>
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-        </div>
-    </div>
-
-    <!--Third row of more settings-->
-
-    <div class="container text-left" style="margin-top: 25px;">
-        <div class="row align-items-start">
-          <div class="col" id="more-settings-container">
-            <span class="form-header"><a (click)="toggleForms('branding')"><strong>Branding</strong></a></span> 
-            <img src="../../../assets/images/Gear.svg" width = "25px" height="25px"  class="menuImages" style="float: inline-end;">
-
-            <hr/>
-            <span id="more-settings-content">Certainly! Here's a Lorem Ipsum paragraph:
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris ut magna varius, quis venenatis arcu faucibus.non rutrum libero faucibus. Nullam auctor nulla a ligula bibendum ultricies.</span>
-          </div>
-          <br>
-          <div class="col" id="more-settings-container2">
-            </div>
-            
-          <br>
-          <div class="col" id="more-settings-container2">
-          </div>
-            
-
-      
-
+ <!-- First row of settings' grid -->
+ <div *ngIf="currentForm === 'form1'">
+ <div class="container text-left" id="top">
+  <div class="row" >
+    <h2><strong>More Settings</strong></h2>
+<hr>
+    <!-- First column -->
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h6 class="card-title"><strong>Account</strong></h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
           
+          <hr>
         </div>
+      </div>
     </div>
+    
+    <!-- Second column -->
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h6 class="card-title"><strong (click)="toggleForms('auditLog')">Audit Log</strong></h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Third column -->
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h6 class="card-title"><strong (click)="toggleForms('emailNotifications')">Email Notifications</strong></h6>
+
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+  <!-- Second row of settings' grid -->
+  <div class="container text-left" id="top">
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong  (click)="toggleForms('licence')">Licence</strong></h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+            
+            <hr>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second column -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong>Users</strong></h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+
+            <hr>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Third column -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong  (click)="toggleForms('custFields')">Custom Fields</strong></h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Third row of settings' grid -->
+  <div class="container text-left" id="top">
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong  (click)="toggleForms('branding')">Branding</strong></h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ultricies dui. Integer non mi nec urna varius iaculis at eget ex. Quisque et nibh non est varius pharetra id at quam</p>
+
+            <hr>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ </div>
+    
 
 <!--Audit Log-->
 
 <div *ngIf="currentForm === 'auditLog'">
-    <h4>Audit Log</h4>
+  <h2><strong>Audit Log</strong></h2>
+  <hr>
     <div class="container text-left">
-        <div class="row">
-          <div class="col-6 col-sm-4" id="more-settings-container" style="margin-top: 25px;"> <span class="form-header"><strong>Added Customers</strong></span> 
-
-            <hr/>
-            <div class="form-header">
-            <p class="form-header" style="margin-bottom: 20px;">User : <span style="margin-left: 10px;"> User Name</span> </p>
-            <p class="form-header" style="margin-bottom: 20px;">Date Added : <span style="margin-left: 10px;">dd - mm - yyyy</span></p>
-            <p class="form-header" style="margin-bottom: 20px;">Email : <span style="margin-left: 10px;">User's Email</span></p>
-
-            </div>
-
+        
+  <div class="container text-left" id="top">
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-5">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong>Added Customers</strong></h6>
+            <p class="form-header">User : <span class="customer-info" > User Name</span></p>
+            <p class="form-header">Date Added : <span class="customer-info" > dd - mm - yyyy</span></p>
+            <p class="form-header">Email : <span class="customer-info" > User's Email</span></p>
+            <hr>
           </div>
-      
-          <!-- Force next columns to break to new line at md breakpoint and up -->
-          <div class="w-100 d-none d-md-block"></div>
-      
-          <div class="col-6 col-sm-4" id="more-settings-container" style="margin-top: 25px;"> <span class="form-header"><strong>Added Customers</strong></span> 
-
-            <hr/>
-            <div class="form-header">
-            <p class="form-header" style="margin-bottom: 20px;">User : <span style="margin-left: 10px;"> User Name</span> </p>
-            <p class="form-header" style="margin-bottom: 20px;">Date Added : <span style="margin-left: 10px;">dd - mm - yyyy</span></p>
-            <p class="form-header" style="margin-bottom: 20px;">Email : <span style="margin-left: 10px;">User's Email</span></p>
-
-            </div>          <br>
         </div>
       </div>
+      
+    </div>
+
+    <div class="row" id="top">
+      <!-- Second column -->
+      <div class="col-md-5">
+        <div class="card shadow">
+          <div class="card-body">
+            <h6 class="card-title"><strong>Added Customers</strong></h6>
+            <p class="form-header">User : <span class="customer-info" > User Name</span></p>
+            <p class="form-header">Date Added : <span class="customer-info" > dd - mm - yyyy</span></p>
+            <p class="form-header">Email : <span class="customer-info" > User's Email</span></p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!--
     <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
+      -->
+  </div>
 </div>
+
+
     
     
 </div>
@@ -149,14 +164,15 @@
 <!--Branding-->
 
 <div *ngIf="currentForm === 'branding'">
-    <h4>Branding</h4>
+  <h2><strong>Branding</strong></h2>
+  <hr>
     <div class="container text-left">
         <div class="row">
-          <div class="col-6 col-sm-4"  style="margin-top: 25px;"> 
+          <div class="col-6 col-sm-4" id="top"> 
 
             <hr/>
            <span>Title</span>
-           <input type="text" placeholder="Title Here" style="margin-top: 10px;">
+           <input type="text" placeholder="Title Here" id="top">
 
            <div class="logoImage">
             <h2><strong>Upload Logo</strong></h2>
@@ -184,17 +200,17 @@
            <span id="heading">Color Settings</span>
 
 
-           <div class="row" style="margin-bottom: 25px;">
+           <div class="row" class="bottom">
             <div class="col" >
               <span class="form-header" >Primary color</span>
-              <div style="margin-top: 10px;">
+              <div id="top">
                   <input matInput type="color" [(ngModel)]="primaryColor" placeholder="Choose a color">
               </div>
               
             </div>
             <div class="col">
               <span class="form-header">Secondary color</span>
-              <div style="margin-top: 10px;">
+              <div id="top">
                 <input matInput type="color" [(ngModel)]="secondaryColor" placeholder="Choose a color">
             </div>
 
@@ -206,12 +222,12 @@
            
            <span id="heading">Contact Us</span>
 
-           <input type="email" style="margin-top: 10px;"> 
+           <input type="email" id="top"> 
 
 
            <span id="heading">Custom Link</span>
 
-           <input type="email" style="margin-top: 10px;"> 
+           <input type="email" id="top"> 
 
           </div>
       
@@ -227,19 +243,20 @@
 <!--Custom Fields-->
 
 <div *ngIf="currentForm === 'custFields'">
-    <h4>Custom Fields</h4>
+  <h2><strong>Custom Fields</strong></h2>
+  <hr>
 
-    <div style="display: flex;margin-left: 1290px;" >
+    <div >
 
       <button class="addButton" >
-          <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+          <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
           
           Add</button></div>
           <div class="container text-left">
             <div class="row">
               <div class="col-13" id="content" >
       
-                <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="container text-left" >
                       <div class="row">
                           <table class="borderless-table">
                               <thead>
@@ -296,19 +313,20 @@
 <!--Email Notifications-->
 
 <div *ngIf="currentForm === 'emailNotifications'">
-  <h4>Email Templates</h4>
+  <h2><strong>Email Templates</strong></h2>
+  <hr>
 
-  <div style="display: flex;margin-left: 1290px;" >
+  <div >
 
     <button class="addButton" >
-        <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+        <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
         
         Add</button></div>
         <div class="container text-left">
           <div class="row">
             <div class="col-13" id="content" >
     
-              <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;">
+              <div class="container text-left" >
                     <div class="row">
                         <table class="borderless-table">
                             <thead>
@@ -359,16 +377,13 @@
 <!--License-->
 
 <div *ngIf="currentForm === 'licence'">
-  <h4>Licence</h4>
-
-  <div style="display: flex;margin-left: 1290px;" >
-
-   </div>
+  <h2><strong>Licence</strong></h2>
+  <hr>
         <div class="container text-left">
           <div class="row">
             <div class="col-13" id="content" >
     
-              <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;">
+              <div class="container text-left">
                     <div class="row">
                         <table class="borderless-table">
                             <thead>

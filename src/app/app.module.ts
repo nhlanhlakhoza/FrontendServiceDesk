@@ -60,6 +60,7 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { EmployeeTopMenuComponent } from '../assets/Top Menus/company-top-menu/employee-top-menu.component';
 import { AdminTopMenuComponent } from '../assets/Top Menus/admin-top-menu/admin-top-menu.component';
 import { EmployeeSidebarComponent } from './Employee/employee-sidebar/employee-sidebar.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 
@@ -111,6 +112,7 @@ import { EmployeeSidebarComponent } from './Employee/employee-sidebar/employee-s
     EmployeeTopMenuComponent,
     AdminTopMenuComponent,
     EmployeeSidebarComponent,
+    NotificationsComponent,
 
   ],
   imports: [

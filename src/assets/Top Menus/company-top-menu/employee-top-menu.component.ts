@@ -13,4 +13,11 @@ export class EmployeeTopMenuComponent {
     this.showDropdown = !this.showDropdown;
   }
 
+  notificationVisible = false;
+  message = "Notification Message";
+
+  toggleNotification() {
+    this.notificationVisible = !this.notificationVisible;
+  }
+
 }

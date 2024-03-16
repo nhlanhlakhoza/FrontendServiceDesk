@@ -31,6 +31,8 @@ export class EmployeeTicketsComponent
   toggleForms(form: string) {
     this.currentForm = form;
   }
+
+ 
   
   get new_ticket (){return this.ticketForm.controls;}
 

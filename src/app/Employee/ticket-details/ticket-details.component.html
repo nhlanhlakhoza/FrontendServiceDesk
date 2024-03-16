@@ -2,17 +2,19 @@
 <app-top-menu></app-top-menu>
 
 <div class="content">
-  <div style="display: flex;">
-    <h2><strong>Ticket</strong></h2>
-    <!-- <button class="backButton" onclick="window.history.back()">Back</button>
-    <button class="closeButton" (click)="navigateToDestination()">Close</button> -->
-  </div>
-  <p>This is the main content area.</p>
+
 
   <div class="container">
     <div class="row">
       <!-- Left section -->
+      <div style="display: flex;">
+        <h2><strong>Ticket</strong></h2>
+        <!-- <button class="backButton" onclick="window.history.back()">Back</button>
+        <button class="closeButton" (click)="navigateToDestination()">Close</button> -->
+      </div>
+      <hr>
       <div class="col-8">
+        
         <!-- Main card -->
         <div class="card" style="width: 100%;">
           <div class="card-body">
@@ -20,9 +22,9 @@
             <div style="display: flex; margin-bottom: 20px;">
               <h3><strong>Cannot access the system</strong></h3>
               <div style="display: flex; margin-left: auto;">
-                <p class="form-header badge badge-secondary"><span class="ticket-id">#1E233</span></p>
-                <p class="form-header badge badge-success"><span class="ticket-status">Open</span></p>
-                <p class="form-header badge badge-danger"><span class="ticket-priority">Urgent</span></p>
+                <p class="form-header badge badge-secondary" id="rightMove"><span class="ticket-id">#1E233</span></p>
+                <p class="form-header badge badge-success" id="rightMove"><span class="ticket-status">Open</span></p>
+                <p class="form-header badge badge-danger" id="rightMove"><span class="ticket-priority">Urgent</span></p>
               </div>
             </div>
             <!-- <hr/> -->
@@ -61,12 +63,16 @@
         <div class="card" style="width: 100%;">
           <div class="card-body">
             <!-- Ticket info -->
-            <div class="form-header">
+            <div class="row">
               <h6>Ticket Info</h6>
-              <p class="form-header">Ticket Id: <span class="ticket-id">#1E233</span></p>
+
+              <div class="col">
+              <p class="form-header">Ticket Id: <span id="ticketID" class="form-header badge badge-secondary">#1E233</span></p>
               <p class="form-header">Created : <span>dd - mm - yyyy</span></p>
-              <p class="form-header">Status: <span class="ticket-status">Open</span></p>
-              <p class="form-header">Priority: <span class="ticket-priority">Urgent</span></p>
+              <p class="form-header">Status: <span class="form-header badge badge-success" id="statusID">Open</span></p>
+              <p class="form-header">Priority: <span class="form-header badge badge-danger" id="priorityID">Urgent</span></p>
+            </div>
+            
               <hr/>
             </div>
           </div>
