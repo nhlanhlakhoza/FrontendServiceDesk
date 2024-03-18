@@ -2,29 +2,27 @@
 <app-employee-top-menu></app-employee-top-menu> 
 
 <div class="content">
-    <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
-    <hr/>
-    <p></p>
 
-    
     <div class="container text-left">
+        <h2><strong>Settings</strong></h2>
+        <hr/>
            
         <div class="col-4" id="content">
 
-            <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
+            <span class="form-header" id="header">Account</span>
             <hr/>
              <ul class="settings-menu">
-                <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
-                <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
-                <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
-                <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
-                <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Agents & Employees </a></li>
+                <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" > Edit Profile</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" > Security</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg"  > Notifications</a></li>
+                <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg"  > Privacy</a></li>
+                <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/iconamoon_profile-light.svg"  > Agents & Employees </a></li>
                 <li><a  class="form-header" routerLink="/more-settings"> More Settings </a></li>
             </ul>
          </div>
 
       <div class="row">
-        <div class="col-7" style="margin-left: 450px;top: -365px;">
+        <div class="col-7" id="aside">
 
             <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
                
@@ -34,9 +32,9 @@
                   <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
                   <div
                   *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
-                  class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
-                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+                  class="alert alert-danger" >
+                  <span *ngIf="profile['fullName'].errors?.['required']" >Full name is required</span>
+                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']">Please enter valid Full name</span>
 
                    </div>
 
@@ -45,22 +43,22 @@
                   <div
                   *ngIf="profile['email'].invalid && (profile['email'].dirty || profile['email'].touched)"
                   class="alert alert-danger">
-                  <span *ngIf="profile['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-                  <span *ngIf="profile['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+                  <span *ngIf="profile['email'].errors?.['required']">Email is required</span>
+                  <span *ngIf="profile['email'].errors?.['email']">Please enter valid email</span>
                    </div>
                  
 
                     <label for="dob" class="input-fields">Date Of Birth</label>
 
                     <div class="dateInput">
-                        <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Choose a date" style="width: calc(100% - 24px); /* Subtracting the width of the toggler */">
-                        <mat-datepicker-toggle matSuffix [for]="picker" style="position: absolute; right: 0;"></mat-datepicker-toggle>
+                        <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Choose a date" >
+                        <mat-datepicker-toggle matSuffix [for]="picker" class="date-picker"></mat-datepicker-toggle>
                       </div>
                       <mat-datepicker #picker panelClass="datepickerTwo"></mat-datepicker>
                       <div
                       *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
-                      class="alert alert-danger" style="width: 750px; border-radius: 4px;">
-                      <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f;">Expiry date is required</span>
+                      class="alert alert-danger">
+                      <span *ngIf="profile['dob'].errors?.['required']" >Expiry date is required</span>
                       </div>
 
                     <label for="country" class="input-fields">Country</label>
@@ -68,7 +66,7 @@
                    <div
                    *ngIf="profile['country'].invalid && (profile['country'].dirty || profile['country'].touched)"
                    class="alert alert-danger">
-                   <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
+                   <span *ngIf="profile['country'].errors?.['required']" >Country is required</span>
                     </div>
                 </fieldset>
                 
@@ -90,9 +88,9 @@
                  <div
                  *ngIf="password['old_password'].invalid && (password['old_password'].dirty || password['old_password'].touched)"
                  >
-                 <div *ngIf="password['old_password'].errors?.['required']" class="alert alert-danger" style="color:#f98f8f">Old password is required</div>
-                 <div *ngIf="password['old_password'].errors?.['minlength']" class="alert alert-danger" style="color:#f98f8f">Password must be at least 8 characters long.</div>
-                 <div *ngIf="password['old_password'].errors?.['maxlength']" class="alert alert-danger" style="color:#f98f8f">Password must be less then 12 characters long.</div>
+                 <div *ngIf="password['old_password'].errors?.['required']" class="alert alert-danger" >Old password is required</div>
+                 <div *ngIf="password['old_password'].errors?.['minlength']" class="alert alert-danger" >Password must be at least 8 characters long.</div>
+                 <div *ngIf="password['old_password'].errors?.['maxlength']" class="alert alert-danger" >Password must be less then 12 characters long.</div>
 
                   </div>
 
@@ -101,9 +99,9 @@
                   <div
                   *ngIf="password['new_password'].invalid && (password['new_password'].dirty || password['new_password'].touched)"
                   class="alert alert-danger">
-                  <span *ngIf="password['new_password'].errors?.['required']" style="color:#f98f8f">New password is required</span>
-                  <div *ngIf="password['new_password'].errors?.['minlength']" style="color:#f98f8f">Password must be at least 8 characters long.</div>
-                  <div *ngIf="password['new_password'].errors?.['maxlength']"  style="color:#f98f8f">Password must be less then 12 characters long.</div>
+                  <span *ngIf="password['new_password'].errors?.['required']" >New password is required</span>
+                  <div *ngIf="password['new_password'].errors?.['minlength']" >Password must be at least 8 characters long.</div>
+                  <div *ngIf="password['new_password'].errors?.['maxlength']"  >Password must be less then 12 characters long.</div>
  
                 
                 </div>
@@ -113,8 +111,8 @@
                    <div
                    *ngIf="password['confirm_password'].invalid && (password['confirm_password'].dirty || password['confirm_password'].touched)"
                    class="alert alert-danger">
-                   <span *ngIf="password['confirm_password'].getError('required')" style="color:#f98f8f">Please confirm your password</span>
-                   <span *ngIf="password['confirm_password'].errors?.['MustMatch']" style="color:#f98f8f">Password does not match</span>
+                   <span *ngIf="password['confirm_password'].getError('required')" >Please confirm your password</span>
+                   <span *ngIf="password['confirm_password'].errors?.['MustMatch']" >Password does not match</span>
 
                     </div>
                     
@@ -132,7 +130,7 @@
 
           <form [formGroup]="add_user_form" *ngIf="currentForm === 'form7'" >
             <span class="form-header"><strong>Add Agent/Employee</strong></span>
-            <hr style="width: 800px;">
+            <hr class="form-hr">
                
             <fieldset>
           
@@ -140,9 +138,9 @@
               <input type="text" id="fullName" name="fullName" formControlName="fullName" placeholder="">
               <div
               *ngIf="add['fullName'].invalid && (add['fullName'].dirty || add['fullName'].touched)"
-              class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-              <span *ngIf="add['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
-              <span *ngIf="add['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+              class="alert alert-danger" >
+              <span *ngIf="add['fullName'].errors?.['required']" >Full name is required</span>
+              <span *ngIf="add['fullName'].errors?.['containsNumbers']" >Please enter valid Full name</span>
 
                </div>
 
@@ -155,8 +153,8 @@
 
             <div
             *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)"
-            class="alert alert-danger" style="width: 750px; border-radius: 4px;">
-            <span *ngIf="add['designation'].errors?.['required']" style="color:#f98f8f">Please select designation</span>
+            class="alert alert-danger">
+            <span *ngIf="add['designation'].errors?.['required']" >Please select designation</span>
              </div>
 
 
@@ -165,8 +163,8 @@
               <div
               *ngIf="add['email'].invalid && (add['email'].dirty || add['email'].touched)"
               class="alert alert-danger">
-              <span *ngIf="add['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-              <span *ngIf="add['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+              <span *ngIf="add['email'].errors?.['required']" >Email is required</span>
+              <span *ngIf="add['email'].errors?.['email']">Please enter valid email</span>
                </div>
               
 
@@ -175,8 +173,8 @@
                <div
                *ngIf="add['phone_number'].invalid && (add['phone_number'].dirty || add['phone_number'].touched)"
                class="alert alert-danger">
-               <span *ngIf="add['phone_number'].errors?.['required']" style="color:#f98f8f">Phone Number is required</span>
-               <span *ngIf="add['phone_number'].errors?.['notANumber']" style="color:#f98f8f;">Please enter valid phone number</span>
+               <span *ngIf="add['phone_number'].errors?.['required']">Phone Number is required</span>
+               <span *ngIf="add['phone_number'].errors?.['notANumber']" >Please enter valid phone number</span>
 
                 </div>
 
@@ -191,8 +189,8 @@
         
                     <div
                     *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
-                    class="alert alert-danger" style="width: 750px; border-radius: 4px;">
-                    <span *ngIf="add['status'].errors?.['required']" style="color:#f98f8f">Please select status</span>
+                    class="alert alert-danger">
+                    <span *ngIf="add['status'].errors?.['required']" >Please select status</span>
                      </div>
 
                 <!--<input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
@@ -215,7 +213,7 @@
                  <!--Privacy-->
                  <div class="notifications" *ngIf="currentForm === 'form4'">
 
-                    <span class="form-header" style="font-weight: bold; margin-top: 5px;">Privacy</span>
+                    <span class="form-header" id="header">Privacy</span>
                     <hr>
     
                     <ol>
@@ -235,23 +233,23 @@
                 </div>
 
                 <!--Agents-->
-                <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" *ngIf="currentForm === 'form5'" >
+                <div class="container text-left" id="designations" *ngIf="currentForm === 'form5'" >
                     <div class="row">
                         
          
     
-             <div class="col" id="details"   id="content2">
+             <div class="col"   id="content2">
                 <div class="top-menu2">
                     <nav>
                       <ul>
-                        <li style="left: -35px;"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
+                        <li id="first"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
                         <li ><a  (click)="toggleForms('form6')">Employees</a></li>
-                        <li style="margin-left: 35px;">
+                        <li class="form-li">
                           <input type="text" placeholder="Search Users"> 
                         </li>
-                        <li style="margin-left: 35px;">
+                        <li class="form-li">
                             <button class="addButton" (click)="toggleForms('form7')">
-                                <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+                                <img src="../../../assets/images/UserPlus.svg">                      
                                 
                                 Add</button>
                         </li>
@@ -262,18 +260,18 @@
                     <hr/>
                     
                   </div>
-                <h5 style="margin-top: 10px;"><strong>Agents & Admins</strong></h5>
+                <h5 class="top"><strong>Agents & Admins</strong></h5>
     
               
     <table>
         <thead>
             <tr>
-                <th style="    border-top-left-radius: 14px;border-bottom-left-radius: 14px;">Name</th>
+                <th class="table-corners-first">Name</th>
                 <th>Designation </th>
                 
     
                 
-                <th style="    border-top-right-radius: 14px;border-bottom-right-radius: 14px;">Member</th>
+                <th class="table-corners-last">Member</th>
             </tr>
         </thead>
         <tbody>
@@ -311,25 +309,25 @@
         </div>
 
             <!--Employess-->
-            <div class="container text-left" style="margin-top: 15px; margin-bottom: 15px;" *ngIf="currentForm === 'form6'" >
+            <div class="container text-left" id="designations" *ngIf="currentForm === 'form6'" >
                 <div class="row">
                     
      
 
-         <div class="col" id="details"   id="content2">
+         <div class="col" id="content2" >
             <div class="top-menu2">
                 <nav>
                   <ul>
-                    <li style="left: -35px;"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
+                    <li id="first"><a (click)="toggleForms('form5')">Agents & Admin</a></li>
                     <li ><a  (click)="toggleForms('form6')">Employees</a></li>
-                    <li style="margin-left: 35px;">
+                    <li class="form-li">
                       <input type="text" placeholder="Search Employees"> 
                     </li>
-                    <li style="margin-left: 35px;">
+                    <li class="form-li">
                      
 
                         <button class="addButton" (click)="toggleForms('form7')">
-                            <img src="../../../assets/images/UserPlus.svg" width="20px" height="20px" style="margin-right: 10px; margin-top: -5px;">                      
+                            <img src="../../../assets/images/UserPlus.svg">                      
                             
                             Add</button>
                     </li>
@@ -340,18 +338,18 @@
                 <hr/>
                 
               </div>
-            <h5 style="margin-top: 10px;"><strong>Employees</strong></h5>
+            <h5 class="top"><strong>Employees</strong></h5>
 
           
 <table>
     <thead>
         <tr>
-            <th style="    border-top-left-radius: 14px;border-bottom-left-radius: 14px;">Name</th>
+            <th class="table-corners-first">Name</th>
             <th>Designation </th>
             
 
             
-            <th style="    border-top-right-radius: 14px;border-bottom-right-radius: 14px;">Email</th>
+            <th class="table-corners-last">Email</th>
         </tr>
     </thead>
     <tbody>

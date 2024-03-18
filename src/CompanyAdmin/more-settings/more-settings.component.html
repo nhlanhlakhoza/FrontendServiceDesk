@@ -4,10 +4,11 @@
 <div class="content">
  <!-- First row of settings' grid -->
  <div *ngIf="currentForm === 'form1'">
- <div class="container text-left" id="top">
+ <div class="container text-left" >
+  <h2><strong>More Settings</strong></h2>
+  <hr>
   <div class="row" >
-    <h2><strong>More Settings</strong></h2>
-<hr>
+ 
     <!-- First column -->
     <div class="col-md-4">
       <div class="card shadow">
@@ -149,9 +150,9 @@
       </div>
       
     </div>
-    <!--
+    
     <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
-      -->
+    
   </div>
 </div>
 
@@ -168,9 +169,8 @@
   <hr>
     <div class="container text-left">
         <div class="row">
-          <div class="col-6 col-sm-4" id="top"> 
+          <div class="col-5" id="top"> 
 
-            <hr/>
            <span>Title</span>
            <input type="text" placeholder="Title Here" id="top">
 
@@ -190,13 +190,14 @@
               <div class="col" class="logoBackground">
 
                 <div *ngIf="logoImage">
-                  <img *ngIf="logoImage" [src]="logoImage" alt="Selected Image" width="120" height="120" >
+                  <img *ngIf="logoImage" [src]="logoImage" alt="Logo Image" >
                   </div>
 
               </div>
             </div>
            </div>
 
+           <!--
            <span id="heading">Color Settings</span>
 
 
@@ -216,7 +217,7 @@
 
             </div>
 
-           </div>
+           </div>-->
 
 
            
@@ -243,8 +244,7 @@
 <!--Custom Fields-->
 
 <div *ngIf="currentForm === 'custFields'">
-  <h2><strong>Custom Fields</strong></h2>
-  <hr>
+  
 
     <div >
 
@@ -254,6 +254,8 @@
           Add</button></div>
           <div class="container text-left">
             <div class="row">
+              <h2><strong>Custom Fields</strong></h2>
+              <hr>
               <div class="col-13" id="content" >
       
                 <div class="container text-left" >
@@ -297,24 +299,18 @@
                       </div>
                   </div>
               </div>
+              <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
+
             </div>
           </div>
 
-
-  
-     
-                                     
-    
-       
-    <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
 </div>
 
 
 <!--Email Notifications-->
 
 <div *ngIf="currentForm === 'emailNotifications'">
-  <h2><strong>Email Templates</strong></h2>
-  <hr>
+  
 
   <div >
 
@@ -324,6 +320,8 @@
         Add</button></div>
         <div class="container text-left">
           <div class="row">
+            <h2><strong>Email Templates</strong></h2>
+            <hr>
             <div class="col-13" id="content" >
     
               <div class="container text-left" >
@@ -367,20 +365,22 @@
                     </div>
                 </div>
             </div>
+            <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
+
           </div>
         </div>
 
-  <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
 </div>
 
 
 <!--License-->
 
 <div *ngIf="currentForm === 'licence'">
-  <h2><strong>Licence</strong></h2>
-  <hr>
+  
         <div class="container text-left">
           <div class="row">
+            <h2><strong>Licence</strong></h2>
+            <hr>
             <div class="col-13" id="content" >
     
               <div class="container text-left">
@@ -425,9 +425,10 @@
                 </div>
             </div>
           </div>
+          <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
+
         </div>
 
-  <button class=" closeButton" (click)="toggleForms('form1')">Back</button>
 </div>
 
 
