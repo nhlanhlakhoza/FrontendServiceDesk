@@ -17,7 +17,7 @@ export class SubscriptionsComponent {
      subscriptionForm:FormGroup = new FormGroup({
       id: new FormControl('0'),
       name: new FormControl('',[Validators.required]),
-      expDate: new FormControl(new Date(), [Validators.required]),
+      expDate: new FormControl('', [Validators.required]),
       status: new FormControl('', Validators.required),
       price: new FormControl('', [Validators.required, this.validateNumber.bind(this)]),
       agents: new FormControl('', [Validators.required, this.validateNumber.bind(this)])

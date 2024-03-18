@@ -114,12 +114,13 @@
 <!--Audit Log-->
 
 <div *ngIf="currentForm === 'auditLog'">
-  <h2><strong>Audit Log</strong></h2>
-  <hr>
+  
     <div class="container text-left">
         
   <div class="container text-left" id="top">
     <div class="row">
+      <h2><strong>Audit Log</strong></h2>
+       <hr>
       <!-- First column -->
       <div class="col-md-5">
         <div class="card shadow">
@@ -246,12 +247,7 @@
 <div *ngIf="currentForm === 'custFields'">
   
 
-    <div >
-
-      <button class="addButton" >
-          <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
-          
-          Add</button></div>
+   
           <div class="container text-left">
             <div class="row">
               <h2><strong>Custom Fields</strong></h2>
@@ -260,6 +256,12 @@
       
                 <div class="container text-left" >
                       <div class="row">
+                        <div >
+
+                          <button class="addButton" >
+                              <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
+                              
+                              Add</button></div>
                           <table class="borderless-table">
                               <thead>
                                   <tr>
@@ -312,20 +314,22 @@
 <div *ngIf="currentForm === 'emailNotifications'">
   
 
-  <div >
-
-    <button class="addButton" >
-        <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
-        
-        Add</button></div>
+  
         <div class="container text-left">
+          <h2><strong>Email Templates</strong></h2>
+          <hr>
           <div class="row">
-            <h2><strong>Email Templates</strong></h2>
-            <hr>
+           
             <div class="col-13" id="content" >
     
               <div class="container text-left" >
                     <div class="row">
+                      <div >
+
+                        <button class="addButton" >
+                            <img src="../../../assets/images/UserPlus.svg" class="button-image">                      
+                            
+                            Add</button></div>
                         <table class="borderless-table">
                             <thead>
                                 <tr>

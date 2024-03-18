@@ -2,62 +2,75 @@
 <app-sidebar></app-sidebar>
 <app-employee-top-menu></app-employee-top-menu> 
 <div class="content">
-  <h2><strong>Dashboard</strong></h2>
-  <hr/>
+    
   <div class="container text-left">
+    <h2><strong>Dashboard</strong></h2>
+  <hr/>
     <div class="row">
-      <span class="form-header" style="margin-bottom: 5px;">Displaying Tickets Report</span>
+      <span class="form-header" style="margin-bottom: 5px; margin-top: 5px">Displaying Tickets Report</span>
       <div class="col-13" id="content">
 
           <div class="container text-left" style="margin-top: 15px;" >
             
-              <div class="row">
+        <div class="row">
+
+         <!--New Tickets Bar graph-->
 
        <div class="col" id="details">
-        <span class="form-header">New Tickets</span>
-        <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
-        <hr>
-
-
-        <app-bar-graph></app-bar-graph>
-
-       </div>
-       <br>
-       <div class="col" id="details">
-        <span class="form-header">Resolved </span>
-        <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
-        <hr>
-
-
-        <app-bar-graph></app-bar-graph>
+        <div class="form-header">
+        <span >New Tickets</span>
+        <span class="totalTickets">Total: 0000</span>
       </div>
+        <hr>
+        <app-bar-graph></app-bar-graph>
+       </div>
+
+         <!--End Of New Tickets Bar graph-->
+
+       <br>
+       <!--Resolved Tickets Bar graph-->
+       <div class="col" id="details">
+        <div class="form-header">
+        <span >Resolved</span>
+        <span class="totalTickets">Total: 0000</span>
+      </div>
+        <hr>
+        <app-bar-graph></app-bar-graph>
+       </div>
+
+       <!--End Of Resolved Ticket Bar graph-->
+
       
               </div>
           </div>
 
-          <!--Second Charts part-->
+        <!--In Progress Bar graph-->
 
           <div class="container text-left" style="margin-top: 15px;" >
               <div class="row">
 
        <div class="col" id="details">
-        <span class="form-header">Inprogress</span>
-        <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+        <span >In Progress</span>
+        <span class="totalTickets">Total: 0000</span>
         <hr>
 
         <app-in-progress></app-in-progress>
-
-
        </div>
+        <!--End Of In Progress Bar graph-->
+
        <br>
+
+       <!--Un resolved Bar graph-->
        <div class="col" id="details">
-        <span class="form-header">Unresolved</span>
-        <span class="form-header" style="margin-left: 450px;">Total: 0000</span>
+        <span >Un resolved</span>
+        <span class="totalTickets">Total: 0000</span>
         <hr>
 
 
         <app-unresolved></app-unresolved>
       </div>
+      <!--End Of Un resolved Bar graph-->
+
 
       
       
@@ -73,11 +86,6 @@
      
         
     </div>
-
-      
       
   </div>
 
-
-
-</body>
