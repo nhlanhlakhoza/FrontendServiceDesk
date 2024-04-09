@@ -8,7 +8,9 @@ import Chart from 'chart.js/auto';
 })
 export class AdminDashboardComponent {
    
-  
+  applyFilters() {
+    //Filter Logic
+  }
 
   
 }

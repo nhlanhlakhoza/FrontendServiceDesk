@@ -464,6 +464,20 @@ input, select, textarea {
   border-bottom: 1px solid #E7E7E7;
 }
 
+
+.top-menu2 nav ul li a:hover
+{
+ color: #000;
+}
+
+.top-menu2 nav ul li a:active
+{
+ color: #000;
+}
+.top-menu2 nav ul li a:focus {
+color: #000;
+}
+
 .ticket-header {
   /* If there were specific styles, they would go here */
 }
@@ -520,6 +534,34 @@ input, select, textarea {
 
 .pagination-container .form-header {
   margin-right: 25px;
+}
+.dateInput {
+  position: relative;
+  width: 330px;
+  display: flex;
+}
+.dateInput input::placeholder {
+  color: rgba(0, 0, 0, 0.9) !important; /* Dark black color with higher opacity */
+}
+.dateInput input{
+  color: #000;
+  text-align: center;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+input.mat-input {
+  padding-right: 30px; /* Adjust according to the icon width */
+}
+
+.date-picker {
+  position: absolute;
+  right: -5%; /* Adjust according to your design */
+  cursor: pointer;
 }
 
 /* Other styles for buttons, inputs, etc. */

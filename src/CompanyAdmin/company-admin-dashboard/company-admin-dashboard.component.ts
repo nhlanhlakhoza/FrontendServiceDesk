@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./company-admin-dashboard.component.css']
 })
 export class CompanyAdminDashboardComponent {
-
+  applyFilters() {
+    //Filter Logic
+  }
 }

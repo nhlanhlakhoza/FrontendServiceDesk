@@ -227,7 +227,7 @@ td {
         background-color: #FFC145;
         font-style: normal;
         height: 40px;
-        width: 85px;
+        width: auto;
         margin-left: 15px;
         border: 1px solid #FFC145;
         padding: none;

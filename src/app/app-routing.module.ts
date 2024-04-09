@@ -31,6 +31,8 @@ import { CompanyRegisterComponent } from '../CompanyAdmin/company-register/compa
 import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-password/company-fgt-password.component';
 import { HomeComponent } from './Single Page/home/home.component';
 import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscriptions/company-subscriptions.component';
+import { CompanyTicketDetailsComponent } from 'src/CompanyAdmin/company-ticket-details/company-ticket-details.component';
+import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
 
 
 
@@ -48,6 +50,8 @@ const routes: Routes = [
 
 
 
+
+
   //Super Admin's routes
 
   {path:"admin-login",component:AdminLoginComponent},
@@ -57,6 +61,8 @@ const routes: Routes = [
   {path:"admin-subscriptions",component:SubscriptionsComponent},
   {path:"admin-settings",component:AdminSettingsComponent},
   {path:"edit-subscription",component:EditSubscriptionComponent},
+  {path:"admin-change-password",component:AdminChangePasswordComponent},
+
 
 
   //Company Admins' routes
@@ -72,7 +78,8 @@ const routes: Routes = [
   {path:"change-password",component: CompanyChangePasswordComponent},
   {path:"forget-password",component: CompanyFgtPasswordComponent},
   {path: "", component: HomeComponent},
-  {path:"company-subscription", component: CompanySubscriptionsComponent}
+  {path:"company-subscription", component: CompanySubscriptionsComponent},
+  {path: "ticket-details-com", component: CompanyTicketDetailsComponent}
 
 
 

@@ -63,6 +63,9 @@ import { EmployeeSidebarComponent } from './Employee/employee-sidebar/employee-s
 import { NotificationsComponent } from './notifications/notifications.component';
 import { HomeComponent } from './Single Page/home/home.component';
 import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscriptions/company-subscriptions.component';
+import { CompanyTicketDetailsComponent } from '../CompanyAdmin/company-ticket-details/company-ticket-details.component';
+import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
+import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
 
 
 
@@ -117,6 +120,9 @@ import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscrip
     NotificationsComponent,
     HomeComponent,
     CompanySubscriptionsComponent,
+    CompanyTicketDetailsComponent,
+    AdminChangePasswordComponent,
+    EmployeeChangePasswordComponent,
 
   ],
   imports: [

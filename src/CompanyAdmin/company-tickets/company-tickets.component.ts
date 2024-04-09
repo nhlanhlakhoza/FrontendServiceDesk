@@ -42,6 +42,9 @@ export class CompanyTicketsComponent {
   applyFilters() {
     this.showDropdown=false
   }
+
+  startDate: Date = new Date();
+  endDate: Date = new Date();
   
   get new_ticket (){return this.ticketForm.controls;}
 

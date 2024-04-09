@@ -89,12 +89,41 @@ display: block;
 display: block;
 }
 
-.dateInput
-{
-position: relative; 
-width: 330px;
-display: flex;
+/* CSS */
+.dateInput {
+  position: relative;
+  width: 330px;
+  display: flex;
 }
+.dateInput input::placeholder {
+  color: rgba(0, 0, 0, 0.9) !important; /* Dark black color with higher opacity */
+}
+.dateInput input{
+  color: #000;
+  text-align: center;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+input.mat-input {
+  padding-right: 30px; /* Adjust according to the icon width */
+}
+
+.date-picker {
+  position: absolute;
+  right: -5%; /* Adjust according to your design */
+  cursor: pointer;
+}
+
+
+
+
+
+
 .mat-datepicker-toggle{
 margin-left: 10px;
 margin-top: -2px;
@@ -221,6 +250,7 @@ select {
   margin-bottom: 5px;
   border: 1px solid #E7E7E7;
    border-radius: 4px;
+   color: #000;
 }
 textarea{
 background: rgba(255,255,255,0.1);
@@ -320,7 +350,8 @@ margin-right: 15px;
 padding: 15px;
 padding-top: 10px;
 word-wrap: break-word;
-height: 100vh;
+height: auto;
+
 }
 
 .content h2{
@@ -462,6 +493,21 @@ margin-bottom: 50px;
 margin-right: 5px;
 border-bottom: 1px solid #E7E7E7;
 }
+
+.top-menu2 nav ul li a:hover
+{
+ color: #000;
+}
+
+.top-menu2 nav ul li a:active
+{
+ color: #000;
+}
+.top-menu2 nav ul li a:focus {
+color: #000;
+}
+
+
 
 .ticket-header {
 /* If there were specific styles, they would go here */

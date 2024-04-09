@@ -205,14 +205,13 @@ margin-right: 10px;
 
 .filterButton
 {
-  color: #5F5F5F;
-  background-color: #ECECEC;
+  color: #fff;
+  background-color: #59699e;
   font-style: normal;
-  border-radius: 5px;
   width: 100%;
-  height: 40px;
+  height: 35px;
   margin-bottom: 10px;
-  width: 150px;
+  width: 120px;
   border: none;
 }
 .bar-graph {
@@ -304,6 +303,21 @@ background-color: #59699e;
 color: #fff;
 border: 1px solid #59699e;
 }
+
+.applyFilter{
+  width: 120px;
+  margin-left: 10px;
+  height: 35px;
+  background-color: #59699e;
+  color: #fff;
+  border: 2px solid #59699e;
+  border-radius: 0.5px;
+  font-size: 12px;
+
+  }
+  
+
+
 
 
 

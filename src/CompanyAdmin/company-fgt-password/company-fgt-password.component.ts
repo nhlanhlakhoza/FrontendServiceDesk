@@ -11,7 +11,7 @@ export class CompanyFgtPasswordComponent {
   constructor(private router:Router) {
   }
   forget_Password_Form: FormGroup = new FormGroup({
-    email: new FormControl('',Validators.compose([Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])),
+    email: new FormControl('',Validators.compose([Validators.required,Validators.email])),
   });
   get change_password (){return this.forget_Password_Form.controls;}
 

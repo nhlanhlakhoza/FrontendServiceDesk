@@ -16,13 +16,21 @@
         <div class="top-menu2">
           <nav>
             <ul style="display: flex; align-items: center;">
-              <li style="margin-right: 10px;"><a (click)="toggleForms('unresolved')" routerLink="#">Unresolved</a></li>
-              <li style="margin-right: 10px;"><a (click)="toggleForms('inprogress')">In Progress</a></li>
-              <li style="margin-right: 10px;"><a (click)="toggleForms('resolved')">Resolved</a></li>
+              <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a (click)="toggleForms('unresolved')" routerLink="#">Unresolved</a>
+            </li>
+            <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a (click)="toggleForms('inprogress')" routerLink="#">In Progress</a>
+          </li>
+          <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a (click)="toggleForms('resolved')" routerLink="#">Resolved</a>
+        </li>
               <li style="margin-right: 20px;">
                 <input type="text" placeholder="Search tickets"></li>
                 <div class="dropdown">
-              <li><button class="filterButton" (click)="toggleDropdown()">
+              <li>
+                
+                <button class="filterButton" (click)="toggleDropdown()">
                 <img src="../../../assets/images/filter.svg"  > 
                 Filter</button>
 
@@ -40,6 +48,23 @@
                     <option value="Type 1">Type A</option>
                     <option value="Type 2">Type B</option>
                   </select>
+                  
+                  <!-- Start Date Input -->
+                    <div class="dateInput">
+                      <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date">
+                      <mat-datepicker-toggle matSuffix [for]="startDatePicker" class="date-picker"></mat-datepicker-toggle>
+                      <mat-datepicker #startDatePicker panelClass="datepickerTwo"></mat-datepicker>
+                    </div>
+
+                    <!-- End Date Input -->
+                    <div class="dateInput">
+                      <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date">
+                      <mat-datepicker-toggle matSuffix [for]="endDatePicker" class="date-picker"></mat-datepicker-toggle>
+                      <mat-datepicker #endDatePicker panelClass="datepickerTwo"></mat-datepicker>
+                    </div>
+
+
+                  
 
         <button class="nextButton" (click)="applyFilters()">Apply Filters</button>    
                 </div>
