@@ -20,7 +20,6 @@
 
                
   
-              <label>Email</label>
               <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
               <div
               *ngIf="register['email'].invalid && (register['email'].dirty || register['email'].touched)"
@@ -30,7 +29,6 @@
                </div>
           </div>
             <div class="form-group">
-              <label>Password</label>
               <input type="password" class="" formControlName="password" placeholder="Password">
                           <div
                           *ngIf="register['password'].invalid && (register['password'].dirty || register['password'].touched)"
@@ -44,7 +42,6 @@
              </div>
 
              <div class="form-group">
-                <label>Confirm Password</label>
                 <input type="password" class="" formControlName="confirm_password" placeholder="Confirm password">
                             <div
                             *ngIf="register['confirm_password'].invalid && (register['confirm_password'].dirty || register['confirm_password'].touched)"

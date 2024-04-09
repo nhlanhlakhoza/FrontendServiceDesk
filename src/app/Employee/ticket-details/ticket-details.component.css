@@ -185,6 +185,14 @@
     word-wrap: break-word;
     height: 600px;
   }
+  .content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Calculate width to fill remaining space */
+    height: 100vh; /* Calculate height to fill remaining space */
+    background-color: #F9F9FB;
+    font-family: 'Poppins';
+  }
   
   
   
@@ -339,15 +347,32 @@
 
   #ticketID{
     color:#000;
-  margin-left: 10px;}
+  margin-left: 10px;
+  background-color: #ECECEC;
+  border: 2px solid #9E9E9E;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+
+}
 
   #statusID{
     color:#03781D;
-  margin-left: 10px;}
+  margin-left: 10px;
+  background-color: #F0F9F2;
+  border: 2px solid #6DC580;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;}
   
   #priorityID{
     color:#BA1717;
     margin-left: 10px;
+    background-color: #F9F2F2;
+    border: 2px solid #E2A1A1;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50px;
   }
 
 

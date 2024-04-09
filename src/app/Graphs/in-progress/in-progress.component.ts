@@ -34,13 +34,20 @@ export class InProgressComponent implements AfterViewInit {
         },
         options: {
           scales: {
+          
+            x: {
+              grid: {
+                display: false
+              }
+            },
             y: {
               beginAtZero: false,
               min: 100,
-              
-              max: 500
-
-              
+              max: 500,
+            
+              ticks: {
+                stepSize: 100,
+              }
             }
             
           }

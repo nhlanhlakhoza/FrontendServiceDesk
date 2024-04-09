@@ -61,6 +61,8 @@ import { EmployeeTopMenuComponent } from '../assets/Top Menus/company-top-menu/e
 import { AdminTopMenuComponent } from '../assets/Top Menus/admin-top-menu/admin-top-menu.component';
 import { EmployeeSidebarComponent } from './Employee/employee-sidebar/employee-sidebar.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { HomeComponent } from './Single Page/home/home.component';
+import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscriptions/company-subscriptions.component';
 
 
 
@@ -113,6 +115,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AdminTopMenuComponent,
     EmployeeSidebarComponent,
     NotificationsComponent,
+    HomeComponent,
+    CompanySubscriptionsComponent,
 
   ],
   imports: [

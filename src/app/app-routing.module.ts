@@ -29,13 +29,14 @@ import { CompanyLoginComponent } from '../CompanyAdmin/company-login/company-log
 import { CompanyChangePasswordComponent } from '../CompanyAdmin/company-change-password/company-change-password.component';
 import { CompanyRegisterComponent } from '../CompanyAdmin/company-register/company-register.component';
 import { CompanyFgtPasswordComponent } from '../CompanyAdmin/company-fgt-password/company-fgt-password.component';
+import { HomeComponent } from './Single Page/home/home.component';
+import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscriptions/company-subscriptions.component';
+
 
 
 const routes: Routes = [
   
   {path:"success",component:TemplateComponent},
-
-  {path:"",component:UserLoginComponent},
   {path:"employee-login",component:EmployeeLoginComponent},
   {path:"employee-register",component:EmployeeRegisterComponent},
   {path:"employee-fgt-password",component:EmployeeForgortPasswordComponent},
@@ -70,6 +71,9 @@ const routes: Routes = [
   {path:"company-register",component: CompanyRegisterComponent},
   {path:"change-password",component: CompanyChangePasswordComponent},
   {path:"forget-password",component: CompanyFgtPasswordComponent},
+  {path: "", component: HomeComponent},
+  {path:"company-subscription", component: CompanySubscriptionsComponent}
+
 
 
 

@@ -35,7 +35,6 @@
       padding: 15px;
       width: 100%;
       background-color: #fff;
-      color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
@@ -54,28 +53,14 @@
       padding: 15px;
       width: 800px;
       background-color: #fff;
-      color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
        border-radius: 4px;
+       font-size: 12px;
+
     }
-    textarea{
-    background: rgba(255,255,255,0.1);
-    border: none;
-    font-size: 12px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
-    width: 800px;    background-color: #fff;
-    color: #9E9E9E;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 5px;
-    border: 1px solid #E7E7E7;
-    border-radius: 4px;
-    height: 100px;
-  }
+   
 
   .text-class{
     background: white;
@@ -162,9 +147,7 @@
   }
  
 
-  #aside
-  {margin-left: 450px;
-    top: -365px;}
+
   .date-picker
   {
     position: absolute; 
@@ -200,7 +183,8 @@
     label {
       display: block;
       margin-bottom: 8px;
-      color: #9E9E9E;
+      font-size: 15px;
+      /*font-weight: 500 ;*/
     }
     
     label.light {
@@ -237,7 +221,34 @@
     width: 900px;
     height: auto;
   }
-  
+  .content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Calculate width to fill remaining space */
+    height: 100vh; /* Calculate height to fill remaining space */
+    background-color: #F9F9FB;
+    font-family: 'Poppins';
+  }
+  .closeButton
+  {
+    color: #fff;
+    background-color: #E94435;
+      font-style: normal;
+      border-radius: 4px;
+      width: auto;
+      height: 40px;
+      border: none;
+      margin-top: 25px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+  }
+  .pointer {
+    cursor: pointer;
+  }
+  a{
+    cursor: pointer;
+  }
   #content{
     background-color: #e7e7fe;
     border-radius: 4px;
@@ -266,19 +277,19 @@
     padding: 15px;
     padding-top: 0px;
     word-wrap: break-word;
-    height: 500px;
+    height: auto;
     width: 800px;
   }
 
   .settings-menu
   {
-    font-weight: bold;
     margin-top: -20px;
-    color: #84818A;
+    font-weight: 500;
   }
   .settings-menu li a
   {
     text-decoration: none;
+    cursor: pointer;
   }
 
   .settings-menu li a:hover
@@ -298,7 +309,7 @@
   }
   #first
   {
-    left: -35px;
+    left: 35px;
   }
 
   .form-li{
@@ -483,35 +494,16 @@ th{
 tr:not(:first-child) {
     border-top: 1px solid #ddd;
 }
+.attachButton
+{
+  background-color: #D9D9D9;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border: 1px solid #D9D9D9;
+  margin-bottom: 10px;
+}
 
-/*Top menu 2*/
-.top-menu2 {
-   
-    color: #9E9E9E;
-    width: calc(100% - 0px); /* Calculate width to fill remaining space */
-    height: auto;
-  }
-  
-  .top-menu2 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .top-menu2 nav ul li {
-    display: inline-block;
-  }
-  
-  .top-menu2 nav ul li a {
-    color: #9E9E9E;
-    text-decoration: none;
-    text-align: left;
-
-  }
-  #top-menu2 nav ul li a.active {
-    background-color: #007bff; /* Change background color for active tab */
-    color: white; /* Change text color for active tab */
-  }
 
 
 

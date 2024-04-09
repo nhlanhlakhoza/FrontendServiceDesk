@@ -137,7 +137,7 @@
     margin-left: 250px; /* Same as the width of the sidebar */
     padding: 20px;
     width: calc(100% - 250px); /* Calculate width to fill remaining space */
-    height: 100; /* Calculate height to fill remaining space */
+    height: auto; /* Calculate height to fill remaining space */
     background-color: #F9F9FB;
   }
 

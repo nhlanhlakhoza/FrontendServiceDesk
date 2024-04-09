@@ -361,7 +361,8 @@ tr:not(:first-child) {
 }
 
 .searchUsers{
-  margin-left: 1245px;
+  margin-left: 1095px;
+  width: 200px;
 }
 
   

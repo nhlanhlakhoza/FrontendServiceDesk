@@ -2,23 +2,25 @@
 <app-admin-top-menu></app-admin-top-menu>  
   
   <div class="content">
-    <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
-    <hr/>
-    <p></p>
-    <div class="container text-left">
+        <div class="container text-left">
+      <h2><strong>Settings</strong></h2>
+      <hr/>
       <div class="row">
         
-        <div class="col-4" id="content">
+        <div class="col-4">
+          <div class="card shadow">
+              <div class="card-body">
 
-        <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
-        <hr/>
-         <ul class="settings-menu">
-            <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
-            <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
-         </ul>
-        </div>
-        <br>
-        <br>
+                <h6 class="card-title"><strong>Account</strong></h6>
+                <hr/>
+           <ul class="settings-menu">
+              <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" > Edit Profile</a></li>
+              <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" > Security</a></li>
+          </ul>
+       </div>
+       </div>
+       </div>
+        
 
         <div class="col-7">
 
@@ -83,6 +85,14 @@
                    <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
                     </div>
                 </fieldset>
+
+                <label for="country" class="input-fields"> Profile Image</label>
+
+                <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"/>
+
+                <button type="button" class="attachButton" type="file" (click)="fileInput.click()">
+                  Choose File
+                </button>  
                 
                  
                

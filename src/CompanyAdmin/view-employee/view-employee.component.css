@@ -4,6 +4,11 @@
   margin-top: 5px;
   color: #84818A;
 }
+.settings-menu img{
+  margin-right: 25px;
+  width: 25px;
+  height: 25px;
+}
 
 
 
@@ -13,6 +18,7 @@
   padding: 10px;
   width: 200px;
   border-radius: 8px;
+  
   }
 
   #content{
@@ -30,8 +36,24 @@
     text-align: center;
     align-items: center;
     margin-right: 50%;
-    margin-left: 35px;
-    margin-top: 35px;
+    margin-left: 24px;
+    margin-top: 20px;
+    width: 103px;
+    height: 98px;
+   
+  }
+
+  .card-title{
+    margin-top: 25px;
+    margin-bottom: -10px;
+  }
+
+  .profileImgContainer {
+    border-radius: 50%; /* This creates a round background */
+    background-color: #f0f0f0; /* Background color for the rounded area */
+    border: 1px solid #000;
+    width: 150px;
+    height: 150px;
   }
   #profile-details
   {
@@ -67,4 +89,43 @@
     margin-left: 10px;
     margin-top: 5px;
   }
-  
+  .agents-name
+  {
+    margin-bottom: 25px;
+  }
+
+  #top{
+    font-weight: bold;
+     margin-top: 5px;
+  }
+    
+  .content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Calculate width to fill remaining space */
+    height: calc(100vh); /* Calculate height to fill remaining space */
+    background-color: #F9F9FB;
+    font-family: 'Poppins';
+  }
+  .settings-menu
+  {
+    margin-top: -20px;
+    font-weight: 500;
+    color: #000;
+    margin-top: 10px;
+  }
+  .settings-menu li a
+  {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .settings-menu li a:hover
+  {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .settings-menu img{
+    margin-right: 25px;
+  }

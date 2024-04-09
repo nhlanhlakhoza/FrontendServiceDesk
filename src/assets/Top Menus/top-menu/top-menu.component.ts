@@ -19,4 +19,19 @@ export class TopMenuComponent {
   toggleNotification() {
     this.notificationVisible = !this.notificationVisible;
   }
+
+  logoImage: string | ArrayBuffer | null = 'assets/images/Ellipse 73.svg'; 
+onFileSelected(event: any) 
+{
+const file: File = event.target.files[0];
+if (file) {
+ const reader = new FileReader();
+ reader.readAsDataURL(file);
+ reader.onload = () => {
+ this.logoImage = reader.result as string | ArrayBuffer; 
+   };
+}
+}
+
+  
 }

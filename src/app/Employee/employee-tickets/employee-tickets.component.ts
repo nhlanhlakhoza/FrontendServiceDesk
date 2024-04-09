@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,9 +10,21 @@ import { Router } from '@angular/router';
 export class EmployeeTicketsComponent
 {
 
+  filterForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.filterForm = this.formBuilder.group({
+      status: new FormControl(''),
+      priority: new FormControl(''),
+      fromDate: new FormControl(''),
+      toDate: new FormControl(''),
+
+    });
+  }
+
   ticketForm:FormGroup = new FormGroup({
 
-    email: new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    email: new FormControl('',[Validators.required,Validators.email]),
     type: new FormControl('',[Validators.required]),
     priority_status: new FormControl ('',[Validators.required]),
     ticketBody: new FormControl('', [Validators.required])
@@ -26,10 +38,23 @@ export class EmployeeTicketsComponent
   }
 
   //Toggling through the buttons
-  currentForm: string = 'form1';
+  currentForm: string = 'unresolved';
 
   toggleForms(form: string) {
     this.currentForm = form;
+  }
+
+//Filter toggle
+  showDropdown: boolean = false;
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+}
+  applyFilters() {
+    this.showDropdown=false
   }
 
  

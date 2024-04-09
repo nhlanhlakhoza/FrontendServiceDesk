@@ -10,7 +10,7 @@
 form {
     width: 450px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins';
     padding-top: 25px;
     padding-bottom: 25px;
 }
@@ -19,14 +19,14 @@ form {
   
   label {
     display: block;
-    margin-bottom: 10px;
-    color: #464648;
+    margin-bottom: px;
+    font-size: 15px;
   }
   
   input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
     border-radius: 0px;
     font-size: 12px;
   }

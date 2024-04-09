@@ -28,7 +28,6 @@
       padding: 15px;
       width: 800px;
       background-color: #fff;
-      color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
@@ -87,14 +86,28 @@
 }
 
 
-  
+  .notifications-top{
+    margin-top: 15px;
+    text-decoration: underline;
+  }
     
     select {
       padding: 6px;
       height: 40px;
       border-radius: 2px;
     }
-    
+    .closeButton
+{
+  color: #fff;
+  background-color: #E94435;
+    font-style: normal;
+    border-radius: 4px;
+    width: auto;
+    height: 40px;
+    border: none;
+    margin-top: 25px;
+    padding: 10px;
+}
  
     
     fieldset {
@@ -110,13 +123,23 @@
     label {
       display: block;
       margin-bottom: 8px;
-      color: #9E9E9E;
-    }
+font-size: 15px;  
+  }
     
     label.light {
       font-weight: 300;
       display: inline;
     }
+
+    .attachButton
+{
+  background-color: #D9D9D9;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border: 1px solid #D9D9D9;
+  margin-bottom: 10px;
+}
     
 
     
@@ -134,6 +157,14 @@
     border-radius: 4px;
     width: 900px;
     height: auto;
+  }
+  .content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Calculate width to fill remaining space */
+    height: 100vh; /* Calculate height to fill remaining space */
+    background-color: #F9F9FB;
+
   }
   
   #content{
@@ -154,7 +185,7 @@
     padding: 15px;
     padding-top: 0px;
     word-wrap: break-word;
-    height: 500px;
+    height: auto;
     width: 800px;
   }
 
@@ -165,19 +196,23 @@
 
   .settings-menu
   {
-    font-weight: bold;
     margin-top: -20px;
-    color: #84818A;
+    font-weight: 500;
   }
   .settings-menu li a
   {
     text-decoration: none;
+    cursor: pointer;
   }
 
   .settings-menu li a:hover
   {
     text-decoration: none;
     color: inherit;
+  }
+
+  .settings-menu img{
+    margin-right: 25px;
   }
   
   

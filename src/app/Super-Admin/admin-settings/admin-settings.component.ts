@@ -70,6 +70,10 @@ export class AdminSettingsComponent {
         return null;
       };
     }
+    onFileSelected(event: any) {
+      const selectedFile = event.target.files[0];
+      //console.log(selectedFile); Do something with the selected file
+    }
   
      
   

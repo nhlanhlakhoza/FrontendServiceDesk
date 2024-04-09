@@ -1,53 +1,4 @@
 
-
-/* Montserrat-300 - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    src: url("/src/fonts/Roboto/Roboto-Light.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Regular.ttf");
-    /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 400;
-    src: url("/src/fonts/Roboto/Roboto-Italic.ttf");
-    /* IE9 Compat Modes Roboto-Italic.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    src: url("/src/fonts/Roboto/Roboto-Medium.ttf");
-    /* IE9 Compat Modes Roboto-Medium.ttf*/ }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    src: url("/src/fonts/Roboto/Roboto-Bold.ttf");
-    /* IE9 Compat Modes Roboto-Bold.ttf*/ }
-  
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 700;
-    src: url("/src/fonts/Roboto/Roboto-BoldItalic.ttf");
-    /* IE9 Compat Modes Roboto-BoldItalic.ttf*/ }
-  
-  
-    *, *:before, *:after {
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    
-  
-    
     form {
       width: 400px;
       margin: 10px auto;
@@ -194,7 +145,7 @@
     border-radius: 4px;
     margin-right: 15px;
     padding: 15px;
-    padding-top: 0px;
+    padding-top: 15px;
     word-wrap: break-word;
     height: 385px;
     width: 600px;
@@ -292,6 +243,68 @@
     padding: 8px 12px; /* Adjust the padding as per your preference */
     font-size: 14px; /* Adjust the font size as per your preference */
   }
+  .totalTickets
+{
+  margin-left: 450px;
+}
+.ticket-category{
+font-size: 15px;
+font-weight: 500;
+margin-top: 15px;
+}
+
+.export{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  border: 2px solid grey;
+  width: auto;
+  color: #000;
+  height: 35px;
+  float: inline-end;
+}
+#statusID{
+  color:#03781D;
+background-color: #F0F9F2;
+border: 2px solid #6DC580;
+padding-right: 10px;
+border-radius: 50px;
+margin-bottom: 10px;}
+
+#priorityID{
+  color:#BA1717;
+  background-color: #F9F2F2;
+  border: 2px solid #E2A1A1;
+  border-radius: 50px;
+}
+
+#inprogress
+{
+  color:#e47200;
+  background-color: #f1ee8e;
+  border: 2px solid #ffff00;
+  border-radius: 50px;
+}
+
+.filter{
+  margin-left: 10px;
+  color: #5F5F5F;
+}
+.vertical-line {
+  border-left: 1px solid grey;
+  height: 1em; 
+  margin-left: 10px; 
+}
+
+select{
+  width: 120px;
+  margin-left: 10px;
+  height: 35px;
+  background-color: #59699e;
+  color: #fff;
+  border: 1px solid #59699e;
+}
+
   
   
   

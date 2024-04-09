@@ -96,7 +96,20 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
     //console.log(selectedFile); Do something with the selected file
   }
   
-     
+  buttonTexts: string[] = ['On', 'On', 'On', 'On', 'On','On','On','On']; 
+  isOns: boolean[] = [true, true, true, true, true, true, true, true]; 
+  
+  toggleState(index: number) {
+    this.isOns[index] = !this.isOns[index];
+    this.buttonTexts[index] = this.isOns[index] ? 'On' : 'Off';
+  }
+
+  //Restore to default button
+  restoreToDefault() {
+    this.isOns = this.isOns.map(() => false);
+    this.buttonTexts = this.isOns.map(() => 'On'); 
+  }
+  
   
     get profile (){return this.profileForm.controls;}
     get password (){return this.passwordForm.controls;}

@@ -17,11 +17,21 @@
          <!--New Tickets Bar graph-->
 
        <div class="col" id="details">
-        <div class="form-header">
-        <span >New Tickets</span>
-        <span class="totalTickets">Total: 0000</span>
-      </div>
-        <hr>
+        <div style="display: inline;">
+          <span class="form-header badge badge-success" id="statusID">New Tickets</span>
+          <span class="vertical-line"></span>
+          <span class="filter">Filters:</span>
+          <select id="filter" name="">
+            <option value="Type 1">Select</option>
+            <option value="7days"> 30 days</option>
+            <option value="14days">60 days</option>
+            <option value="21days">90 days</option>
+            <option value="Full Month">1 Year</option>
+          </select>
+          <button class="export">Export CSV</button>
+          <p class="ticket-category">1750</p>
+        </div>
+        
         <app-bar-graph></app-bar-graph>
        </div>
 
@@ -30,11 +40,21 @@
        <br>
        <!--Resolved Tickets Bar graph-->
        <div class="col" id="details">
-        <div class="form-header">
-        <span >Resolved</span>
-        <span class="totalTickets">Total: 0000</span>
-      </div>
-        <hr>
+        <div style="display: inline;">
+          <span class="form-header badge badge-success" id="statusID">Resolved</span>
+          <span class="vertical-line"></span>
+          <span class="filter">Filters:</span>
+          <select id="filter" name="">
+            <option value="Type 1">Select</option>
+            <option value="7days"> 30 days</option>
+            <option value="14days">60 days</option>
+            <option value="21days">90 days</option>
+            <option value="Full Month">1 Year</option>
+          </select>
+          <button class="export">Export CSV</button>
+          <p class="ticket-category">1750</p>
+        </div>
+        
         <app-bar-graph></app-bar-graph>
        </div>
 
@@ -44,15 +64,33 @@
               </div>
           </div>
 
-        <!--In Progress Bar graph-->
+        <!--In Progress Bar graph  <p class="form-header badge badge-danger" id="priorityID">Urgent</p>
+                <p class="form-header badge badge-success" id="statusID"-->
 
           <div class="container text-left" style="margin-top: 15px;" >
               <div class="row">
 
-       <div class="col" id="details">
-        <span >In Progress</span>
-        <span class="totalTickets">Total: 0000</span>
-        <hr>
+                <div class="col" id="details">
+                  <div style="display: inline;">
+                    <span class="form-header badge badge-warning" id="inprogress">In Progress</span>
+                    <span class="vertical-line"></span>
+                    <span class="filter">Filters:</span>
+                    <!--Dropdown for filtering-->
+                    <select id="filter" name="">
+                      <option value="Type 1">Select</option>
+                      <option value="7days"> 30 days</option>
+                      <option value="14days">60 days</option>
+                      <option value="21days">90 days</option>
+                      <option value="Full Month">1 Year</option>
+                    </select>
+                     <!--End Of Dropdown for filtering 7 days-->
+
+                     <!--Apply filter button-->
+
+                     
+                    <button class="export">Export CSV</button>
+                    <p class="ticket-category">1750</p>
+                  </div>
 
         <app-in-progress></app-in-progress>
        </div>
@@ -62,9 +100,20 @@
 
        <!--Un resolved Bar graph-->
        <div class="col" id="details">
-        <span >Un resolved</span>
-        <span class="totalTickets">Total: 0000</span>
-        <hr>
+        <div style="display: inline;">
+          <span class="form-header badge badge-danger" id="priorityID">Unresolved</span>
+          <span class="vertical-line"></span>
+          <span class="filter">Filters:</span>
+          <select id="filter" name="">
+            <option value="Type 1">Select</option>
+            <option value="7days"> 30 days</option>
+            <option value="14days">60 days</option>
+            <option value="21days">90 days</option>
+            <option value="Full Month">1 Year</option>
+          </select>
+          <button class="export">Export CSV</button>
+          <p class="ticket-category">1750</p>
+        </div>
 
 
         <app-unresolved></app-unresolved>

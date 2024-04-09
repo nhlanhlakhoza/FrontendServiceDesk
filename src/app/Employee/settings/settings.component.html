@@ -9,20 +9,22 @@
         <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
         <hr/>
         
-        <div class="col-4" id="content">
+        <div class="col-4">
+          <div class="card shadow">
+              <div class="card-body">
 
-        <span class="form-header" class="settingsHeader">Account</span>
-        <hr/>
-         <ul class="settings-menu">
+                <h6 class="card-title"><strong>Account</strong></h6>
+                <hr/>
+           <ul class="settings-menu">
             <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
             <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
-            <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notification</a></li>
+            <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
             <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
-         </ul>
-        </div>
-        <br>
-        <br>
-
+          </ul>
+       </div>
+       </div>
+       </div>
+      
         <div class="col-7">
 
             <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
@@ -76,6 +78,14 @@
                    <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
                     </div>
                 </fieldset>
+
+                <label for="country" class="input-fields"> Profile Image</label>
+
+                <input type="file" #fileInput style="display: none;" />
+
+                <button type="button" class="attachButton" type="file">
+                  Choose File
+                </button>  
                 
                  
                
@@ -134,30 +144,92 @@
           </form>
 
             <!--Notifications-->
-            <div class="notifications" *ngIf="currentForm === 'form3'">
+            
+            <div *ngIf="currentForm === 'form3'">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h6 class="card-title"><strong>Notifications</strong></h6>
 
-                <span class="form-header" class="settingsHeader">Notifications</span>
                 <hr>
 
                 <ol>
+                  <!--Email Alerts-->
                     <div>
-                    <li>Notification 1<a>View more</a></li>
-                    <span class="form-header" style="margin-left: 10px; margin-top: -10px;">Today, 11:30 PM</span>
+                      <span class="card-title"><strong>Email Alerts</strong></span>
+                      <div class="row">
+                        <div class="col">
+                      <span class="form-header" style="margin-top: 10px;">Ticket Notification:</span><br>
+                      <span class="form-header">Ticket Closure: </span><br>
+                      <span class="form-header">Ticket Response:</span><br>
+                      </div>
+
+                    <div class="col">
+                      <span class="form-header">On</span><br>
+                      <span class="form-header">On</span><br>
+                      <span class="form-header">On</span><br>
+
+                    </div>
+                    </div>
+                    </div>
+                   <!--End Of Email Alerts-->
+
+                <!--Updates Alerts-->
+                <div style="margin-top: 15px;">
+                  <span class="card-title"><strong>Updates Alerts</strong></span>
+                  <div class="row">
+                    <div class="col">
+                  <span class="form-header" style="margin-top: 10px;">Default (notifications on)</span><br>
+                
+                  </div>
+
+                <div class="col">
+                  <span class="form-header">On</span><br>
+            
                 </div>
-                    <li>Notification 1<a>View more</a></li>
-                    <li>Notification 1<a>View more</a></li>
-                    <li>Notification 1<a>View more</a></li>
-                    <li>Notification 1<a>View more</a></li>
-                    <li>Notification 1<a>View more</a></li>
+                </div>
+                </div>
+               <!--End Of Updates Alerts-->
+
+               
+                <!--Updates Alerts-->
+                <div style="margin-top: 15px;">
+                  <span class="card-title"><strong>Account Changes</strong></span>
+                  <div class="row">
+                    <div class="col">
+                  <span class="form-header" style="margin-top: 10px;">Default (notifications on)</span><br>
+                  <span class="form-header">Profile Changes:</span><br>
+                  <span class="form-header">Password Changes:</span><br>
+                  <span class="form-header">Privacy Changes:</span><br>
+
+
+                
+                  </div>
+
+                <div class="col">
+                  <span class="form-header">On</span><br>
+                  <span class="form-header">On</span><br>
+                  <span class="form-header">On</span><br>
+                  <span class="form-header" (click)="toggleState()">{{ buttonText }}</span><br>
+                </div>
+                </div>
+                </div>
+               <!--End Of Updates Alerts-->
+
+                    <button class="closeButton">Restore to default</button>
 
                 </ol>
 
-
+              </div>
+            </div>
 
             </div>
 
+            <!--End of Notifications-->
+
                  <!--Privacy-->
-                 <div class="notifications" *ngIf="currentForm === 'form4'">
+                 <div *ngIf="currentForm === 'form4'">
+                  <div class="card shadow">
+                    <div class="card-body">
 
                     <span class="form-header" class="settingsHeader">Privacy</span>
                     <hr>
@@ -174,14 +246,15 @@
     
                     </ol>
     
+                    </div>
+                    </div>
     
     
                 </div>
 
            
 
-           
-
+            
         </div>
 
        

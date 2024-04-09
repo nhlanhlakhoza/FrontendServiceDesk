@@ -26,7 +26,7 @@
                
   
               <label>Email</label>
-              <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
+              <input type="email" class="" id="email" formControlName="email">
               <div
               *ngIf="login['email'].invalid && (login['email'].dirty || login['email'].touched)"
               class="alert alert-danger">
@@ -36,7 +36,7 @@
           </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="" formControlName="password" placeholder="Password">
+              <input type="password" class="" formControlName="password">
                           <div
                           *ngIf="login['password'].invalid && (login['password'].dirty || login['password'].touched)"
                           >
@@ -58,6 +58,8 @@
                  
                   <div class="text-left">
                       <p style="color: grey">Don't have account? <a routerLink="/company-register"  style="color:#54BEB8;text-decoration: none;">Register</a></p>
+                      <p><a routerLink="/forget-password"  style="color:#54BEB8;text-decoration: none;">Forgot Password</a></p>
+
 
                   </div>
   

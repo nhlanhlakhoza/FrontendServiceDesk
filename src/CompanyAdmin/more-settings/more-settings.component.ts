@@ -11,6 +11,8 @@ export class MoreSettingsComponent {
   primaryColor: string = '#fff'; // Default color
   secondaryColor: string = '#fff'; 
 
+ 
+ 
   logoImage: any = 'assets/images/Icon.png'; 
 
 
@@ -35,7 +37,8 @@ onFileSelected(event: any) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-    this.logoImage = reader.result as string | ArrayBuffer;    };
+    this.logoImage = reader.result as string | ArrayBuffer; 
+     };
   }
 }
 }

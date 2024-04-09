@@ -3,7 +3,7 @@
 <header class="top-menu">
     <nav>
       <ul>
-        <div style="display: inline;">
+        <div style="display: inline; font-family: Poppins">
             
         <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
         <div style="float: inline-end;">
@@ -12,13 +12,18 @@
 
         <div class="dropdown">
         <li class="iconImages" (click)="toggleDropdown()">
-          <img src="../../../assets/images/Ellipse 73.svg" style="margin-left: -15px;" width="40px" height="40px">
-          <strong style="margin-left: 10px;">Username</strong>
+
+          <div *ngIf="logoImage">
+          <img *ngIf="logoImage" [src]="logoImage" style="margin-left: -15px;" width="40" height="40">
+          <strong style="margin-left: 10px;">Username</strong></div>
+
           <!-- Dropdown menu -->
           <div class="dropdown-content" *ngIf="showDropdown">
             <!-- Dropdown content goes here -->
+           
             <a routerLink="/employee-settings">Settings</a>
             <a routerLink="/employee-login">Logout</a>
+
           </div>
           
       </li>      

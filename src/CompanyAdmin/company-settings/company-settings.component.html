@@ -6,11 +6,14 @@
     <div class="container text-left">
         <h2><strong>Settings</strong></h2>
         <hr/>
-           
-        <div class="col-4" id="content">
+     <div class="row">
 
-            <span class="form-header" id="header">Account</span>
-            <hr/>
+        <div class="col-4">
+            <div class="card shadow">
+                <div class="card-body">
+
+                  <h6 class="card-title"><strong>Account</strong></h6>
+                  <hr/>
              <ul class="settings-menu">
                 <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" > Edit Profile</a></li>
                 <li><a  class="form-header" (click)="toggleForms('form2')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" > Security</a></li>
@@ -20,10 +23,12 @@
                 <li><a  class="form-header" routerLink="/more-settings"> More Settings </a></li>
             </ul>
          </div>
+         </div>
+         </div>
 
-      <div class="row">
-        <div class="col-7" id="aside">
-
+        <div class="col-7">
+            
+          <!--Profile details form-->
             <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
                
                 <fieldset>
@@ -69,12 +74,21 @@
                    <span *ngIf="profile['country'].errors?.['required']" >Country is required</span>
                     </div>
                 </fieldset>
+                <label for="country" class="input-fields"> Profile Image</label>
+
+                <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"/>
+
+                <button type="button" class="attachButton" type="file" (click)="fileInput.click()">
+                  Choose File
+                </button>  
+
                 
-                 
-               
+
                 <button type="submit" class="nextButton" [disabled]="profileForm.invalid">Save changes</button>
                 
             </form>
+
+            <!--End Of Profile details form-->
 
             <!--Change password Form-->
             <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'" >
@@ -125,6 +139,9 @@
               <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">Save Password</button>
               
           </form>
+
+           <!--End Of Change password Form-->
+
 
           <!--Add User/Employee form-->
 
@@ -211,7 +228,9 @@
 
           
                  <!--Privacy-->
-                 <div class="notifications" *ngIf="currentForm === 'form4'">
+                 <div *ngIf="currentForm === 'form4'">
+                    <div class="card shadow">
+                        <div class="card-body">
 
                     <span class="form-header" id="header">Privacy</span>
                     <hr>
@@ -229,7 +248,8 @@
                     </ol>
     
     
-    
+                        </div>
+                    </div>
                 </div>
 
                 <!--Agents-->
@@ -242,10 +262,10 @@
                 <div class="top-menu2">
                     <nav>
                       <ul>
-                        <li id="first"><a (click)="toggleForms('form5')" routerLink="#" >Agents & Admin</a></li>
-                        <li ><a  (click)="toggleForms('form6')">Employees</a></li>
+                        <li id="first"><a (click)="toggleForms('form5')">Agents</a></li>
+                        <li ><a  (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
                         <li class="form-li">
-                          <input type="text" placeholder="Search Users"> 
+                          <input type="text" placeholder="Search Agents"> 
                         </li>
                         <li class="form-li">
                             <button class="addButton" (click)="toggleForms('form7')">
@@ -260,7 +280,7 @@
                     <hr/>
                     
                   </div>
-                <h5 class="top"><strong>Agents & Admins</strong></h5>
+                <h5 class="top"><strong>Agents</strong></h5>
     
               
     <table>
@@ -276,21 +296,21 @@
         </thead>
         <tbody>
             <tr>
-                <td>John Smith</td>
-                <td>Agent</td>
+                <td><a routerLink="/view-agents">John Smith</a></td>
+                <td>IT Support</td>
                 <td><span>Agent</span><br><span class="active-status">Active</span></td>
        
             </tr>
             <tr>
-                <td>John Smith</td>
-                <td>Agent</td>
+                <td><a routerLink="/view-agents">John Smith</a></td>
+                <td>IT Support</td>
                 <td><span>Agent</span><br><span class="active-status">Active</span></td>
            
                 
             </tr>
             <tr>
-                <td>John Smith</td>
-                <td>Agent</td>
+                <td><a routerLink="/view-agents">John Smith</a></td>
+                <td>IT Support</td>
                 <td><span>Agent</span><br><span class="active-status">Active</span></td>
              
             </tr>
@@ -307,6 +327,82 @@
 
    
         </div>
+        <div  *ngIf="currentForm === 'form3'">
+        <div class="card shadow">
+            <div class="card-body">
+              <h6 class="card-title"><strong>Notifications</strong></h6>
+            <hr>
+
+            <ol>
+              <!--Email Alerts-->
+                <div>
+                  <span class="card-title"><strong>Email Alerts</strong></span>
+                  <div class="row">
+                    <div class="col">
+                  <span class="form-header" style="margin-top: 10px;">Ticket Notification:</span><br>
+                  <span class="form-header">Ticket Closure: </span><br>
+                  <span class="form-header">Ticket Response:</span><br>
+                  </div>
+
+                <div class="col">
+                  <span class="form-header pointer" (click)="toggleState(0)">{{ buttonTexts[0] }}</span><br>
+                  <span class="form-header pointer" (click)="toggleState(1)">{{ buttonTexts[1] }}</span><br>
+                  <span class="form-header pointer" (click)="toggleState(2)">{{ buttonTexts[2] }}</span><br>
+
+                </div>
+                </div>
+                </div>
+               <!--End Of Email Alerts-->
+
+            <!--Updates Alerts-->
+            <div style="margin-top: 15px;">
+              <span class="card-title"><strong>Updates Alerts</strong></span>
+              <div class="row">
+                <div class="col">
+              <span class="form-header" style="margin-top: 10px;">Default (notifications on)</span><br>
+            
+              </div>
+
+            <div class="col">
+              <span class="form-header pointer" (click)="toggleState(3)">{{ buttonTexts[3] }}</span><br>
+        
+            </div>
+            </div>
+            </div>
+           <!--End Of Updates Alerts-->
+
+           
+            <!--Updates Alerts-->
+            <div style="margin-top: 15px;">
+              <span class="card-title"><strong>Account Changes</strong></span>
+              <div class="row">
+                <div class="col">
+              <span class="form-header" style="margin-top: 10px;">Default (notifications on)</span><br>
+              <span class="form-header">Profile Changes:</span><br>
+              <span class="form-header">Password Changes:</span><br>
+              <span class="form-header">Privacy Changes:</span><br>
+
+
+            
+              </div>
+
+            <div class="col">
+              <span class="form-header pointer" (click)="toggleState(4)">{{ buttonTexts[4] }}</span><br>
+              <span class="form-header pointer" (click)="toggleState(5)">{{ buttonTexts[5] }}</span><br>
+              <span class="form-header pointer" (click)="toggleState(6)">{{ buttonTexts[6] }}</span><br>
+              <span class="form-header pointer" (click)="toggleState(7)">{{ buttonTexts[7] }}</span><br>
+            </div>
+            </div>
+            </div>
+           <!--End Of Updates Alerts-->
+
+                <button class="closeButton" (click)="restoreToDefault()">Restore to default</button>
+
+            </ol>
+
+          </div>
+        </div>
+    </div>
 
             <!--Employess-->
             <div class="container text-left" id="designations" *ngIf="currentForm === 'form6'" >
@@ -318,8 +414,8 @@
             <div class="top-menu2">
                 <nav>
                   <ul>
-                    <li id="first"><a (click)="toggleForms('form5')">Agents & Admin</a></li>
-                    <li ><a  (click)="toggleForms('form6')">Employees</a></li>
+                    <li id="first"><a (click)="toggleForms('form5')">Agents</a></li>
+                    <li ><a  (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
                     <li class="form-li">
                       <input type="text" placeholder="Search Employees"> 
                     </li>
@@ -355,20 +451,20 @@
     <tbody>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span>Employee</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
    
         </tr>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span>Employee</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
        
             
         </tr>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Agent</span><br><span class="active-status">Active</span></td>
+            <td><span>Employee</span><br><span class="active-status">Active</span></td>
             <td><span class="form-header">Employees' email</span></td>
          
         </tr>

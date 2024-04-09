@@ -1,177 +1,314 @@
+
+
 <app-sidebar></app-sidebar>
 <app-employee-top-menu></app-employee-top-menu> 
 
-
-  
 <div class="content">
-    <h2><strong>Tickets</strong></h2>
-    <hr/>
-    <div class="container text-left">
-      <div class="row">
-        <div class="col-8" id="content">
+  
 
-          <div class="top-menu2" style="margin-bottom: 50px; margin-right: 5px; border-bottom: 1px solid #E7E7E7;">
-            <nav>
-              <ul>
-                <li><a (click)="toggleForms('form1')" routerLink="#" >Unresolved</a></li>
-                <li><a  (click)="toggleForms('form2')">In Progress</a></li>
-                <li><a  (click)="toggleForms('form3')">Resolved</a></li>
-                <li>
-                  <input type="text" placeholder="Search tickets"> 
-                </li>
-                <li>
-                  <button class="filterButton" (click)="toggleForms('form4')">
-                    Filter</button>
-                </li>
+  <div class="container text-left">
+    <div class="row">
+      <h2><strong>Tickets</strong></h2>
+      
+      <!-- Column for Dynamic Content -->
+
+      <div class="col-md-9">
+        <div class="top-menu2">
+          <nav>
+            <ul style="display: flex; align-items: center;">
+              <li style="margin-right: 10px;"><a (click)="toggleForms('unresolved')" routerLink="#">Unresolved</a></li>
+              <li style="margin-right: 10px;"><a (click)="toggleForms('inprogress')">In Progress</a></li>
+              <li style="margin-right: 10px;"><a (click)="toggleForms('resolved')">Resolved</a></li>
+              <li style="margin-right: 20px;">
+                <input type="text" placeholder="Search tickets"></li>
+                <div class="dropdown">
+              <li><button class="filterButton" (click)="toggleDropdown()">
+                <img src="../../../assets/images/filter.svg"  > 
+                Filter</button>
+
+                <div class="dropdown-content" [class.show]="showDropdown">
+                  <p><strong>Filters</strong></p>
                 
-               
-               
-              </ul>
-            </nav>
-            
-          </div>
-          <div *ngIf="currentForm === 'form1'">
-          <span class="ticket-header" >Ticket 1</span>
-          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
+                 <select id="priority" name="" (click)="stopPropagation($event)">
+                    <option value="Type 1">Choose Priority</option>
+                    <option value="Type 1">Type A</option>
+                    <option value="Type 2">Type B</option>
+                  </select>
 
-          <div class="ticket-message">
+                  <select id="status" name="" (click)="stopPropagation($event)">
+                    <option value="Type 1">Choose status</option>
+                    <option value="Type 1">Type A</option>
+                    <option value="Type 2">Type B</option>
+                  </select>
 
-            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
+        <button class="nextButton" (click)="applyFilters()">Apply Filters</button>    
+                </div>
 
-          </div>
-
-          <div style="display: flex;">
-            
-            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
-            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
-
-
-          </div>
-
-
-
-
-        </div>
-
-        
-
-
-        <!--In progress-->
-
-        <div  *ngIf="currentForm === 'form2'">
-          <span class="ticket-header" >Ticket Header 2</span>
-
-          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
-
-          <div class="ticket-message">
-
-            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
-
-          </div>
-
-          <div style="display: flex;">
-            
-            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
-            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
-
-          </div>
-        </div>
-
-
-
-        <!--Resolved-->
-
-        <div  *ngIf="currentForm === 'form3'" style="margin-top: 40px;">
-          <span class="ticket-header" >Ticket Header 3</span>
-
-          <span class="form-header" style="margin-left: 550px;" >DD - MON <a style="border-bottom: 1px solid #9E9E9E; text-decoration: none;" routerLink="/ticket-details"><i >View Ticket</i></a></span>
-
-          <div class="ticket-message">
-
-            <span class="form-header">Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body Ticket body |Ticket body |Ticket body |Ticket body || Ticket body | Ticket body | Ticket body | Ticket body | Ticket body | Ticket body |Ticket body |</span>
-
-          </div>
-
-          <div style="display: flex;">
-            
-            <p class="form-header" ><span class="ticket-priority">Urgent</span></p>
-            <p class="form-header"><span class="ticket-id">#1E233</span> </p>
-          </div>
-        </div>
-
-        <div style="margin-top: 50px; margin-left: 600px; display: flex;">
-         <div>
-          <span class="form-header" style="margin-right: 25px;"><a>Previous</a></span>
-            <button class="previous">1</button>
-            <button class="next">2</button>
-            <span class="form-header"><a>Next</a></span>
-          </div>
-        </div>
-          
-      </div>
-
-        
-        <form [formGroup]="ticketForm" >
-          <span class="form-header">Write and address new queries and issues</span>
-          <hr/>
-          <fieldset>
-        
-            <label for="email" class="input-fields">Company Email</label>
-            <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
-            <div
-            *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
-            class="alert alert-danger">
-            <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-            <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
-             </div>
-          </fieldset>
-          <fieldset>  
-           <label >Request Ticket Type</label>
-            <select id="type" name="" formControlName="type">
-
-                <option value=""></option>
-                  <option value="Type 1">Type A</option>
-                  <option value="Type 2">Type B</option>
-
-            </select>
-            <div
-            *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
-            class="alert alert-danger">
-            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
-             </div>
-            <label >Priority Status</label>
-
-            <select id="status" name="" formControlName="priority_status">
-              <option value=""></option>
-                <option value="Type 1">Type A</option>
-                <option value="Type 2">Type B</option>
-            </select>
-            <div
-            *ngIf="new_ticket['priority_status'].invalid && (new_ticket['priority_status'].dirty || new_ticket['priority_status'].touched)"
-            class="alert alert-danger">
-            <span *ngIf="new_ticket['priority_status'].errors?.['required']" style="color:#f98f8f">Please select ticket status</span>
-             </div>
-           </fieldset>
-           <span style="max-width:25px"></span>
-           <fieldset>
-            <label >Ticket Body</label>
-            <textarea formControlName="ticketBody" type="text" id="ticketbody" placeholder="Type ticket issue here..">
               
-            </textarea  >
-            <div
-            *ngIf="new_ticket['ticketBody'].invalid && (new_ticket['ticketBody'].dirty || new_ticket['ticketBody'].touched)"
-            class="alert alert-danger">
-            <span *ngIf="new_ticket['ticketBody'].errors?.['required']" style="color:#f98f8f">Ticket body is required</span>
-             </div>
-           </fieldset>
-           
-         
-          <button type="submit">Submit</button>
+              </li>
+              </div>
+              
+            </ul>
+          </nav>
+        </div>
+        <!-- Dynamic Content Section -->
+       
+
+        <!--Unresolved Tickets-->
+        <div class="row" *ngIf="currentForm === 'unresolved'" >
+
+        <div style="margin-bottom: 20px;">
+          <div class="card" style="width: 100%;">
+            <div class="card-header">
+              <!--Ticket Header-->
+              <span class="ticket-header">Cannot access my system</span>
+              <span class="form-header">
+
+                <!--Ticket Date & View details-->
+                07 - MAR | <a routerLink="/ticket-details">View</a>
+              </span>
+            </div>
+            <!--Ticket Message-->
+            <div class="ticket-message">
+              <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+            </div>
+            
+            <!--Ticket ID and Priority-->
+            <div class="urgent-section">
+              <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+              <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
           
-         </form>
-        
+          <div class="card">
+            <div class="card-header">
+               <!--Ticket Header-->
+
+              <span class="ticket-header">Cannot access my system</span>
+              <span class="form-header">
+                <!--Ticket Date & View details-->
+                07 - MAR | <a routerLink="/ticket-details">View</a>
+              </span>
+            </div>
+
+            <!--Ticket Message-->
+            <div class="ticket-message">
+              <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+            </div>
+
+             <!--Ticket ID and Priority-->
+            <div class="urgent-section">
+              <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+              <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       
-    </div>
+        <!--InProgress Tickets-->
+        <div class="row" *ngIf="currentForm === 'inprogress'" >
+
+          <div style="margin-bottom: 20px;">
+            <div class="card" style="width: 100%;">
+              <div class="card-header">
+                <!--Ticket Header-->
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+  
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+              
+              <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+          </div>
+  
+          <div style="margin-bottom: 20px;">
+            
+            <div class="card">
+              <div class="card-header">
+                 <!--Ticket Header-->
+  
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+  
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+  
+               <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+
+        
+        <!--Resolved Tickets-->
+        <div class="row" *ngIf="currentForm === 'resolved'" >
+
+          <div style="margin-bottom: 20px;">
+            <div class="card" style="width: 100%;">
+              <div class="card-header">
+                <!--Ticket Header-->
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+  
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+              
+              <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+          </div>
+  
+          <div style="margin-bottom: 20px;">
+            
+            <div class="card">
+              <div class="card-header">
+                 <!--Ticket Header-->
+  
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+  
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+  
+               <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+
+      </div>
+      <div class="col-2">
+        
+        <form [formGroup]="ticketForm">
+          <span class="header"><strong>Create Quick Ticket</strong></span><br>
+          <span class="form-header">Write and address new queries and issues</span>
+          <hr/>
+          <fieldset>
+            <label for="email" class="input-fields">Employee Email</label>
+            <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Search">
+
+            <!--Validations-->
+            <div
+            *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
+            class="alert alert-danger" >  
+            <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Employee email is required</span>
+              <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+            </div>
+
+            <!--Search through the database using 3 letters-->
+             <!--End Of Validations-->
+
+          </fieldset>
+
+          <fieldset>
+            <label for="assignee" class="input-fields">Assign ticket to</label>
+            <input type="text" id="assignee" name="assignee" formControlName="assignee" placeholder="Search">
+
+            <!--Validations-->
+            <div
+            *ngIf="new_ticket['assignee'].invalid && (new_ticket['assignee'].dirty || new_ticket['assignee'].touched)"
+            class="alert alert-danger" >  
+            <span *ngIf="new_ticket['assignee'].errors?.['required']" style="color:#f98f8f">Please select agent name</span>
+            </div>
+            <!--Search through the database using 3 letters-->
+
+             <!--End Of Validations-->
+
+          </fieldset>
+          <fieldset>
+            <label>Request Ticket Type</label>
+            <select id="type" name="" formControlName="type">
+              <option value="Default">Choose Type</option>
+              <option value="Type 1">Type A</option>
+              <option value="Type 2">Type B</option>
+            </select>
+
+            <!--Validations-->
+            <div
+            *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
+            class="alert alert-danger" >  
+            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
+            </div>
+             <!--End Of Validations-->
+
+            <label>Priority Status</label>
+            <select id="status" name="" formControlName="priority_status">
+              <option value="Default">Select Status</option>
+               <option value="Type 1">Type A</option>
+              <option value="Type 2">Type B</option>
+            </select>
+
+             <!--Validations-->
+             <div
+             *ngIf="new_ticket['priority_status'].invalid && (new_ticket['priority_status'].dirty || new_ticket['priority_status'].touched)"
+             class="alert alert-danger" >  
+             <span *ngIf="new_ticket['priority_status'].errors?.['required']" style="color:#f98f8f">Please choose status</span>
+             </div>
+              <!--End Of Validations-->
+
+          </fieldset>
+          <fieldset>
+            <label>Ticket Body</label>
+            <textarea formControlName="ticketBody" id="ticketbody" placeholder="Type ticket issue here.."></textarea>
+
+            <!--Validations-->
+            <div
+            *ngIf="new_ticket['ticketBody'].invalid && (new_ticket['ticketBody'].dirty || new_ticket['ticketBody'].touched)"
+            class="alert alert-danger" >  
+            <span *ngIf="new_ticket['ticketBody'].errors?.['required']" style="color:#f98f8f">Ticket issue is required</span>
+            </div>
+             <!--End Of Validations-->
+
+          </fieldset>
+          <button type="submit" [disabled]="ticketForm.invalid">Submit</button>
+        </form>
+      </div>
+
+     </div>
   </div>
+</div>

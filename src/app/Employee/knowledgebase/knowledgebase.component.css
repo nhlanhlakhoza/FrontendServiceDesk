@@ -194,6 +194,13 @@
     width: 900px;
     height: auto;
   }
+  .content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Calculate width to fill remaining space */
+    height: 100vh; /* Calculate height to fill remaining space */
+    background-color: #F9F9FB;
+  }
   
   #content{
     background-color: #e7e7fe;

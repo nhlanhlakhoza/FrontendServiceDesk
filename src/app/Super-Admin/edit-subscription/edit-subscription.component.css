@@ -22,12 +22,16 @@
       padding: 15px;
       width: 380px;
       background-color: #fff;
-      color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
        border-radius: 4px;
+       font-size: 12px;
+
     }
+
+
+    
 
     .option-status
     {
@@ -51,7 +55,6 @@
       padding: 15px;
       width: 120px;
       background-color: #fff;
-      color: #9E9E9E;
       box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
@@ -126,7 +129,7 @@
     label {
       display: block;
       margin-bottom: 8px;
-      color: #9E9E9E;
+      font-size: 15px;
     }
     
     label.light {
@@ -193,8 +196,6 @@
     margin-top: 25px;
     padding: 15px;
     padding-bottom: 75px;
-
-
 }
 .requestButton
 {

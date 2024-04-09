@@ -75,7 +75,12 @@ export class SettingsComponent {
   toggleNotification() {
     this.notificationVisible = !this.notificationVisible;
   }
-
+  buttonText: string = 'On';
+  isOn: boolean = true;
+  toggleState() {
+    this.isOn = !this.isOn;
+    this.buttonText = this.isOn ? 'On' : 'Off';
+  }
    
 
   get profile (){return this.profileForm.controls;}

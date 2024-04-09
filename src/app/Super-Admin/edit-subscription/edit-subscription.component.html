@@ -55,7 +55,7 @@
                         <input type="text" id="name" name="subscription_name" formControlName="name" placeholder="">
                         <div
                         *ngIf="edit['name'].invalid && (edit['name'].dirty || edit['name'].touched)"
-                        class="alert alert-danger"  >
+                        class="alert alert-danger">
                         <span *ngIf="edit['name'].errors?.['required']" >subscription name is required</span>
                         <span *ngIf="edit['name'].errors?.['containsNumbers']" >Please enter valid Full name</span>
               
@@ -84,7 +84,7 @@
 
                           </div>
 
-                          <label for="customer Link" class="input-fields">Enable Customenr Link</label>
+                          <label for="customer Link" class="input-fields">Enable Customer Link</label>
               
                           <select formControlName="customerLink" style="width: 380px;">
                               <option value="Option 1"> Yes </option>

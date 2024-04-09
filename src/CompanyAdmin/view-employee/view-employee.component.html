@@ -1,91 +1,91 @@
 <app-sidebar></app-sidebar>
 <app-employee-top-menu></app-employee-top-menu> 
-
 <div class="content">
-    <h2 style="margin-bottom: 25px;"><strong>Employee's Name</strong></h2>
-    <hr/>
+    
 
     <div class="container text-left">
+        <h2 class="agents-name"><strong>Employee's Name</strong></h2>
+        <hr/>
     <div class="row">  
-        <div class="col-4" id="content">
-
-            <span class="form-header" style="font-weight: bold; margin-top: 5px;">Account</span>
-            <hr/>
+        <div class="col-4">
+            <div class="card shadow">
+                <div class="card-body">
              <ul class="settings-menu">
-                <li><a  class="form-header"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Profile</a></li>
-                <li><a  class="form-header" ><img src="assets/" width= "25" height= "25" style="margin-right: 25px;" > Tickets</a></li>
+                <li><a  class="form-header"> Profile</a></li>
+                <hr>
+                <li><a  class="form-header"> Tickets</a></li>
+                
             </ul>
+         </div>
+         </div>
          </div>
    
          
         <div class="col-7">
-            <div id="profile-tickets">
+            <div>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row">
 
-                <img src="../../assets/images/Employee Agent.svg" class="profileImg">
+                    <span class="card-title"><strong>Employee's Details</strong></span>
+                    
+
+                               
+                
+                    
+                            
+                            <div class="row">
+                                <div class="col">
+                            <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Name:</p>
+                            <p class="form-header" id="bottomParts">Phone number: </p>        
+                            <p class="form-header" id="bottomParts">Email: </p> 
+                            <p class="form-header" id="bottomParts">Department: </p>    
+                            
+                             </div>
+                             
+                             <div class="col">
+                                <p class="form-header"  style="margin-bottom: 5px; margin-top: 20px;">Employee Name </p>
+                                <p class="form-header" id="bottomParts">Employee Number </p>
+                                <p class="form-header" id="bottomParts">Employee Email </p>
+                                 <p class="form-header" id="bottomParts">Employee Dept </p>
+                                
+                                 </div>
+                             <br/>
+                             
+                        </div>
+                        </div>
+
+                        <!--Ticket Handler Container-->
+                        <div class="row">
+                            <span class="card-title"><strong>Ticket Handler</strong></span>
+
+                            <div class="col">
+                                <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Ticket Solved:</p>
+                                <p class="form-header" id="bottomParts">Ticket Pending:</p>        
+                                <p class="form-header" id="bottomParts">Ticket in Progress:</p> 
+                            </div>
+            
+                            <br>
+                            <div class="col">
+                                <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">0000</p>
+                                <p class="form-header" id="bottomParts">0000</p>        
+                                <p class="form-header" id="bottomParts">0000</p> 
+                            </div>
+            
+                        </div>
+
+                    
+
+
+                    </div>
+                </div>
 
             </div>
          
             
         </div>
     </div>
-    <div class="col" id="profile-details" style="margin-left: 645px; top: -150px">
-        <!--Employee details-->
-        <div class="form-header">
-            <div class="row">
-                <div class="col">
-            <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Name:</p>
-            <p class="form-header" id="bottomParts">Phone number: </p>        
-            <p class="form-header" id="bottomParts">Email: </p> 
-            <p class="form-header" id="bottomParts">Department: </p>    
-            
-             </div>
-             <div class="col">
-                <p class="form-header"  style="margin-bottom: 5px; margin-top: 20px;">Employee's Name </p>
-                <p class="form-header" id="bottomParts">Employee's Number </p>
-                <p class="form-header" id="bottomParts">Employee's Email </p>
-                 <p class="form-header" id="bottomParts">Employee's Dept </p>
-                
-                 </div>
-             <br/>
-             
-            </div>
 
-        </div>
-        <hr>
-
-    </div>
-    <div class="col-8 col-sm-6" id="ticket-details" style="margin-top: 25px;"> 
-        <div style="display: flex;">
-        <span class="form-header"><strong>Ticket Handle</strong></span> 
-
-        </div>
-
-        <hr/>
-        <div class="form-header">
-            <div class="row">
-                <div class="col">
-                    <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">Ticket Solved:</p>
-                    <p class="form-header" id="bottomParts">Ticket Pending:</p>        
-                    <p class="form-header" id="bottomParts">Ticket in Progress:</p> 
-                    <p class="form-header" id="bottomParts">Rating: </p>   
-                </div>
-
-                <br>
-                <div class="col">
-                    <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">0000</p>
-                    <p class="form-header" id="bottomParts">0000</p>        
-                    <p class="form-header" id="bottomParts">0000</p> 
-                    <p class="form-header" id="bottomParts">0000</p>    
-                </div>
-
-            </div>
-            
-
-        </div>
-
-     
-        </div>
-    </div>
 
        
  </div>
