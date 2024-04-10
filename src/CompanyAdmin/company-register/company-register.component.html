@@ -27,14 +27,14 @@
             <div class="form-group">
 
 
-                <input type="text" class="" id="name" formControlName="fullName" placeholder="Enter Fullname">
+                <input type="text" class="" id="name" formControlName="fullName" placeholder="Fullname">
                 <div
                 *ngIf="register['fullName'].invalid && (register['fullName'].dirty || register['fullName'].touched)"
                 class="alert alert-danger">
                 <span *ngIf="register['fullName'].errors?.['required']" style="color:#f98f8f">Fullname is required</span>
                  </div>
   
-              <input type="email" class="" id="email" formControlName="email" placeholder="Enter Email">
+              <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
               <div
               *ngIf="register['email'].invalid && (register['email'].dirty || register['email'].touched)"
               class="alert alert-danger">
@@ -43,7 +43,7 @@
                </div>
           </div>
             <div class="form-group">
-              <input type="password" class="" formControlName="password" placeholder="Enter Password">
+              <input type="password" class="" formControlName="password" placeholder="Password">
                           <div
                           *ngIf="register['password'].invalid && (register['password'].dirty || register['password'].touched)"
                           >

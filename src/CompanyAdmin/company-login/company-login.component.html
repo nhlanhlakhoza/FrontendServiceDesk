@@ -29,7 +29,7 @@
 
                
   
-              <input type="email" class="" id="email" formControlName="email" placeholder="Enter Email">
+              <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
               <div
               *ngIf="login['email'].invalid && (login['email'].dirty || login['email'].touched)"
               class="alert alert-danger">
@@ -38,7 +38,7 @@
                </div>
           </div>
             <div class="form-group">
-              <input type="password" class="" formControlName="password" placeholder="Enter Password">
+              <input type="password" class="" formControlName="password" placeholder="Password">
                           <div
                           *ngIf="login['password'].invalid && (login['password'].dirty || login['password'].touched)"
                           >

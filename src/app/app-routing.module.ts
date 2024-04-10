@@ -33,6 +33,7 @@ import { HomeComponent } from './Single Page/home/home.component';
 import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscriptions/company-subscriptions.component';
 import { CompanyTicketDetailsComponent } from 'src/CompanyAdmin/company-ticket-details/company-ticket-details.component';
 import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
+import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
 
 
 
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path:"knowledgebase",component:KnowledgebaseComponent},
   {path:"employee-settings",component:SettingsComponent},
   {path:"no-tickets",component:NoTicketsComponent},
+  {path:"employee-change-password",component:EmployeeChangePasswordComponent},
 
 
 
@@ -80,31 +82,6 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path:"company-subscription", component: CompanySubscriptionsComponent},
   {path: "ticket-details-com", component: CompanyTicketDetailsComponent}
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ];
 
