@@ -74,11 +74,10 @@
     
     
     input,
-    
     select {
       background: white;
       border: none;
-      font-size: 12px;
+      font-size: 14px;
       height: 40px;
       margin: 0;
       outline: 0;
@@ -89,7 +88,6 @@
       margin-bottom: 5px;
       border: 1px solid #E7E7E7;
        border-radius: 4px;
-       font-size: 12px;
     }
    
 

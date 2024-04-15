@@ -34,13 +34,15 @@
                 <span *ngIf="register['fullName'].errors?.['required']" style="color:#f98f8f">Fullname is required</span>
                  </div>
   
-              <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
-              <div
-              *ngIf="register['email'].invalid && (register['email'].dirty || register['email'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="register['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-              <span *ngIf="register['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
-               </div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="" id="email" formControlName="email" placeholder="Email Address">
+            <div
+            *ngIf="register['email'].invalid && (register['email'].dirty || register['email'].touched)"
+            class="alert alert-danger">
+            <span *ngIf="register['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
+            <span *ngIf="register['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
+             </div>
           </div>
             <div class="form-group">
               <input type="password" class="" formControlName="password" placeholder="Password">

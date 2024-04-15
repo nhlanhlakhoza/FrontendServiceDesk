@@ -77,17 +77,16 @@
   }
   .top-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    left: 80%;
     transform: translate(-50%, -50%);
     z-index: 1; 
-    height: auto;
-    width: 250px;
-    max-height: 80%; 
-    max-width: 45%;
-    margin-left: 350px;
-    margin-top: 25px;
-  }
+    bottom: -161px;
+    height: 650px !important;
+    width: 730px !important;}
+
+
+
+
 
 .text {
     position: absolute; 

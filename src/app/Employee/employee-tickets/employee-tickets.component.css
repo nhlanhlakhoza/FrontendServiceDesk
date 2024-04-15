@@ -211,7 +211,7 @@ a{cursor: pointer;}
   select {
     background: white;
     border: none;
-    font-size: 12px;
+    font-size: 14px;
     height: 40px;
     margin: 0;
     outline: 0;
@@ -226,7 +226,7 @@ a{cursor: pointer;}
   textarea{
   background: rgba(255,255,255,0.1);
   border: none;
-  font-size: 12px;
+  font-size: 14px;
   height: auto;
   margin: 0;
   outline: 0;
@@ -314,20 +314,11 @@ font-size: 15px  }
   height: auto;
 }
 
-.content{
-  background-color: #F9F9FB;
-  border-radius: 4px;
-  margin-right: 15px;
-  padding: 15px;
-  padding-top: 10px;
-  word-wrap: break-word;
-  height: 100vh;
-}
 
-.content h2{
-  font-weight: bold;
-  font-family: sans-serif;
-}
+
+
+
+
 
 #details{
   background-color: white;
@@ -426,11 +417,7 @@ body {
 .sidebar {
   width: 20%;
 }
-/* .content {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-} */
+
 .form-container {
   width: 50%;
 }

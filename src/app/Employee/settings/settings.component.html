@@ -4,9 +4,9 @@
   <div class="content">
    
     <p></p>
-    <div class="container text-left">
+    <div class="content-wrapper">
       <div class="row">
-        <h2 style="margin-bottom: 25px;"><strong>Settings</strong></h2>
+        <h2 ><strong>Settings</strong></h2>
         <hr/>
         
         <div class="col-4">
@@ -16,10 +16,10 @@
                 <h6 class="card-title"><strong>Account</strong></h6>
                 <hr/>
            <ul class="settings-menu">
-            <li><a  class="form-header" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
-            <li><a  class="form-header" (click)="toggleForms('form5')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
-            <li><a  class="form-header" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
-            <li><a  class="form-header"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
+            <li><a class="card-text" (click)="toggleForms('form1')"><img src="assets/images/iconamoon_profile-light.svg" style="margin-right: 25px;" > Edit Profile</a></li>
+            <li><a  class="card-text" (click)="toggleForms('form5')"><img src="assets/images/material-symbols_privacy-tip-outline.svg" style="margin-right: 25px;" > Security</a></li>
+            <li><a  class="card-text" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg" style="margin-right: 25px;" > Notifications</a></li>
+            <li><a  class="card-text" (click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg" style="margin-right: 25px;" > Privacy</a></li>
           </ul>
        </div>
        </div>
@@ -36,7 +36,7 @@
                   <div
                   *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f" >Full name is required</span>
+                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f" >Fullname is required</span>
                   <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
 
                    </div>
