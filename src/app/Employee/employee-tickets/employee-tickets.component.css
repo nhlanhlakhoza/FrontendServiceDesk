@@ -240,6 +240,13 @@ a{cursor: pointer;}
   height: 150px;
   resize: none;
 }
+.content {
+  margin-left: 250px; /* Same as the width of the sidebar */
+  padding: 20px;
+  width: calc(100% - 250px); /* Calculate width to fill remaining space */
+  height: 100vh; /* Calculate height to fill remaining space */
+  background-color: #F9F9FB;
+  }
 button {
   color: #FFF;
   background-color: #AE8EF1;

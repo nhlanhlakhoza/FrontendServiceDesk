@@ -34,6 +34,7 @@
 position: relative;
 display: inline-block;
 }
+a{cursor: pointer;}
 
 .dropbtn {
 background-color: #3498db;
@@ -89,41 +90,12 @@ display: block;
 display: block;
 }
 
-/* CSS */
-.dateInput {
-  position: relative;
-  width: 330px;
-  display: flex;
+.dateInput
+{
+position: relative; 
+width: 330px;
+display: flex;
 }
-.dateInput input::placeholder {
-  color: rgba(0, 0, 0, 0.9) !important; /* Dark black color with higher opacity */
-}
-.dateInput input{
-  color: #000;
-  text-align: center;
-  justify-content: center;
-}
-
-.input-container {
-  position: relative;
-  width: 100%;
-}
-
-input.mat-input {
-  padding-right: 30px; /* Adjust according to the icon width */
-}
-
-.date-picker {
-  position: absolute;
-  right: -5%; /* Adjust according to your design */
-  cursor: pointer;
-}
-
-
-
-
-
-
 .mat-datepicker-toggle{
 margin-left: 10px;
 margin-top: -2px;
@@ -239,7 +211,7 @@ input,
 select {
   background: white;
   border: none;
-  font-size: 12px;
+  font-size: 14px;
   height: 40px;
   margin: 0;
   outline: 0;
@@ -250,12 +222,11 @@ select {
   margin-bottom: 5px;
   border: 1px solid #E7E7E7;
    border-radius: 4px;
-   color: #000;
 }
 textarea{
 background: rgba(255,255,255,0.1);
 border: none;
-font-size: 12px;
+font-size: 14px;
 height: auto;
 margin: 0;
 outline: 0;
@@ -342,22 +313,19 @@ border-radius: 4px;
 width: 100%;
 height: auto;
 }
+.content {
+  margin-left: 250px; /* Same as the width of the sidebar */
+  padding: 20px;
+  width: calc(100% - 250px); /* Calculate width to fill remaining space */
+  height: 100vh; /* Calculate height to fill remaining space */
+  background-color: #F9F9FB;
+  }
 
-.content{
-background-color: #F9F9FB;
-border-radius: 4px;
-margin-right: 15px;
-padding: 15px;
-padding-top: 10px;
-word-wrap: break-word;
-height: auto;
 
-}
 
-.content h2{
-font-weight: bold;
-font-family: sans-serif;
-}
+
+
+
 
 #details{
 background-color: white;
@@ -456,11 +424,7 @@ justify-content: space-between;
 .sidebar {
 width: 20%;
 }
-/* .content {
-width: 100%;
-display: flex;
-justify-content: flex-end;
-} */
+
 .form-container {
 width: 50%;
 }
@@ -494,20 +458,19 @@ margin-right: 5px;
 border-bottom: 1px solid #E7E7E7;
 }
 
+
 .top-menu2 nav ul li a:hover
 {
- color: #000;
+color: #000;
 }
 
 .top-menu2 nav ul li a:active
 {
- color: #000;
+color: #000;
 }
 .top-menu2 nav ul li a:focus {
 color: #000;
 }
-
-
 
 .ticket-header {
 /* If there were specific styles, they would go here */
@@ -566,8 +529,34 @@ display: flex;
 .pagination-container .form-header {
 margin-right: 25px;
 }
-a{cursor: pointer;}
+.dateInput {
+position: relative;
+width: 330px;
+display: flex;
+}
+.dateInput input::placeholder {
+color: rgba(0, 0, 0, 0.9) !important; /* Dark black color with higher opacity */
+}
+.dateInput input{
+color: #000;
+text-align: center;
+justify-content: center;
+}
 
+.input-container {
+position: relative;
+width: 100%;
+}
+
+input.mat-input {
+padding-right: 30px; /* Adjust according to the icon width */
+}
+
+.date-picker {
+position: absolute;
+right: -5%; /* Adjust according to your design */
+cursor: pointer;
+}
 
 /* Other styles for buttons, inputs, etc. */
 
