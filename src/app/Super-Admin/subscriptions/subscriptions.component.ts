@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatMenu } from '@angular/material/menu';
 
 @Component({
   selector: 'app-subscriptions',
@@ -40,18 +40,69 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
   }
   return null;
 }
+isDropdownOpen: boolean[] = []; // Assuming there are three dropdowns
+isDeactivating: boolean = false;
+loading: boolean = false;
+buttonText: string = 'Deactivate'; 
+isButtonDisabled: boolean = false;
 
-/*Creatng an alert when the 'CANCEL' button is clicked
 
-openSnackBar(message: string, action: string) {
-  this._snackBar.open(message, action, {
-    duration: 2000, // duration in milliseconds
-  });
+//Deactivating
+toggleDropdown(index: number) {
+  this.isDropdownOpen[index] = !this.isDropdownOpen[index];
+
+  for (let i = 0; i < this.isDropdownOpen.length; i++) {
+    if (i !== index) {
+      this.isDropdownOpen[i] = false;
+    }
+  }
+}
+isConfirmingDeactivation: boolean = false;
+
+
+
+confirmDeactivation() {
+  this.isConfirmingDeactivation = true;
+  this.loading = true; 
+  
+
+  setTimeout(() => {
+      
+      this.isDeactivating = !this.isDeactivating; 
+      this.loading = false;
+      this.isConfirmingDeactivation = false; 
+
+      this.closeDropdown();
+
+      
+      this.buttonText = 'Activate';
+  }, 2000); 
 }
 
-showAlert() {
-  this.openSnackBar('Are you sure you want to Cancel' + this.subscriptionForm.controls(), 'Close');
-}*/
+confirmDeactivation2() {
+  this.isConfirmingDeactivation = true; 
+  this.loading = true; 
+  
 
-     
+  setTimeout(() => {
+      this.isDeactivating = !this.isDeactivating; 
+      this.loading = false;
+      this.isConfirmingDeactivation = false; 
+
+      this.closeDropdown();
+
+      this.buttonText = 'Deactivate';
+  }, 2000); 
+}
+
+
+
+
+
+closeDropdown() {
+  // Close all dropdowns
+  for (let i = 0; i < this.isDropdownOpen.length; i++) {
+    this.isDropdownOpen[i] = false;
+  }
+}     
 }

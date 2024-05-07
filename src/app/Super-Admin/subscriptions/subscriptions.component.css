@@ -13,18 +13,22 @@
 
 .addButton
 {
-  color: #fff;
-  background-color: #3818D9;
-    font-style: normal;
-    border-radius: 5px;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 0;
-    width: auto;
-    border: none;
-    margin-bottom: 10px;
-    margin-left: 1190px;
-    margin-top: 10px;
+  
+    color: #fff;
+    background-color: #3818D9;
+      font-style: normal;
+      border-radius: 5px;
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      width: auto;
+      border: none;
+      margin-right: 10px;
+       margin-top: -5px;
+       padding-left: 10px;
+       padding-right: 10px;
+      float: inline-end;
+      margin-top: 10px;
 }
 
 .addButton img
@@ -39,7 +43,7 @@
     select {
       background: white;
       border: none;
-      font-size: 12px;
+      font-size: 14px;
       height: 40px;
       margin: 0;
       outline: 0;
@@ -227,13 +231,11 @@ td {
         background-color: #FFC145;
         font-style: normal;
         height: 40px;
-        width: auto;
+        width: 120px;
         margin-left: 15px;
         border: 1px solid #FFC145;
         padding: none;
         border-radius: 4px;
-
-
 }
 .dateInput
 {
@@ -262,6 +264,43 @@ td {
   margin-top: 5px;
   width: 750px;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  padding: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  margin-bottom: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+
 
 
 

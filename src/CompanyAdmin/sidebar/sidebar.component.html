@@ -5,12 +5,23 @@
   </div>
   
   <ul>
-      <li><a routerLink="/company-dashboard" class="menuItems">
-          <img src="../../../assets/images/tickets.svg" width="25px" height="25px" class="menuImages">Dashboard</a></li>
-      <li><a routerLink="/company-tickets" class="menuItems">
-          <img src="../../../assets/images/Headset.svg" width="25px" height="25px" class="menuImages">Tickets</a></li>
-      <li><a routerLink="/company-settings" class="menuItems">
-          <img src="../../../assets/images/Gear.svg" width="25px" height="25px" class="menuImages">Settings</a></li>
+    <li routerLinkActive="active">
+        <a routerLink="/company-dashboard" class="menuItems">
+          <img src="../../../assets/images/tickets.svg" width="25px" height="25px" class="menuImages">Dashboard
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/company-tickets" class="menuItems">
+          <img src="../../../assets/images/Headset.svg" width="25px" height="25px" class="menuImages">Tickets
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/company-settings" class="menuItems">
+          <img src="../../../assets/images/Gear.svg" width="25px" height="25px" class="menuImages">Settings
+        </a>
+      </li>
+      
+      
       
       <!-- Logout moved to the bottom -->
       <li><a routerLink="/admin-login" class="logout">

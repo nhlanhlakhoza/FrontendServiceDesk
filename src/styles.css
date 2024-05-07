@@ -10,6 +10,22 @@
   font-style: normal;
 }
 
+.search-input {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 40%;
+  left: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.search-icon img {
+  width: 25px; 
+  height: 25px; 
+}
 
 
 a {
@@ -92,7 +108,7 @@ a {
     top: 0;
     left: 0;
     background-color: #fff;
-    padding-top: 60px; /* Adjusted for the height of the top menu */
+    padding-top: 60px; 
     border-right: 1px solid #E7E7E7;
   }
 
@@ -318,7 +334,13 @@ textarea{
     font-size: 12px;
     width: 1000px;}
 
-   
+    .spinner-border {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
   
  
 

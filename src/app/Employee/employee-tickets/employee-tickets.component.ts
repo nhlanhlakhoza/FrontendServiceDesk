@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class EmployeeTicketsComponent
 {
 
+  currentMenuItem: string = 'unresolved'; // Initialize with the default active menu item
+  previousMenuItem: string = ''; // Initialize with empty value
   filterForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -43,6 +45,7 @@ export class EmployeeTicketsComponent
   toggleForms(form: string) {
     this.currentForm = form;
   }
+
 
 //Filter toggle
   showDropdown: boolean = false;

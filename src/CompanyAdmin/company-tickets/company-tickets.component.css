@@ -453,24 +453,29 @@ margin-top: 5px;
 margin-bottom: 15px;
 }
 .top-menu2 {
-margin-bottom: 50px;
-margin-right: 5px;
-border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 50px;
+  margin-right: 5px;
+  border-bottom: 1px solid #E7E7E7;
 }
 
-
-.top-menu2 nav ul li a:hover
-{
-color: #000;
+.top-menu2 nav ul li a {
+  color: #9E9E9E; /* Default text color */
 }
 
-.top-menu2 nav ul li a:active
-{
-color: #000;
+.top-menu2 nav ul li a:hover {
+  color: #000; /* Text color on hover */
 }
-.top-menu2 nav ul li a:focus {
-color: #000;
+
+.top-menu2 nav ul li a:not(.active):active,
+.top-menu2 nav ul li a:not(.active):focus {
+  color: #000; /* Text color on active/focus for non-active items */
 }
+
+.top-menu2 nav ul li.active a {
+  color: #000; /* Text color for active item */
+  border-bottom: 2px solid #3818D9; /* Border for active item */
+}
+
 
 .ticket-header {
 /* If there were specific styles, they would go here */
@@ -557,8 +562,23 @@ position: absolute;
 right: -5%; /* Adjust according to your design */
 cursor: pointer;
 }
+.search-input {
+  position: relative;
+}
 
-/* Other styles for buttons, inputs, etc. */
+.search-icon {
+  position: absolute;
+  top: 40%;
+  left: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.search-icon img {
+  width: 25px; 
+  height: 25px;
+  margin-left: 10px; 
+}
 
 
 

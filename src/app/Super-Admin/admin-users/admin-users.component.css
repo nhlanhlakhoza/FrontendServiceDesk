@@ -360,8 +360,24 @@ tr:not(:first-child) {
 }
 
 .searchUsers{
-  margin-left: 1095px;
   width: 390px;
+  font-size: 14px;
+}
+.search-input {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 40%;
+  left: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.search-icon img {
+  width: 25px; 
+  height: 25px; 
 }
 
   

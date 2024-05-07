@@ -20,7 +20,7 @@
                 <li><a  class="card-text" (click)="toggleForms('form3')"><img src="assets/images/iconamoon_notification.svg"  > Notifications</a></li>
                 <li><a  class="card-text"(click)="toggleForms('form4')"><img src="assets/images/ic_outline-lock.svg"  > Privacy</a></li>
                 <li><a  class="card-text" (click)="toggleForms('form5')"><img src="assets/images/iconamoon_profile-light.svg"  > Agents & Employees </a></li>
-                <li><a  class="card-text" routerLink="/more-settings"> More Settings </a></li>
+                <li><a  class="card-text" routerLink="/more-settings"><img src="../../assets/images/Gear2.svg" width="29" height="29" > More Settings </a></li>
             </ul>
          </div>
          </div>
@@ -29,19 +29,29 @@
         <div class="col-7">
             
           <!--Profile details form-->
+          
+          
             <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
                
                 <fieldset>
               
-                  <label for="email" >Name</label>
-                  <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
+                  <label for="firstName" >First Name</label>
+                  <input type="text" id="name" name="user_name" formControlName="firstName" placeholder="">
                   <div
-                  *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
+                  *ngIf="profile['firstName'].invalid && (profile['firstName'].dirty || profile['firstName'].touched)"
                   class="alert alert-danger" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" >Full name is required</span>
-                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']">Please enter valid Full name</span>
-
+                  <span *ngIf="profile['firstName'].errors?.['required']" >First name is required</span>
+                  <span *ngIf="profile['firstName'].errors?.['containsNumbers']">Please enter valid First name</span>
                    </div>
+
+                   <label for="lastName" >Last Name</label>
+                   <input type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="">
+                   <div
+                   *ngIf="profile['lastName'].invalid && (profile['lastName'].dirty || profile['lastName'].touched)"
+                   class="alert alert-danger" >
+                   <span *ngIf="profile['lastName'].errors?.['required']" >Full name is required</span>
+                   <span *ngIf="profile['lastName'].errors?.['containsNumbers']">Please enter valid Full name</span>
+                    </div>
 
                    <label for="email" class="input-fields">Email</label>
                   <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
@@ -53,8 +63,8 @@
                    </div>
                  
 
+                   <!--
                     <label for="dob" class="input-fields">Date Of Birth</label>
-
                     <div class="dateInput">
                         <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Choose a date" >
                         <mat-datepicker-toggle matSuffix [for]="picker" class="date-picker"></mat-datepicker-toggle>
@@ -72,7 +82,7 @@
                    *ngIf="profile['country'].invalid && (profile['country'].dirty || profile['country'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['country'].errors?.['required']" >Country is required</span>
-                    </div>
+                    </div>-->
                 </fieldset>
                 <label for="country" class="input-fields"> Profile Image</label>
 
@@ -82,11 +92,15 @@
                   Choose File
                 </button>  
 
+                <button type="submit" class="nextButton" [disabled]="profileForm.invalid || showSpinner" (click)="saveChanges()">
+                  <span *ngIf="!showSpinner">Save changes</span>
+                  <div *ngIf="showSpinner" class="spinner"></div>
+                </button>
                 
-
-                <button type="submit" class="nextButton" [disabled]="profileForm.invalid">Save changes</button>
                 
+                                
             </form>
+          
 
             <!--End Of Profile details form-->
 
@@ -136,9 +150,13 @@
               
                
              
-              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">Save Password</button>
+              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid || showSpinner" (click)="changePassword()">
+                <span *ngIf="!showSpinner">Save Password</span>
+                <div *ngIf="showSpinner" class="spinner"></div>
+              </button>
               
           </form>
+             
 
            <!--End Of Change password Form-->
 
@@ -150,7 +168,7 @@
             <hr class="form-hr">
                
             <fieldset>
-          
+          <!--
               <label for="fullName" >Full Name</label>
               <input type="text" id="fullName" name="fullName" formControlName="fullName" placeholder="">
               <div
@@ -159,7 +177,24 @@
               <span *ngIf="add['fullName'].errors?.['required']" >Full name is required</span>
               <span *ngIf="add['fullName'].errors?.['containsNumbers']" >Please enter valid Full name</span>
 
-               </div>
+               </div>-->
+               <label for="firstName" >First Name</label>
+               <input type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="">
+               <div
+               *ngIf="add['firstName'].invalid && (add['firstName'].dirty || add['firstName'].touched)"
+               class="alert alert-danger" >
+               <span *ngIf="add['firstName'].errors?.['required']" >First name is required</span>
+               <span *ngIf="add['firstName'].errors?.['containsNumbers']" >Please enter valid First name</span>
+                </div>
+
+                <label for="lastName" >Last Name</label>
+                <input type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="">
+                <div
+                *ngIf="add['lastName'].invalid && (add['lastName'].dirty || add['lastName'].touched)"
+                class="alert alert-danger" >
+                <span *ngIf="add['lastName'].errors?.['required']" >Last name is required</span>
+                <span *ngIf="add['lastName'].errors?.['containsNumbers']" >Please enter valid Last name</span>
+                 </div>
 
                 
                <label for="designation" class="input-fields">Designation</label>
@@ -191,11 +226,19 @@
                *ngIf="add['phone_number'].invalid && (add['phone_number'].dirty || add['phone_number'].touched)"
                class="alert alert-danger">
                <span *ngIf="add['phone_number'].errors?.['required']">Phone Number is required</span>
-               <span *ngIf="add['phone_number'].errors?.['notANumber']" >Please enter valid phone number</span>
+               <span *ngIf="add['phone_number'].errors?.['pattern']">Invalid phone number</span>
 
                 </div>
-
                 
+                <label for="position" >Position</label>
+                <input type="text" id="position" name="position" formControlName="position" placeholder="">
+                <div
+                *ngIf="add['position'].invalid && (add['position'].dirty || add['position'].touched)"
+                class="alert alert-danger" >
+                <span *ngIf="add['position'].errors?.['required']" >Position is required</span>
+                 </div>
+
+                <!--
                     <label for="status" class="input-fields">Status</label>
         
                     <select formControlName="status" >
@@ -208,7 +251,7 @@
                     *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
                     class="alert alert-danger">
                     <span *ngIf="add['status'].errors?.['required']" >Please select status</span>
-                     </div>
+                     </div>-->
 
                 <!--<input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
                 <button type="button" class="attachButton" (click)="fileInput.click()">Attach Image</button>-->
@@ -217,7 +260,11 @@
             
              
            
-            <button type="submit" class="nextButton" [disabled]="add_user_form.invalid">Add User</button>
+            <button type="submit" class="nextButton" [disabled]="add_user_form.invalid || showSpinner" (click)="addUsers()">
+              <span *ngIf="!showSpinner"> Add User</span>
+              <div *ngIf="showSpinner" class="spinner"></div>
+            </button>
+            
             
         </form>
 
@@ -254,20 +301,22 @@
                 </div>
 
                 <!--Agents-->
-                <div class="container text-left" id="designations" *ngIf="currentForm === 'form5'" >
-                    <div class="row">
-                        
-         
-    
-             <div class="col"   id="content2">
+                <div   *ngIf="currentForm === 'form5'" >
+                  <div class="card shadow">
+                    <div class="card-body">
                 <div class="top-menu2">
                     <nav>
                       <ul>
-                        <li id="first"><a (click)="toggleForms('form5')">Agents</a></li>
-                        <li ><a  (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
+                        <li id="first"><a (click)="toggleForms('form5')" class="agents">Agents</a></li>
+                        <li ><a (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
                         <li class="form-li">
-                          <input type="text" placeholder="Search Agents"> 
-                        </li>
+                          <div class="search-input">
+                              <input type="text" placeholder="Search Agents" style="padding-left: 50px;">
+                              <label for="search" class="search-icon">
+                                  <img src="../../assets/images/search.svg" alt="Search Icon">
+                              </label>
+                          </div>
+                      </li>
                         <li class="form-li">
                             <button class="addButton" (click)="toggleForms('form7')">
                                 <img src="../../../assets/images/UserPlus.svg">                      
@@ -278,45 +327,89 @@
                       </ul>
                     </nav>
 
-                    <hr/>
-                    
+          
                   </div>
                 <h5 class="top"><strong>Agents</strong></h5>
+                <hr>
     
               
     <table>
         <thead>
             <tr>
                 <th class="table-corners-first">Name</th>
-                <th>Designation </th>
+                <th>Position </th>
                 
     
                 
-                <th class="table-corners-last">Member</th>
+                <th class="">Status</th>
+
+                <th class="table-corners-last">Action</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a routerLink="/view-agents">John Smith</a></td>
-                <td>IT Support</td>
-                <td><span>Agent</span><br><span class="active-status">Active</span></td>
-       
-            </tr>
-            <tr>
-                <td><a routerLink="/view-agents">John Smith</a></td>
-                <td>IT Support</td>
-                <td><span>Agent</span><br><span class="active-status">Active</span></td>
-           
-                
-            </tr>
-            <tr>
-                <td><a routerLink="/view-agents">John Smith</a></td>
-                <td>IT Support</td>
-                <td><span>Agent</span><br><span class="active-status">Active</span></td>
-             
-            </tr>
-        </tbody>
-    </table>
+          <tr>
+              <td><a routerLink="/view-agents">John Smith</a></td>
+              <td>IT Support</td>
+              <td><span class="active-status">Active</span></td>
+              <td><button class="cancel">Disable</button>
+              </tr>
+          <tr>
+              <td><a routerLink="/view-agents">John Smith</a></td>
+              <td>IT Support</td>
+              <td><span class="active-status">Active</span></td>
+              <td><button class="cancel">Disable</button>
+              </tr>
+          <tr>
+              <td><a routerLink="/view-agents">John Smith</a></td>
+              <td>IT Support</td>
+              <td><span class="active-status">Active</span></td>
+              <td>
+                <!--Disabling the Agent-->
+                <div class="button-container">
+                  <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[2] }">
+                    <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
+                      <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
+                      <ng-container *ngIf="isConfirmingDeactivation">
+                          
+                      </ng-container>
+                      
+                      </button>
+                  
+                  
+                      <div class="dropdown-content">
+                          <span>Are you sure you want to <strong>Disable?</strong></span>
+                          <hr>
+                          <div class="row">
+                              <div class="col">
+                                  <button (click)="confirmDeactivation()">Yes</button>
+                              </div>
+                              <div class="col">
+                                  <button (click)="closeDropdown()">No</button>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!--Enable-->
+
+                      <div class="dropdown-content" *ngIf="buttonText==='Enable'">
+                        <span>Are you sure you want to <strong>Enable?</strong></span>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <button (click)="confirmDeactivation2()">Yes</button>
+                            </div>
+                            <div class="col">
+                                <button (click)="closeDropdown()">No</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              </td>
+              </tr>
+      </tbody>
+       </table>
     
              </div>
              
@@ -403,20 +496,24 @@
     </div>
 
             <!--Employess-->
-            <div class="container text-left" id="designations" *ngIf="currentForm === 'form6'" >
-                <div class="row">
-                    
-     
-
-         <div class="col" id="content2" >
+            <div  *ngIf="currentForm === 'form6'" >
+              <div class="card shadow">
+                <div class="card-body">
             <div class="top-menu2">
                 <nav>
                   <ul>
-                    <li id="first"><a (click)="toggleForms('form5')">Agents</a></li>
-                    <li ><a  (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
+                    <li id="first" ><a (click)="toggleForms('form5')">Agents</a></li>
+                    <li ><a  (click)="toggleForms('form6')"  class="employees" >Employees</a></li>
                     <li class="form-li">
-                      <input type="text" placeholder="Search Employees"> 
-                    </li>
+                      <div class="search-input">
+                          <input type="text" placeholder="Search Employees" style="padding-left: 50px;">
+                          <label for="search" class="search-icon">
+                              <img src="../../assets/images/search.svg" alt="Search Icon">
+                          </label>
+                      </div>
+                  </li>
+                  
+                  
                     <li class="form-li">
                      
 
@@ -429,41 +526,92 @@
                   </ul>
                 </nav>
 
-                <hr/>
+                <hr>
                 
               </div>
             <h5 class="top"><strong>Employees</strong></h5>
+            <hr>
 
           
 <table>
     <thead>
         <tr>
             <th class="table-corners-first">Name</th>
-            <th>Designation </th>
+            <th>Position </th>
             
 
             
-            <th class="table-corners-last">Email</th>
+            <th>Status</th>
+
+            <th class="table-corners-last">Action</th>
+
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Employee</span><br><span class="active-status">Active</span></td>
-            <td><span class="form-header">Employees' email</span></td>
-   
+            <td><span>IT Technician</span></td>
+            <td><span class="active-status">Active</span></td>
+            <td>
+              <!--Disabling the Agent-->
+              <div class="button-container">
+                <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[2] }">
+                  <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
+                    <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
+                    <ng-container *ngIf="isConfirmingDeactivation">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        
+                    </ng-container>
+                    
+                    </button>
+                
+                
+                    <div class="dropdown-content">
+                        <span>Are you sure you want to <strong>Disable?</strong></span>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <button (click)="confirmDeactivation()">Yes</button>
+                            </div>
+                            <div class="col">
+                                <button (click)="closeDropdown()">No</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Enable-->
+                    
+                    <div class="dropdown-content" *ngIf="buttonText==='Enable'">
+                      <span>Are you sure you want to <strong>Enable?</strong></span>
+                      <hr>
+                      <div class="row">
+                          <div class="col">
+                              <button (click)="confirmDeactivation2()">Yes</button>
+                          </div>
+                          <div class="col">
+                              <button (click)="closeDropdown()">No</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </td>
+               
         </tr>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Employee</span><br><span class="active-status">Active</span></td>
-            <td><span class="form-header">Employees' email</span></td>
-       
+            <td><span>IT Technician</span></td>
+            <td><span class="active-status">Active</span></td>
+            <td><button class="cancel">Disable</button>
+            </td>
+                   
             
         </tr>
         <tr>
             <td><a routerLink="/view-employee">John Smith</a></td>
-            <td><span>Employee</span><br><span class="active-status">Active</span></td>
-            <td><span class="form-header">Employees' email</span></td>
+            <td><span>IT Technician</span></td>
+            <td><span class="active-status">Active</span></td>
+            <td><button class="cancel">Disable</button>
          
         </tr>
     </tbody>

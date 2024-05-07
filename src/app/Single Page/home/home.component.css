@@ -67,6 +67,8 @@
     height: 650px; /* Set a specific height */
     overflow: hidden; /* Optional: to ensure the image doesn't overflow its container */
     margin-top: 25px;
+    position: relative; /* Make the container relatively positioned */
+    width: 100%; /* Ensure the container takes the full width */
   }
   
   .image-container img {
@@ -74,18 +76,17 @@
     height: 100%;
     object-fit: cover; 
     display: block;
+    
   }
   .top-image {
     position: absolute;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    z-index: 1; 
-    bottom: -161px;
+    left: 75%; /* Position from the center horizontally */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    bottom: 0; /* Position from the bottom */
     height: 650px !important;
-    width: 730px !important;}
-
-
-
+    width: 730px !important;
+    z-index: 1; /* Ensure it's above other content */
+}
 
 
 .text {
@@ -439,7 +440,6 @@ form input{
   border-radius: 4px;
   margin-top: 20px;
   font-size: 12px;
-
 }
 form textarea{
   border-radius: 4px;

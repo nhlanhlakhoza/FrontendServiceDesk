@@ -40,6 +40,10 @@
       border: 1px solid #E7E7E7;
        border-radius: 4px;
     } 
+    .blue-icon {
+      color: rgb(155, 155, 255);
+    }
+    
     
     form input,
     
@@ -101,6 +105,24 @@
     margin-top: 25px;
 
 }
+.nextButton1
+{
+    color: #fff;
+    background-color: #3818D9;
+    font-style: normal;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-left: 650px;
+    border: 1px solid #3818D9;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 25px;
+    align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+
+}
 .addButton
 {
   color: #fff;
@@ -114,12 +136,59 @@
     border: none;
     margin-right: 10px;
      margin-top: -5px;
+     padding-left: 10px;
+     padding-right: 10px;
 }
 .addButton img{
   margin-right: 10px;
   margin-top: -5px;
   height: 20px;
   width: 20px;
+}
+
+/*For the Spinner*/
+
+
+/*Spinner*/
+
+.nextButton1 {
+  position: relative;
+}
+
+.nextButton1 span {
+  visibility: visible;
+}
+
+.nextButton1 .spinner {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nextButton1[disabled] span {
+  visibility: hidden;
+}
+
+.nextButton1[disabled] .spinner {
+  visibility: visible;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-left: 40%;
+
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .top{
@@ -242,11 +311,13 @@
       padding-right: 10px;
 
   }
+  
   .pointer {
     cursor: pointer;
   }
   a{
     cursor: pointer;
+    
   }
   #content{
     background-color: #e7e7fe;
@@ -308,12 +379,28 @@
   }
   #first
   {
-    left: 35px;
+
+    left: 45px;
+    
   }
 
   .form-li{
-    margin-left: 35px;
+    margin-left: 45px;
   }
+  .form-li input{
+    font-size: 14px;
+  }
+  .cancel{
+    color: #fff;
+        background-color: #FFC145;
+        font-style: normal;
+        height: 40px;
+        width: 80px;
+        margin-left: 15px;
+        border: 1px solid #FFC145;
+        padding: none;
+        border-radius: 4px;
+}
   
   
   
@@ -502,6 +589,76 @@ tr:not(:first-child) {
   border: 1px solid #D9D9D9;
   margin-bottom: 10px;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  padding: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  margin-bottom: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+.top-menu2 {
+  margin-bottom: 50px;
+  margin-right: 5px;
+}
+
+.top-menu2 nav ul li a:hover,
+.top-menu2 nav ul li a:focus {
+  color: #000; 
+}
+
+.top-menu2 nav ul li a.active {
+  color: #000 !important; 
+}
+
+.top-menu2 nav ul li a:active {
+  color: #000 !important; 
+}
+
+.employees
+{
+  color: #000 !important;
+  border-bottom: 2px solid #3818D9; 
+  margin-left: 35px;
+}
+.agents
+{
+  color: #000 !important;
+  border-bottom: 2px solid #3818D9; 
+}
+
+
+
+
+
+
 
 
 

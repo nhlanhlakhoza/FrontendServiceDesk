@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
@@ -140,6 +142,8 @@ import { EmployeeChangePasswordComponent } from './Employee/employee-change-pass
     MatInputModule,
     DatePipe,
     MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule, MatSelectModule, 
+    MatMenuModule,
+    MatIconModule,
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 

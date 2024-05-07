@@ -17,17 +17,23 @@
         <div class="top-menu2">
           <nav>
             <ul style="display: flex; align-items: center;">
-              <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <li style="margin-right: 10px;" [class.active]="currentForm === 'unresolved'">
                 <a (click)="toggleForms('unresolved')" routerLink="#">Unresolved</a>
-            </li>
-            <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-              <a (click)="toggleForms('inprogress')" routerLink="#">In Progress</a>
-          </li>
-          <li style="margin-right: 10px;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-            <a (click)="toggleForms('resolved')" routerLink="#">Resolved</a>
-        </li>
-              <li style="margin-right: 20px;">
-                <input type="text" placeholder="Search tickets"></li>
+              </li>
+              <li style="margin-right: 10px;" [class.active]="currentForm === 'inprogress'">
+                <a (click)="toggleForms('inprogress')" routerLink="#">In Progress</a>
+              </li>
+              <li style="margin-right: 10px;" [class.active]="currentForm === 'resolved'">
+                <a (click)="toggleForms('resolved')" routerLink="#">Resolved</a>
+              </li>
+        <div class="search-input">
+          <li style="margin-right: 20px;">
+            <input type="text" placeholder="Search tickets" style="padding-left: 50px;">
+                <label for="search" class="search-icon">
+                  <img src="../../assets/images/search.svg" alt="Search Icon">
+              </label>
+              </li>
+         </div>
                 <div class="dropdown">
               <li><button class="filterButton" (click)="toggleDropdown()">
                 <img src="../../../assets/images/filter.svg"  > 
