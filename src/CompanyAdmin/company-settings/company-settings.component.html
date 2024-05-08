@@ -248,60 +248,40 @@
         </thead>
         <tbody>
           <tr *ngFor="let agent of agents">
-              <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
-              <td>{{agent.position}}</td>
-              <td><span class="active-status">{{agent.agentStatus}}</span></td>
-              <td><button class="cancel">Disable</button>
-              </tr>
-       
-          <tr>
-              <td><a routerLink="/view-agents">John Smith</a></td>
-              <td>IT Support</td>
-              <td><span class="active-status">Active</span></td>
-              <td>
-                <!--Disabling the Agent-->
-                <div class="button-container">
-                  <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[2] }">
-                    <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
-                      <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
-                      <ng-container *ngIf="isConfirmingDeactivation">
-                          
-                      </ng-container>
-                      
-                      </button>
-                  
-                  
-                      <div class="dropdown-content">
-                          <span>Are you sure you want to <strong>Disable?</strong></span>
-                          <hr>
-                          <div class="row">
-                              <div class="col">
-                                  <button (click)="confirmDeactivation()">Yes</button>
-                              </div>
-                              <div class="col">
-                                  <button (click)="closeDropdown()">No</button>
-                              </div>
-                          </div>
-                      </div>
+            <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
+            <td>{{ agent.position }}</td>
+            <td><span class="active-status">{{ agent.statusAgent }}</span></td>
+        
+            <td>
+              <!--Disabling the Agent-->
+<div class="button-container">
+  <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[agents.indexOf(agent)] }">
+      <button class="cancel" (click)="toggleDropdown(agent)" [disabled]="isConfirmingDeactivation">
+          {{ agent.buttonText }}
+          <span *ngIf="agent.loading" class="spinner-container">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </span>
+      </button>
 
-                      <!--Enable-->
-
-                      <div class="dropdown-content" *ngIf="buttonText==='Enable'">
-                        <span>Are you sure you want to <strong>Enable?</strong></span>
-                        <hr>
-                        <div class="row">
-                            <div class="col">
-                                <button (click)="confirmDeactivation2()">Yes</button>
-                            </div>
-                            <div class="col">
-                                <button (click)="closeDropdown()">No</button>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+      <div class="dropdown-content">
+          <span>Are you sure you want to <strong>{{ agent.statusAgent === 'Active' ? 'Disable' : 'Enable' }}?</strong></span>
+          <hr>
+          <div class="row">
+              <div class="col">
+                  <button (click)="confirmDeactivation(agent)">Yes</button>
               </div>
-              </td>
-              </tr>
+              <div class="col">
+                  <button (click)="closeDropdown(agent)">No</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+        
+         
       </tbody>
        </table>
     
@@ -460,17 +440,18 @@
                 
                 
                     <div class="dropdown-content">
-                        <span>Are you sure you want to <strong>Disable?</strong></span>
-                        <hr>
-                        <div class="row">
-                            <div class="col">
-                                <button (click)="confirmDeactivation()">Yes</button>
-                            </div>
-                            <div class="col">
-                                <button (click)="closeDropdown()">No</button>
-                            </div>
-                        </div>
-                    </div>
+                      <span>Are you sure you want to <strong>Disable?</strong></span>
+                      <hr>
+                      <div class="row">
+                          <div class="col">
+                              <button (click)="confirmDeactivation(agents)">Yes</button>
+                          </div>
+                          <div class="col">
+                              <button (click)="closeDropdown(agents)">No</button>
+                          </div>
+                      </div>
+                  </div>
+                  
 
                     <!--Enable-->
                     
@@ -479,10 +460,10 @@
                       <hr>
                       <div class="row">
                           <div class="col">
-                              <button (click)="confirmDeactivation2()">Yes</button>
+                              <button (click)="confirmDeactivation2(agents)">Yes</button>
                           </div>
                           <div class="col">
-                              <button (click)="closeDropdown()">No</button>
+                              <button (click)="closeDropdown(agents)">No</button>
                           </div>
                       </div>
                   </div>

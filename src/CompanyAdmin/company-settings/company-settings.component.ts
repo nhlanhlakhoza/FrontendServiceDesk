@@ -50,6 +50,11 @@ export class CompanySettingsComponent {
         this.extractEmail(); // Call the method to extract email
       }
       this.getAllAgents();
+    // Initialize buttonText for each agent
+  this.agents.forEach(agent => {
+    agent.buttonText = agent.statusAgent === 'Active' ? 'Disable' : 'Enable';
+    agent.defaultButtonText = agent.statusAgent === 'Active' ? 'Disable' : 'Enable'; // Store the default button text
+  });
     }
     private extractCompanyId() {
       if (this.token && this.token.hasOwnProperty('companyId')) {
@@ -205,67 +210,121 @@ loading: boolean = false;
 buttonText: string = 'Disable'; 
 isButtonDisabled: boolean = false;
 
-
-toggleDropdown(index: number) {
-  this.isDropdownOpen[index] = !this.isDropdownOpen[index];
-
-  for (let i = 0; i < this.isDropdownOpen.length; i++) {
-    if (i !== index) {
-      this.isDropdownOpen[i] = false;
-    }
+toggleDropdown(agent: any) {
+  const agentIndex = this.agents.indexOf(agent);
+  if (agentIndex !== -1) {
+    this.isDropdownOpen[agentIndex] = !this.isDropdownOpen[agentIndex];
   }
 }
 isConfirmingDeactivation: boolean = false;
 
 
-
-confirmDeactivation() {
-  this.isConfirmingDeactivation = true;
-  this.loading = true; 
-  
-
-  setTimeout(() => {
-      
-      this.isDeactivating = !this.isDeactivating; 
-      this.loading = false;
-      this.isConfirmingDeactivation = false; 
-
-      this.closeDropdown()
-      this.buttonText = 'Enable';
-  }, 2000); 
-}
-
 addVisible: boolean = false;
 toggleAddForms() {
   this.addVisible = !this.addVisible;
 }
+// Initialize buttonText based on the status
 
-confirmDeactivation2() {
-  this.isConfirmingDeactivation = true; 
-  this.loading = true; 
-  
 
+confirmDeactivation(agent: any) {
+  const agentIndex = this.agents.indexOf(agent);
+  if (agentIndex !== -1) {
+    this.isConfirmingDeactivation = true;
+    this.loading = true; // Set loading to true for the main process
+
+    // Set loading specifically for this button
+    this.agents[agentIndex].loading = true;
+
+    setTimeout(() => {
+      // Toggle the status for the specific agent
+      this.agents[agentIndex].statusAgent = this.agents[agentIndex].statusAgent === 'Active' ? 'Disabled' : 'Active';
+      // Update the buttonText based on the updated status
+      this.agents[agentIndex].buttonText = this.agents[agentIndex].statusAgent === 'Active' ? 'Disable' : 'Enable';
+
+      // Send the request to update the agent status on the backend
+      this.http.post<any>('http://localhost:8080/api/users/changeAgentStatus', { email: agent.email, statusAgent: this.agents[agentIndex].statusAgent })
+        .subscribe(
+          (response) => {
+            // Handle response if needed
+          },
+          (error) => {
+            console.error('Error updating agent status:', error);
+            // Handle error if needed
+          }
+        ).add(() => {
+          // Set loading to false for the main process after the request completes
+          this.loading = false;
+          // Set loading to false specifically for this button
+          this.agents[agentIndex].loading = false;
+        });
+
+      this.isDeactivating = !this.isDeactivating;
+      this.isConfirmingDeactivation = false;
+
+      this.closeDropdown(agent);
+    }, 2000);
+  }
+}
+
+confirmDeactivation2(agent: any) {
+  const agentIndex = this.agents.indexOf(agent);
+  if (agentIndex !== -1) {
+    this.isConfirmingDeactivation = true;
+    this.loading = true; // Set loading to true for the main process
+
+    // Set loading specifically for this button
+    this.agents[agentIndex].loading = true;
+
+    setTimeout(() => {
+      // Toggle the status for the specific agent
+      this.agents[agentIndex].statusAgent = this.agents[agentIndex].statusAgent === 'Active' ? 'Disabled' : 'Active';
+      // Update the buttonText based on the updated status
+      this.agents[agentIndex].buttonText = this.agents[agentIndex].statusAgent === 'Active' ? 'Disable' : 'Enable';
+
+      // Send the request to update the agent status on the backend
+      this.http.post<any>('http://localhost:8080/api/users/changeAgentStatus', { email: agent.email, statusAgent: this.agents[agentIndex].statusAgent })
+        .subscribe(
+          (response) => {
+            // Handle response if needed
+          },
+          (error) => {
+            console.error('Error updating agent status:', error);
+            // Handle error if needed
+          }
+        ).add(() => {
+          // Set loading to false for the main process after the request completes
+          this.loading = false;
+          // Set loading to false specifically for this button
+          this.agents[agentIndex].loading = false;
+        });
+
+      this.isDeactivating = !this.isDeactivating;
+      this.isConfirmingDeactivation = false;
+
+      this.closeDropdown(agent);
+    }, 2000);
+  }
+}
+
+
+resetButtonText(agentIndex: number) {
   setTimeout(() => {
-      this.isDeactivating = !this.isDeactivating; 
-      this.loading = false;
-      this.isConfirmingDeactivation = false; 
-
-      this.closeDropdown();
-
-      this.buttonText = 'Disable';
-  }, 2000); 
+    this.agents[agentIndex].buttonText = this.agents[agentIndex].defaultButtonText; // Reset buttonText to default value
+  }, 5000); // Adjust the timeout value as needed
 }
 
 
 
 
 
-closeDropdown() {
-  // Close all dropdowns
-  for (let i = 0; i < this.isDropdownOpen.length; i++) {
-    this.isDropdownOpen[i] = false;
+
+
+ closeDropdown(agent: any) {
+    const agentIndex = this.agents.indexOf(agent);
+    if (agentIndex !== -1) {
+      this.isDropdownOpen[agentIndex] = false;
+    }
   }
-}     
 
   
     get profile (){return this.profileForm.controls;}
@@ -283,6 +342,10 @@ closeDropdown() {
           this.agents = data;
           this.loadings = false; // Set loading to false once data is fetched
 
+           // Set buttonText based on agent status
+      this.agents.forEach(agent => {
+        agent.buttonText = agent.statusAgent === 'Active' ? 'Disable' : 'Enable';
+      });
           console.log(this.agents)
         },
         (error) => {
