@@ -105,7 +105,7 @@
             <!--End Of Profile details form-->
 
             <!--Change password Form-->
-            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'" >
+            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'" (ngSubmit)="resetPassword()">
                
               <fieldset>
             
@@ -150,10 +150,18 @@
               
                
              
-              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid || showSpinner" (click)="changePassword()">
-                <span *ngIf="!showSpinner">Save Password</span>
-                <div *ngIf="showSpinner" class="spinner"></div>
-              </button>
+              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">
+                <span *ngIf="!submittingForm">Save Password</span>
+                <div *ngIf="submittingForm" class="spinner-container">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+            </button>
+                <div *ngIf="showAlert" [ngClass]="alertType === 'success' ? 'alert alert-success' : 'alert alert-danger'">
+                  {{ alertMessage }}
+                </div>
               
           </form>
              
@@ -228,7 +236,7 @@
         <thead>
             <tr>
                 <th class="table-corners-first">Name</th>
-                <th>Position </th>
+                <th>Department </th>
                 
     
                 
@@ -239,18 +247,13 @@
             </tr>
         </thead>
         <tbody>
-          <tr>
-              <td><a routerLink="/view-agents">John Smith</a></td>
-              <td>IT Support</td>
-              <td><span class="active-status">Active</span></td>
+          <tr *ngFor="let agent of agents">
+              <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
+              <td>{{agent.position}}</td>
+              <td><span class="active-status">{{agent.agentStatus}}</span></td>
               <td><button class="cancel">Disable</button>
               </tr>
-          <tr>
-              <td><a routerLink="/view-agents">John Smith</a></td>
-              <td>IT Support</td>
-              <td><span class="active-status">Active</span></td>
-              <td><button class="cancel">Disable</button>
-              </tr>
+       
           <tr>
               <td><a routerLink="/view-agents">John Smith</a></td>
               <td>IT Support</td>
@@ -427,7 +430,7 @@
     <thead>
         <tr>
             <th class="table-corners-first">Name</th>
-            <th>Position </th>
+            <th>Department </th>
             
 
             

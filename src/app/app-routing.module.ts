@@ -34,7 +34,7 @@ import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscrip
 import { CompanyTicketDetailsComponent } from 'src/CompanyAdmin/company-ticket-details/company-ticket-details.component';
 import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
 import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
-
+import { AuthGuard } from './utility/services/authgaurd.service'; 
 
 
 const routes: Routes = [
@@ -68,20 +68,20 @@ const routes: Routes = [
 
 
   //Company Admins' routes
-  {path:"company-dashboard",component:CompanyAdminDashboardComponent},
-  {path:"company-settings",component:CompanySettingsComponent},
-  {path:"company-reports",component:ReportsComponent},
-  {path:"company-tickets",component:CompanyTicketsComponent},
-  {path:"more-settings",component: MoreSettingsComponent},
-  {path:"view-employee",component: ViewEmployeeComponent},
-  {path:"view-agents",component: ViewAgentComponent},
+  {path:"company-dashboard",component:CompanyAdminDashboardComponent ,canActivate: [AuthGuard]},
+  {path:"company-settings",component:CompanySettingsComponent,canActivate: [AuthGuard]},
+  {path:"company-reports",component:ReportsComponent,canActivate: [AuthGuard]},
+  {path:"company-tickets",component:CompanyTicketsComponent,canActivate: [AuthGuard]},
+  {path:"more-settings",component: MoreSettingsComponent,canActivate: [AuthGuard]},
+  {path:"view-employee",component: ViewEmployeeComponent,canActivate: [AuthGuard]},
+  {path:"view-agents",component: ViewAgentComponent,canActivate: [AuthGuard]},
   {path:"company-login",component: CompanyLoginComponent},
   {path:"company-register",component: CompanyRegisterComponent},
   {path:"change-password",component: CompanyChangePasswordComponent},
   {path:"forget-password",component: CompanyFgtPasswordComponent},
   {path: "", component: HomeComponent},
-  {path:"company-subscription", component: CompanySubscriptionsComponent},
-  {path: "ticket-details-com", component: CompanyTicketDetailsComponent}
+  {path:"company-subscription", component: CompanySubscriptionsComponent,canActivate: [AuthGuard]},
+  {path: "ticket-details-com", component: CompanyTicketDetailsComponent,canActivate: [AuthGuard]}
 
 ];
 

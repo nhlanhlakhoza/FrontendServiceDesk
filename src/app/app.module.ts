@@ -146,7 +146,7 @@ import { UserEmployeeComponent } from './user-employee/user-employee.component';
     MatInputModule, MatFormFieldModule, MatNativeDateModule, MatDatepickerModule, MatSelectModule, 
     MatMenuModule,
     MatIconModule,
-    
+    HttpClientModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},EncryptionDecryption,DynamicDataService 
   ],
