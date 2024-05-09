@@ -33,7 +33,7 @@ export class CompanySettingsComponent {
   alertMessage!: string;
   showAlert!: boolean;
   submittingForm: boolean = false;
-  users: any;
+  users: any[]=[];
   failedAccounts: any;
  
   oldPassword: string = '';
@@ -50,10 +50,17 @@ export class CompanySettingsComponent {
         this.extractEmail(); // Call the method to extract email
       }
       this.getAllAgents();
+      this.getAllUsers();
     // Initialize buttonText for each agent
   this.agents.forEach(agent => {
     agent.buttonText = agent.statusAgent === 'Active' ? 'Disable' : 'Enable';
     agent.defaultButtonText = agent.statusAgent === 'Active' ? 'Disable' : 'Enable'; // Store the default button text
+  });
+
+   // Initialize buttonText for each User
+   this.users.forEach(user => {
+    user.buttonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable';
+    user.defaultButtonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable'; // Store the default button text
   });
     }
     private extractCompanyId() {
@@ -216,6 +223,12 @@ toggleDropdown(agent: any) {
     this.isDropdownOpen[agentIndex] = !this.isDropdownOpen[agentIndex];
   }
 }
+toggleDropdown1(user: any) {
+  const userIndex = this.users.indexOf(user);
+  if (userIndex !== -1) {
+    this.isDropdownOpen[userIndex] = !this.isDropdownOpen[userIndex];
+  }
+}
 isConfirmingDeactivation: boolean = false;
 
 
@@ -265,24 +278,23 @@ confirmDeactivation(agent: any) {
     }, 2000);
   }
 }
-
-confirmDeactivation2(agent: any) {
-  const agentIndex = this.agents.indexOf(agent);
-  if (agentIndex !== -1) {
+confirmDeactivation2(user: any) {
+  const userIndex = this.users.indexOf(user);
+  if (userIndex !== -1) {
     this.isConfirmingDeactivation = true;
     this.loading = true; // Set loading to true for the main process
 
     // Set loading specifically for this button
-    this.agents[agentIndex].loading = true;
+    this.users[userIndex].loading = true;
 
     setTimeout(() => {
       // Toggle the status for the specific agent
-      this.agents[agentIndex].statusAgent = this.agents[agentIndex].statusAgent === 'Active' ? 'Disabled' : 'Active';
+      this.users[userIndex].statusAgent = this.users[userIndex].statusAgent === 'Active' ? 'Disabled' : 'Active';
       // Update the buttonText based on the updated status
-      this.agents[agentIndex].buttonText = this.agents[agentIndex].statusAgent === 'Active' ? 'Disable' : 'Enable';
+      this.users[userIndex].buttonText = this.users[userIndex].statusAgent === 'Active' ? 'Disable' : 'Enable';
 
       // Send the request to update the agent status on the backend
-      this.http.post<any>('http://localhost:8080/api/users/changeAgentStatus', { email: agent.email, statusAgent: this.agents[agentIndex].statusAgent })
+      this.http.post<any>('http://localhost:8080/api/users/changeUserStatus', { email: user.email, statusAgent: this.agents[userIndex].statusAgent })
         .subscribe(
           (response) => {
             // Handle response if needed
@@ -295,13 +307,13 @@ confirmDeactivation2(agent: any) {
           // Set loading to false for the main process after the request completes
           this.loading = false;
           // Set loading to false specifically for this button
-          this.agents[agentIndex].loading = false;
+          this.users[userIndex].loading = false;
         });
 
       this.isDeactivating = !this.isDeactivating;
       this.isConfirmingDeactivation = false;
 
-      this.closeDropdown(agent);
+      this.closeDropdown1(user);
     }, 2000);
   }
 }
@@ -313,19 +325,15 @@ resetButtonText(agentIndex: number) {
   }, 5000); // Adjust the timeout value as needed
 }
 
-
-
-
-
-
-
  closeDropdown(agent: any) {
     const agentIndex = this.agents.indexOf(agent);
     if (agentIndex !== -1) {
       this.isDropdownOpen[agentIndex] = false;
     }
   }
-
+  closeDropdown1(user: any) {
+    this.isDropdownOpen[this.users.indexOf(user)] = false;
+  }
   
     get profile (){return this.profileForm.controls;}
     get password (){return this.passwordForm.controls;}
@@ -354,7 +362,24 @@ resetButtonText(agentIndex: number) {
         }
       );
     }
+    getAllUsers() {
+      this.http.get<any[]>('http://localhost:8080/api/users/all-users/'+this.companyId).subscribe(
+        (data) => {
+          this.users = data;
+          this.loadings = false; // Set loading to false once data is fetched
 
+           // Set buttonText based on agent status
+      this.users.forEach(user => {
+        user.buttonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable';
+      });
+          console.log(this.users)
+        },
+        (error) => {
+          console.error('Error fetching agents:', error);
+          this.loadings = false; // Set loading to false on error as well
+        }
+      );
+    }
     resetPassword() {
 
       this.submittingForm = true; // Set submittingForm flag to true
