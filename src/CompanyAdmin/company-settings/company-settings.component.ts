@@ -35,9 +35,12 @@ export class CompanySettingsComponent {
   submittingForm: boolean = false;
   users: any[]=[];
   failedAccounts: any;
- 
+  file!: File;
   oldPassword: string = '';
-  
+  firstName: string='';
+  lastName: string='';
+  profileForm!: FormGroup;
+  profileImage: string | ArrayBuffer | null | undefined;
   
   constructor(private fb: FormBuilder,private http: HttpClient, private formBuilder: FormBuilder,
     private authService: AuthService) {}
@@ -48,7 +51,10 @@ export class CompanySettingsComponent {
         this.token = jwt_decode(this.authToken);
         this.extractCompanyId(); // Call the method to extract companyId
         this.extractEmail(); // Call the method to extract email
+        this.extractFirstName();
+        this.extractLastName();
       }
+
       this.getAllAgents();
       this.getAllUsers();
     // Initialize buttonText for each agent
@@ -61,6 +67,14 @@ export class CompanySettingsComponent {
    this.users.forEach(user => {
     user.buttonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable';
     user.defaultButtonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable'; // Store the default button text
+  });
+
+   // Initialize profileForm with default values
+   this.profileForm = new FormGroup({
+    firstName: new FormControl(this.firstName, [Validators.required, this.noNumbersValidator()]),
+    lastName: new FormControl(this.lastName, [Validators.required, this.noNumbersValidator()]),
+    email: new FormControl(this.email, [Validators.required, Validators.email]),
+    file: new FormControl(''),
   });
     }
     private extractCompanyId() {
@@ -81,15 +95,23 @@ export class CompanySettingsComponent {
         this.email = 'Default Email';
       }
     }
-  
-//Change profile details form
-  profileForm: FormGroup = new FormGroup({
-    firstName: new FormControl('Phumudzo ', [Validators.required, this.noNumbersValidator()]),
-    lastName: new FormControl(' Tshivhase', [Validators.required, this.noNumbersValidator()]),
-    email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
-    dob: new FormControl(new Date(), Validators.required),
-    country: new FormControl('South Sudan', Validators.required),
-    });
+    private extractFirstName() {
+      if (this.token && this.token.hasOwnProperty('firstName')) {
+        this.firstName = this.token.firstName;
+      } else {
+        // Handle error or default value if email is not present in the token
+        this.firstName = 'Default Email';
+      }
+    }
+    private extractLastName() {
+      if (this.token && this.token.hasOwnProperty('lastName')) {
+        this.lastName = this.token.lastName;
+      } else {
+        // Handle error or default value if email is not present in the token
+        this.lastName= 'Default Email';
+      }
+    }
+
 
     
     //Change Password Form
@@ -190,10 +212,15 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
     }
      //Button to select
 
-  onFileSelected(event: any) {
-    const selectedFile = event.target.files[0];
-    //console.log(selectedFile); Do something with the selected file
-  }
+     selectedFileName: string = ''; // Initialize selectedFileName
+
+     onFileSelected(event: any) {
+         const file = event.target.files[0];
+         if (file) {
+             this.selectedFileName = file.name; // Set selectedFileName to the file name
+             this.file = file; // Assign the selected file to this.file for FormData
+         }
+     }
   
   buttonTexts: string[] = ['On', 'On', 'On', 'On', 'On','On','On','On']; 
   isOns: boolean[] = [true, true, true, true, true, true, true, true]; 
@@ -425,8 +452,50 @@ resetButtonText(agentIndex: number) {
         this.submittingForm = false; // Set submittingForm flag to false when request completes
       });;
    }
-    
+   fetchProfilePictureByEmail(email: string) {
+    this.http.get('http://localhost:8080/api/company/displayProfileImage', {
+      responseType: 'blob',
+      params: { email: this.email },
+    }).subscribe(
+      (response: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.profileImage = reader.result;
+        };
+        reader.readAsDataURL(response);
+      },
+      error => {
+        console.error('Error fetching profile image:', error);
+      }
+    );
+  }
 
+  updateProfile() {
+    this.showSpinner = true; // Show the spinner initially
+  
+    const formData = new FormData();
+    formData.append('file', this.file);
+    formData.append('fullName', this.profileForm.value.fullName);
+    formData.append('lastName', this.profileForm.value.lastName);
+    formData.append('email', this.profileForm.value.email);
+  
+    this.http.post<any>('http://localhost:8080/api/company/updateProfile', formData).subscribe(
+      response => {
+        console.log('Response from server:', response);
+        this.showAlertMessage('success', response.message);
+        const token = response.token;
+        localStorage.setItem('token', token);
+        this.showSpinner = false; // Hide the spinner when the request completes
+      },
+      error => {
+        console.error('Error updating profile:', error);
+        this.showAlertMessage('error', 'Sorry, please verify all the fields');
+        this.showSpinner = false; // Hide the spinner when the request encounters an error
+      }
+    );
+  }
+  
+  
   
 
    showAlertMessage(type: string, message: string) {

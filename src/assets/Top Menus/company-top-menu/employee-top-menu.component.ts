@@ -11,6 +11,7 @@ export class EmployeeTopMenuComponent {
   showDropdown: boolean = false;
   lastName: string='';
   expiredToken: any;
+  profileImage: any ;
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
@@ -38,8 +39,8 @@ email:string='';
   }
 
   private extractName() {
-    if (this.token && this.token.hasOwnProperty('lastname')) {
-      this.lastName = this.token.lastname;
+    if (this.token && this.token.hasOwnProperty('lastName')) {
+      this.lastName = this.token.lastName;
     } else {
       // Handle error or default value if company name is not present in the token
       this.sub = 'Default Company Name';
@@ -49,6 +50,8 @@ email:string='';
   private extractEmail() {
     if (this.token && this.token.hasOwnProperty('email')) {
       this.email = this.token.email;
+       // Fetch the user's profile picture
+       this.fetchProfilePictureByEmail(this.email);
     } else {
       // Handle error or default value if email is not present in the token
       this.email = 'Default Email';
@@ -84,7 +87,23 @@ email:string='';
   });
   sessionStorage.clear();
 }
-
+fetchProfilePictureByEmail(email: string) {
+  this.http.get('http://localhost:8080/api/company/displayProfileImage', {
+    responseType: 'blob',
+    params: { email: this.email },
+  }).subscribe(
+    (response: Blob) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.profileImage = reader.result;
+      };
+      reader.readAsDataURL(response);
+    },
+    error => {
+      console.error('Error fetching profile image:', error);
+    }
+  );
+}
 
 }
 

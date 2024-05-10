@@ -31,7 +31,7 @@
           <!--Profile details form-->
           
           
-            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
+            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" (ngSubmit)="updateProfile()" >
                
                 <fieldset>
               
@@ -87,12 +87,12 @@
                 <label for="country" class="input-fields"> Profile Image</label>
 
                 <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"/>
-
+                <div *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
                 <button type="button" class="attachButton" type="file" (click)="fileInput.click()">
                   Choose File
                 </button>  
-
-                <button type="submit" class="nextButton" [disabled]="profileForm.invalid || showSpinner" (click)="saveChanges()">
+                <div *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
+                <button type="submit" class="nextButton" [disabled]="profileForm.invalid" >
                   <span *ngIf="!showSpinner">Save changes</span>
                   <div *ngIf="showSpinner" class="spinner"></div>
                 </button>
