@@ -31,7 +31,7 @@
           <!--Profile details form-->
           
           
-            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" (ngSubmit)="updateProfile()" >
+            <form [formGroup]="profileForm" *ngIf="currentForm === 'form1'" >
                
                 <fieldset>
               
@@ -87,17 +87,22 @@
                 <label for="country" class="input-fields"> Profile Image</label>
 
                 <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"/>
-                <div *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
+              
                 <button type="button" class="attachButton" type="file" (click)="fileInput.click()">
                   Choose File
                 </button>  
-                <div *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
-                <button type="submit" class="nextButton" [disabled]="profileForm.invalid" >
+                <div *ngIf="selectedFileName" style="display: inline-block; margin-left: 10px;">
+                  {{ selectedFileName }}
+                </div>
+                <button type="submit" class="nextButton" [disabled]="profileForm.invalid" (click)="updateProfile()" >
                   <span *ngIf="!showSpinner">Save changes</span>
                   <div *ngIf="showSpinner" class="spinner"></div>
                 </button>
                 
-                
+                    <!-- Display Message -->
+             <div *ngIf="showAlert" [ngClass]="alertType === 'success' ? 'alert alert-success' : 'alert alert-danger'">
+              {{ alertMessage }}
+          </div>
                                 
             </form>
           
@@ -151,12 +156,8 @@
                
              
               <button type="submit" class="nextButton" [disabled]="passwordForm.invalid">
-                <span *ngIf="!submittingForm">Save Password</span>
-                <div *ngIf="submittingForm" class="spinner-container">
-                  <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                </div>
+                <span *ngIf="!showSpinner">Save Password</span>
+                <div *ngIf="showSpinner" class="spinner"></div>
                 <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
             </button>
                 <div *ngIf="showAlert" [ngClass]="alertType === 'success' ? 'alert alert-success' : 'alert alert-danger'">
@@ -199,99 +200,82 @@
                 </div>
 
                 <!--Agents-->
-                <div   *ngIf="currentForm === 'form5'" >
+                <div *ngIf="currentForm === 'form5'">
                   <div class="card shadow">
                     <div class="card-body">
-                <div class="top-menu2">
-                    <nav>
-                      <ul>
-                        <li id="first"><a (click)="toggleForms('form5')" class="agents">Agents</a></li>
-                        <li ><a (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
-                        <li class="form-li">
-                          <div class="search-input">
-                              <input type="text" placeholder="Search Agents" style="padding-left: 50px;">
-                              <label for="search" class="search-icon">
+                      <div class="top-menu2">
+                        <nav>
+                          <ul>
+                            <li id="first"><a (click)="toggleForms('form5')" class="agents">Agents</a></li>
+                            <li><a (click)="toggleForms('form6')" style="margin-left: 35px;">Employees</a></li>
+                            <li class="form-li">
+                              <div class="search-input">
+                                <input type="text" placeholder="Search Agents" style="padding-left: 50px;" [(ngModel)]="searchQuery" (input)="performSearchAgent()">
+                                <label for="search" class="search-icon">
                                   <img src="../../assets/images/search.svg" alt="Search Icon">
-                              </label>
-                          </div>
-                      </li>
-                      <li class="form-li">
-                        <button class="addButton" (click)="toggleAddForms()">
-                            <img src="../../../assets/images/UserPlus.svg">                      
-                            Add
-                        </button>
-                    </li>
-                    <app-user-employee *ngIf="addVisible" (close)="addVisible = false"></app-user-employee>
-             
-                      </ul>
-                    </nav>
-
-          
+                                </label>
+                              </div>
+                            </li>
+                            <li class="form-li">
+                              <button class="addButton" (click)="toggleAddForms()">
+                                <img src="../../../assets/images/UserPlus.svg">
+                                Add
+                              </button>
+                            </li>
+                            <app-user-employee *ngIf="addVisible" (close)="addVisible = false"></app-user-employee>
+                          </ul>
+                        </nav>
+                      </div>
+                      <h5 class="top"><strong>Agents</strong></h5>
+                      <hr>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th class="table-corners-first">Name</th>
+                            <th>Department</th>
+                            <th class="">Status</th>
+                            <th class="table-corners-last">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let agent of agents">
+                            <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
+                            <td>{{ agent.position }}</td>
+                            <td><span class="active-status">{{ agent.statusAgent }}</span></td>
+                            <td>
+                              <!--Disabling the Agent-->
+                              <div class="button-container">
+                                <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[agents.indexOf(agent)] }">
+                                  <button class="cancel" (click)="toggleDropdown(agent)" [disabled]="isConfirmingDeactivation">
+                                    <span *ngIf="!agent.showSpinner">{{ agent.buttonText }}</span>
+                                    <span *ngIf="agent.showSpinner" class="spinner-container">
+                                      <div *ngIf="showSpinner" class="spinner">
+                                        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                                      </div>
+                                    </span>
+                                  </button>
+                                  <div class="dropdown-content">
+                                    <span>Are you sure you want to <strong>{{ agent.statusAgent === 'Active' ? 'Disable' : 'Enable' }}?</strong></span>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col">
+                                        <button (click)="confirmDeactivation(agent)">Yes</button>
+                                      </div>
+                                      <div class="col">
+                                        <button (click)="closeDropdown(agent)">No</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                <h5 class="top"><strong>Agents</strong></h5>
-                <hr>
-    
-              
-    <table>
-        <thead>
-            <tr>
-                <th class="table-corners-first">Name</th>
-                <th>Department </th>
-                
-    
-                
-                <th class="">Status</th>
-
-                <th class="table-corners-last">Action</th>
-
-            </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let agent of agents">
-            <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
-            <td>{{ agent.position }}</td>
-            <td><span class="active-status">{{ agent.statusAgent }}</span></td>
-        
-            <td>
-                <!--Disabling the Agent-->
-                <div class="button-container">
-                    <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[agents.indexOf(agent)] }">
-                        <button class="cancel" (click)="toggleDropdown(agent)" [disabled]="isConfirmingDeactivation">
-                            <span *ngIf="!agent.loading">{{ agent.buttonText }}</span>
-                            <span *ngIf="agent.loading" class="spinner-container">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
-                            </span>
-                        </button>
-        
-                        <div class="dropdown-content">
-                            <span>Are you sure you want to <strong>{{ agent.statusAgent === 'Active' ? 'Disable' : 'Enable' }}?</strong></span>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    <button (click)="confirmDeactivation(agent)">Yes</button>
-                                </div>
-                                <div class="col">
-                                    <button (click)="closeDropdown(agent)">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </td>
-        </tr>
-        
-         
-      </tbody>
-       </table>
-    
-             </div>
-             
-            
-                    </div>
-
-        </div>
+                
         <div  *ngIf="currentForm === 'form3'">
         <div class="card shadow">
             <div class="card-body">
@@ -381,7 +365,7 @@
                     <li ><a  (click)="toggleForms('form6')"  class="employees" >Employees</a></li>
                     <li class="form-li">
                       <div class="search-input">
-                          <input type="text" placeholder="Search Employees" style="padding-left: 50px;">
+                          <input type="text" placeholder="Search Employees" style="padding-left: 50px;"[(ngModel)]="searchQuery" (input)="performSearchUser()">
                           <label for="search" class="search-icon">
                               <img src="../../assets/images/search.svg" alt="Search Icon">
                           </label>
@@ -432,11 +416,13 @@
             <div class="button-container">
                 <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[users.indexOf(user)] }">
                     <button class="cancel" (click)="toggleDropdown1(user)" [disabled]="isConfirmingDeactivation">
-                        <span *ngIf="!user.loading">{{ user.buttonText }}</span>
-                        <span *ngIf="user.loading" class="spinner-container">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
+                        <span *ngIf="!user.showSpinner">{{ user.buttonText }}</span>
+                        <span *ngIf="user.showSpinner" class="spinner-container">
+                          <div *ngIf="showSpinner" class="spinner">
+                          <div class="ripples buttonRipples"><span class="ripplesCircle">
+                            </span>
+                          </div>
+                          </div>
                         </span>
                     </button>
     

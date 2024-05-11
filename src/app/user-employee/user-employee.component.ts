@@ -113,7 +113,7 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
   private data: any;
 
   storeUser(): any {
-    this.submittingForm = true; // Set submittingForm flag to true
+    this.showSpinner = true; // Set submittingForm flag to true
     const userData: UserRegistrationData = {
       fullName: this.add_user_form[0].value.firstName,
       email: this.add_user_form[0].value.email,
@@ -142,7 +142,7 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
         this.showAlertMessage('error', 'Failed to add Employee or Agent');
       }
     ).add(() => {
-      this.submittingForm = false; // Set submittingForm flag to false when request completes
+      this.showSpinner= false; // Set submittingForm flag to false when request completes
     });
   }
  

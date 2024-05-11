@@ -41,6 +41,7 @@ export class CompanySettingsComponent {
   lastName: string='';
   profileForm!: FormGroup;
   profileImage: string | ArrayBuffer | null | undefined;
+  searchQuery: string = ''; // Define searchQuery property
   
   constructor(private fb: FormBuilder,private http: HttpClient, private formBuilder: FormBuilder,
     private authService: AuthService) {}
@@ -270,10 +271,10 @@ confirmDeactivation(agent: any) {
   const agentIndex = this.agents.indexOf(agent);
   if (agentIndex !== -1) {
     this.isConfirmingDeactivation = true;
-    this.loading = true; // Set loading to true for the main process
+    this.showSpinner = true; // Set loading to true for the main process
 
     // Set loading specifically for this button
-    this.agents[agentIndex].loading = true;
+    this.agents[agentIndex].showSpinner = true;
 
     setTimeout(() => {
       // Toggle the status for the specific agent
@@ -293,9 +294,9 @@ confirmDeactivation(agent: any) {
           }
         ).add(() => {
           // Set loading to false for the main process after the request completes
-          this.loading = false;
+          this.showSpinner= false;
           // Set loading to false specifically for this button
-          this.agents[agentIndex].loading = false;
+          this.agents[agentIndex].showSpinner = false;
         });
 
       this.isDeactivating = !this.isDeactivating;
@@ -309,10 +310,10 @@ confirmDeactivation2(user: any) {
   const userIndex = this.users.indexOf(user);
   if (userIndex !== -1) {
     this.isConfirmingDeactivation = true;
-    this.loading = true; // Set loading to true for the main process
+    this.showSpinner = true; // Set loading to true for the main process
 
     // Set loading specifically for this button
-    this.users[userIndex].loading = true;
+    this.users[userIndex].showSpinner= true;
 
     setTimeout(() => {
       // Toggle the status for the specific agent
@@ -332,9 +333,9 @@ confirmDeactivation2(user: any) {
           }
         ).add(() => {
           // Set loading to false for the main process after the request completes
-          this.loading = false;
+          this.showSpinner = false;
           // Set loading to false specifically for this button
-          this.users[userIndex].loading = false;
+          this.users[userIndex].showSpinner = false;
         });
 
       this.isDeactivating = !this.isDeactivating;
@@ -409,7 +410,7 @@ resetButtonText(agentIndex: number) {
     }
     resetPassword() {
 
-      this.submittingForm = true; // Set submittingForm flag to true
+      this.showSpinner = true; // Set submittingForm flag to true
       // Get the value of the oldpassword field from the form
    const oldPasswordValue = this.passwordForm.get('old_password')?.value;
      this.authService.verifyOldPassword(this.email, oldPasswordValue)
@@ -428,12 +429,12 @@ resetButtonText(agentIndex: number) {
            this.showAlertMessage('error', 'Old password is incorrect.');
          }
        ).add(() => {
-        this.submittingForm = false; // Set submittingForm flag to false when request completes
+        this.showSpinner = false; // Set submittingForm flag to false when request completes
       });;
    }
  
    changePassword() {
-    this.submittingForm = true; // Set submittingForm flag to true
+    this.showSpinner= true; // Set submittingForm flag to true
      const PasswordValue = this.passwordForm.get('new_password')?.value;
      this.authService.changePassword(this.email, PasswordValue)
        .subscribe(
@@ -449,7 +450,7 @@ resetButtonText(agentIndex: number) {
            this.showAlertMessage('error', 'Error changing password. Please try again later.');
          }
        ).add(() => {
-        this.submittingForm = false; // Set submittingForm flag to false when request completes
+        this.showSpinner= false; // Set submittingForm flag to false when request completes
       });;
    }
    fetchProfilePictureByEmail(email: string) {
@@ -475,7 +476,7 @@ resetButtonText(agentIndex: number) {
   
     const formData = new FormData();
     formData.append('file', this.file);
-    formData.append('fullName', this.profileForm.value.fullName);
+    formData.append('fullName', this.profileForm.value.firstName);
     formData.append('lastName', this.profileForm.value.lastName);
     formData.append('email', this.profileForm.value.email);
   
@@ -484,8 +485,9 @@ resetButtonText(agentIndex: number) {
         console.log('Response from server:', response);
         this.showAlertMessage('success', response.message);
         const token = response.token;
-        localStorage.setItem('token', token);
         this.showSpinner = false; // Hide the spinner when the request completes
+        sessionStorage.setItem('auth-user',token)
+        window.location.reload(); // Refresh the page
       },
       error => {
         console.error('Error updating profile:', error);
@@ -494,7 +496,30 @@ resetButtonText(agentIndex: number) {
       }
     );
   }
-  
+  performSearchAgent(): void {
+    if (this.searchQuery.trim() === '') {
+      this.getAllAgents(); // Reset to show all agents if search query is empty
+    } else {
+      this.agents = this.agents.filter(agent =>
+        (agent.fullName && agent.fullName.toString().toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (agent.lastName && agent.lastName.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (agent.position && agent.position.toString().toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (agent.statusAgent && agent.statusAgent.toString().toLowerCase().includes(this.searchQuery.toLowerCase()))
+      );
+    }
+  }
+  performSearchUser(): void {
+    if (this.searchQuery.trim() === '') {
+      this.getAllUsers(); // Reset to show all agents if search query is empty
+    } else {
+      this.users = this.users.filter(user =>
+        (user.fullName && user.fullName.toString().toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (user.lastName && user.lastName.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (user.position && user.position.toString().toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+        (user.statusAgent && user.statusAgent.toString().toLowerCase().includes(this.searchQuery.toLowerCase()))
+      );
+    }
+  }
   
   
 
