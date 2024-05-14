@@ -61,7 +61,14 @@
                   <span *ngIf="profile['email'].errors?.['required']">Email is required</span>
                   <span *ngIf="profile['email'].errors?.['email']">Please enter valid email</span>
                    </div>
-                 
+                   <label for="Department" class="input-fields">Department</label>
+                   <input type="text" id="mail" name="user_email" formControlName="Department" placeholder="Department">
+                   <div
+                   *ngIf="profile['Department'].invalid && (profile['Department'].dirty || profile['Department'].touched)"
+                   class="alert alert-danger">
+                   <span *ngIf="profile['Department'].errors?.['required']">Department is required</span>
+                   <span *ngIf="profile['Department'].errors?.['containsNumbers']">Please enter valid Department</span>
+                    </div>
 
                    <!--
                     <label for="dob" class="input-fields">Date Of Birth</label>

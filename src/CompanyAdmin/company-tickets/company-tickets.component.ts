@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
+import { TicketDetailsComponent } from 'src/app/Employee/ticket-details/ticket-details.component';
+import { StorageService } from 'src/app/utility/services/Storage/storage.service';
+import { CompanyTicketDetailsComponent } from '../company-ticket-details/company-ticket-details.component';
 
 @Component({
   selector: 'app-company-tickets',
   templateUrl: './company-tickets.component.html',
   styleUrls: ['./company-tickets.component.css']
 })
-export class CompanyTicketsComponent {
+export class CompanyTicketsComponent implements OnInit{
 
   ticketForm:FormGroup = new FormGroup({
     assignee: new FormControl('', [Validators.required]),
@@ -17,6 +22,8 @@ export class CompanyTicketsComponent {
     ticketBody: new FormControl('', [Validators.required])
 
   })
+
+  constructor(private http: HttpClient, private storage : StorageService){}
 
   activeTab: string = 'tab1';
 
@@ -47,6 +54,34 @@ export class CompanyTicketsComponent {
   endDate: Date = new Date();
   
   get new_ticket (){return this.ticketForm.controls;}
+
+  dataArray:any[]=[]
+
+  
+
+  ngOnInit():void {
+
+    const token = this.storage.getUser()
+    const decodedToken:any=jwtDecode(token);
+    const companyId=decodedToken.companyId;
+
+
+    let url:string="http://localhost:8080/api/ticket/get-tickets/"+companyId;
+
+    this.http.get<any[]>(url).subscribe(data=>{
+      
+      this.dataArray=data;
+      console.log(data);
+    },
+  error=>
+  {
+    console.log(error);
+    
+  })
+
+  
+}
+
 
 
 

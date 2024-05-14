@@ -5,7 +5,7 @@
       <ul>
         <div style="display: inline; font-family: Poppins">
             
-        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>Username</strong></a></li>
+        <li><a><img src="../../../assets/images/align-left.svg" style="margin-left: 25px;"> Welcome! <strong>{{lastName}}</strong></a></li>
         <div style="float: inline-end;">
         <li class="iconImages"><a><img src="../../../assets/images/Notif.svg" width="40px" height="40px" (click)="toggleNotification()"></a></li>
         <app-notifications *ngIf="notificationVisible" [message]="message" (close)="notificationVisible = false"></app-notifications>
@@ -14,8 +14,8 @@
         <li class="iconImages" (click)="toggleDropdown()">
 
           <div *ngIf="logoImage">
-          <img *ngIf="logoImage" [src]="logoImage" style="margin-left: -15px;" width="40" height="40">
-          <strong style="margin-left: 10px;">Username</strong></div>
+            <img  *ngIf="profileImage" [src]="profileImage" style="margin-left: -15px; border-radius: 50%;"  width="40px" height="40px" >
+          <strong style="margin-left: 10px;">{{lastName}}</strong></div>
 
           <!-- Dropdown menu -->
           <div class="dropdown-content" *ngIf="showDropdown">

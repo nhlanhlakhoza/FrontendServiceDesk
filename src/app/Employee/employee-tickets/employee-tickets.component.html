@@ -84,55 +84,31 @@
         <!--Unresolved Tickets-->
         <div class="row" *ngIf="currentForm === 'unresolved'" >
 
-        <div style="margin-bottom: 20px;">
+        <div *ngFor="let item of dataArray" style="margin-bottom: 20px;">
           <div class="card" style="width: 100%;">
             <div class="card-header">
               <!--Ticket Header-->
-              <span class="ticket-header">Cannot access my system</span>
+              <span class="ticket-header">{{item.category}}</span>
               <span class="form-header">
 
                 <!--Ticket Date & View details-->
-                07 - MAR | <a routerLink="/ticket-details">View</a>
+                {{(item.createdAt).substring(16,-11)}} | <a routerLink="/ticket-details">View</a>
               </span>
             </div>
             <!--Ticket Message-->
             <div class="ticket-message">
-              <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              <span class="">{{item.description}}</span>
             </div>
             
             <!--Ticket ID and Priority-->
             <div class="urgent-section">
-              <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
-              <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              <span class="form-header badge badge-danger" id="priorityID">{{item.priority}}</span>
+              <span id="ticketID" class="form-header badge badge-secondary">{{item.ticketId}}</span>
             </div>
           </div>
         </div>
 
-        <div style="margin-bottom: 20px;">
-          
-          <div class="card">
-            <div class="card-header">
-               <!--Ticket Header-->
-
-              <span class="ticket-header">Cannot access my system</span>
-              <span class="form-header">
-                <!--Ticket Date & View details-->
-                07 - MAR | <a routerLink="/ticket-details">View</a>
-              </span>
-            </div>
-
-            <!--Ticket Message-->
-            <div class="ticket-message">
-              <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
-            </div>
-
-             <!--Ticket ID and Priority-->
-            <div class="urgent-section">
-              <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
-              <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
-            </div>
-          </div>
-        </div>
+        
 
       </div>
 
@@ -251,24 +227,12 @@
       </div>
       <div class="col-2">
         
-        <form [formGroup]="ticketForm">
+        <form [formGroup]="ticketForm" (ngSubmit)="createTicket()">
           <span class="header"><strong>Create Quick Ticket</strong></span><br>
           <span class="form-header">Write and address new queries and issues</span>
           <hr/>
-          <fieldset>
-            <label for="email" class="input-fields">Company Email</label>
-            <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Type Email">
-
-            <!--Validations-->
-            <div
-            *ngIf="new_ticket['email'].invalid && (new_ticket['email'].dirty || new_ticket['email'].touched)"
-            class="alert alert-danger" >  
-            <span *ngIf="new_ticket['email'].errors?.['required']" style="color:#f98f8f">Email is required</span>
-              <span *ngIf="new_ticket['email'].errors?.['email']" style="color:#f98f8f">Please enter valid email</span>
-            </div>
-             <!--End Of Validations-->
-
-          </fieldset>
+          
+            
           <fieldset>
             <label>Request Ticket Type</label>
             <select id="type" name="" formControlName="type">
@@ -314,7 +278,7 @@
              <!--End Of Validations-->
 
           </fieldset>
-          <button type="submit" [disabled]="ticketForm.invalid">Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
 

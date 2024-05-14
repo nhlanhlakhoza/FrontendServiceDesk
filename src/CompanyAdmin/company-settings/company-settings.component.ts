@@ -42,6 +42,7 @@ export class CompanySettingsComponent {
   profileForm!: FormGroup;
   profileImage: string | ArrayBuffer | null | undefined;
   searchQuery: string = ''; // Define searchQuery property
+  position: string ='';
   
   constructor(private fb: FormBuilder,private http: HttpClient, private formBuilder: FormBuilder,
     private authService: AuthService) {}
@@ -54,6 +55,7 @@ export class CompanySettingsComponent {
         this.extractEmail(); // Call the method to extract email
         this.extractFirstName();
         this.extractLastName();
+        this.extractPosition();
       }
 
       this.getAllAgents();
@@ -75,6 +77,7 @@ export class CompanySettingsComponent {
     firstName: new FormControl(this.firstName, [Validators.required, this.noNumbersValidator()]),
     lastName: new FormControl(this.lastName, [Validators.required, this.noNumbersValidator()]),
     email: new FormControl(this.email, [Validators.required, Validators.email]),
+    Department: new FormControl(this.position,[Validators.required]),
     file: new FormControl(''),
   });
     }
@@ -110,6 +113,14 @@ export class CompanySettingsComponent {
       } else {
         // Handle error or default value if email is not present in the token
         this.lastName= 'Default Email';
+      }
+    }
+    private extractPosition(){
+      if (this.token && this.token.hasOwnProperty('position')) {
+        this.position = this.token.position;
+      } else {
+        
+        this.position= 'Default position';
       }
     }
 
@@ -479,7 +490,7 @@ resetButtonText(agentIndex: number) {
     formData.append('fullName', this.profileForm.value.firstName);
     formData.append('lastName', this.profileForm.value.lastName);
     formData.append('email', this.profileForm.value.email);
-  
+    formData.append('position',this.profileForm.value.Department)
     this.http.post<any>('http://localhost:8080/api/company/updateProfile', formData).subscribe(
       response => {
         console.log('Response from server:', response);
