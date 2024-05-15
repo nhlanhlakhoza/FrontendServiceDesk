@@ -412,6 +412,7 @@ resetButtonText(agentIndex: number) {
         user.buttonText = user.statusAgent === 'Active' ? 'Disable' : 'Enable';
       });
           console.log(this.users)
+        
         },
         (error) => {
           console.error('Error fetching agents:', error);

@@ -246,7 +246,8 @@
                         </thead>
                         <tbody>
                           <tr *ngFor="let agent of agents">
-                            <td><a routerLink="/view-agents">{{ agent.fullName }}</a></td>
+                            <td><a [routerLink]="['/view-agents', agent.accountId]">{{ agent.fullName }}</a></td>
+
                             <td>{{ agent.position }}</td>
                             <td><span class="active-status">{{ agent.statusAgent }}</span></td>
                             <td>
@@ -414,9 +415,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td><a routerLink="/view-agents">{{ user.fullName }}</a></td>
-        <td>{{ user.position }}</td>
-        <td><span class="active-status">{{ user.statusAgent }}</span></td>
+        <td><a [routerLink]="['/view-employee',user.accountId]">{{ user.fullName }}</a></td>
+        <td>{{ user.position}}</td>
+        <td><span class="active-staus">{{ user.statusAgent }}</span></td>
     
         <td>
             <!--Disabling the User-->

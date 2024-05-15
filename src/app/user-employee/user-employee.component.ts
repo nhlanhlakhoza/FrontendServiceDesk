@@ -57,8 +57,12 @@ export class UserEmployeeComponent {
       this.email = 'Default Email';
     }
   }
+ 
 
-
+  //Closing the window
+  closeWindow() {
+    this.close.emit();
+  }
 //Adding a User form
 add_user_form: FormGroup[] = [new FormGroup({
   //fullName: new FormControl('', [Validators.required, this.noNumbersValidator()]),

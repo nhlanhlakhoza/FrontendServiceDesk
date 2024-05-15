@@ -45,10 +45,10 @@
                              </div>
                              
                              <div class="col">
-                                <p class="form-header"  style="margin-bottom: 5px; margin-top: 20px;">Agent Name </p>
-                                <p class="form-header" id="bottomParts">Agent Number </p>
-                                <p class="form-header" id="bottomParts">Agent Email </p>
-                                 <p class="form-header" id="bottomParts">Agent Dept </p>
+                                <p class="form-header" style="margin-bottom: 5px; margin-top: 20px;">{{ agent.fullName + ' ' + agent.lastName }}</p>
+                                <p class="form-header" id="bottomParts">{{agent.contactNumber}} </p>
+                                <p class="form-header" id="bottomParts">{{agent.email}} </p>
+                                 <p class="form-header" id="bottomParts">{{agent.position}} </p>
 
                                  </div>
                              <br/>
