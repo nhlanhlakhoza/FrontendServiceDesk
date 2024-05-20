@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-unresolved',
   templateUrl: './unresolved.component.html',
@@ -11,7 +11,28 @@ import { Observable } from 'rxjs';
 export class UnresolvedComponent implements AfterViewInit {
 
   @ViewChild('barCanvas', { static: true }) private barCanvas!: ElementRef;
-  companyId: string = 'e155ac6a-34e8-4ee8-a551-00565a9a420d';  // Adjust the companyId as needed
+  authToken: string | null | undefined;
+  token: any;
+  companyId: any;
+  ngOnInit(): void {
+    this.authToken = sessionStorage.getItem('auth-user');
+    if (this.authToken) {
+      this.token = jwt_decode(this.authToken);
+      this.extractCompanyId(); // Call the method to extract companyId
+    }
+
+  }
+
+  private extractCompanyId() {
+    if (this.token && this.token.hasOwnProperty('companyId')) {
+      this.companyId = this.token.companyId;
+    
+    } else {
+      // Handle error or default value if companyId is not present in the token
+      this.companyId = 'Default Company ID';
+    }
+  
+  }
   updatedAtDates: string[] = this.generateUpdatedAtDates();
   ticketData: number[] = [];
 
@@ -90,4 +111,32 @@ export class UnresolvedComponent implements AfterViewInit {
       console.error('Failed to get 2D context');
     }
   }
+  downloadCSV(): void {
+    const csvData = this.convertToCSV(this.updatedAtDates, this.ticketData);
+    this.downloadFile(csvData, 'ticket_data.csv');
+  }
+
+  convertToCSV(dates: string[], data: number[]): string {
+    let csvContent = 'Month,Ticket Count\n';
+    dates.forEach((date, index) => {
+      const yearMonth = new Date(date).toLocaleString('default', { month: 'short', year: 'numeric' });
+      const ticketCount = data[index];
+      csvContent += `${yearMonth},${ticketCount}\n`;
+    });
+    return csvContent;
+  }
+
+  downloadFile(data: string, filename: string): void {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('hidden', '');
+    a.setAttribute('href', url);
+    a.setAttribute('download', filename);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
 }
+
+

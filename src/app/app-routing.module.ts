@@ -36,7 +36,6 @@ import { AdminChangePasswordComponent } from './Super-Admin/admin-change-passwor
 import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
 import { AuthGuard } from './utility/services/authgaurd.service'; 
 
-
 const routes: Routes = [
   
   {path:"success",component:TemplateComponent},
