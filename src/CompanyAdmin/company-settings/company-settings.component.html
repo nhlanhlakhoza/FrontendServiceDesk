@@ -417,7 +417,7 @@
       <tr *ngFor="let user of users">
         <td><a [routerLink]="['/view-employee',user.accountId]">{{ user.fullName }}</a></td>
         <td>{{ user.position}}</td>
-        <td><span class="active-staus">{{ user.statusAgent }}</span></td>
+        <td><span class="active-status">{{ user.statusAgent }}</span></td>
     
         <td>
             <!--Disabling the User-->
